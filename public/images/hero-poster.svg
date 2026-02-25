@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0d12"/>
+      <stop offset="60%" stop-color="#102033"/>
+      <stop offset="100%" stop-color="#181b20"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g1)"/>
+  <circle cx="1440" cy="180" r="220" fill="#3b82f6" opacity="0.15"/>
+  <circle cx="520" cy="940" r="280" fill="#bfa173" opacity="0.12"/>
+  <text x="120" y="930" fill="#e5e7eb" font-family="Arial, sans-serif" font-size="72" font-weight="700">Novera Drone</text>
+  <text x="120" y="990" fill="#9ca3af" font-family="Arial, sans-serif" font-size="32">Remplacez ce fichier par votre vrai poster hero</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="gp02" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#gp02)"/>
+  <circle cx="700" cy="220" r="140" fill="#3b82f6" opacity="0.25"/>
+  <circle cx="220" cy="960" r="180" fill="#bfa173" opacity="0.2"/>
+  <text x="70" y="980" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="54" font-weight="700">Portfolio 02</text>
+  <text x="70" y="1040" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28">Remplacer par image réelle</text>
+</svg>
