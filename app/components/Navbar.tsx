@@ -66,7 +66,7 @@ export default function Navbar() {
     <header
       data-navbar="main"
       className={`fixed inset-x-0 top-0 z-50 mx-auto mt-2 w-[97%] max-w-6xl rounded-2xl glass transition-colors duration-300 sm:mt-3 sm:w-[96%] ${
-        overLightSection ? "border-slate-700/70 bg-slate-900/90" : ""
+        overLightSection ? "border-black/80 bg-black/95" : ""
       }`}
     >
       <nav className="flex h-14 items-center justify-between px-3 sm:h-16 sm:px-4 md:px-6">
@@ -108,6 +108,13 @@ export default function Navbar() {
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
+                href="/drone"
+                className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10"
+              >
+                Drone
+              </Link>
+              <Link
+                onClick={() => setMobileOpen(false)}
                 href="/demander-un-devis"
                 className="mt-1 block rounded-xl bg-blue-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-400"
               >
@@ -129,10 +136,16 @@ export default function Navbar() {
             >
               Services
             </Link>
+            <Link
+              href="/drone"
+              className="rounded-full px-4 py-1.5 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
+            >
+              Drone
+            </Link>
           </div>
           <Link
             href="/demander-un-devis"
-            className="hidden whitespace-nowrap rounded-full bg-blue-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-400 md:inline-flex"
+            className="inline-flex whitespace-nowrap rounded-full bg-blue-500 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
           >
             Demander un devis
           </Link>

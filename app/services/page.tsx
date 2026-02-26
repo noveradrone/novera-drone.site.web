@@ -28,7 +28,9 @@ export default function ServicesPage() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
+          {services.map((service) => {
+            const isComingSoon = service.slug === "nettoyage-par-drone";
+            return (
             <article key={service.slug} className="glass overflow-hidden rounded-3xl">
               <Image
                 src={service.heroImage}
@@ -38,6 +40,11 @@ export default function ServicesPage() {
                 className="h-48 w-full object-cover sm:h-56"
               />
               <div className="p-5 sm:p-6">
+                {isComingSoon ? (
+                  <p className="mb-3 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
+                    Bientôt disponible
+                  </p>
+                ) : null}
                 <h2 className="text-xl font-semibold sm:text-2xl">{service.title}</h2>
                 <p className="mt-3 text-sm text-slate-300 sm:text-base">{service.description}</p>
                 <Link
@@ -48,7 +55,8 @@ export default function ServicesPage() {
                 </Link>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
 

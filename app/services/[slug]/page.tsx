@@ -29,6 +29,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
 export default function ServiceDetailPage({ params }: Props) {
   const service = services.find((item) => item.slug === params.slug);
+  const isComingSoon = service?.slug === "nettoyage-par-drone";
 
   if (!service) {
     notFound();
@@ -68,6 +69,16 @@ export default function ServiceDetailPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {isComingSoon ? (
+          <article className="mt-6 rounded-2xl border border-amber-300/50 bg-amber-400/15 p-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-200">Bientôt disponible</p>
+            <p className="mt-2 text-sm text-amber-100">
+              Ce service est en cours de déploiement. Vous pouvez déjà nous contacter pour être prioritaire dès
+              l’ouverture.
+            </p>
+          </article>
+        ) : null}
 
         <article className="glass mt-8 rounded-3xl p-5 sm:p-7 md:p-10">
           <h2 className="text-2xl font-semibold md:text-3xl">{service.whyTitle}</h2>

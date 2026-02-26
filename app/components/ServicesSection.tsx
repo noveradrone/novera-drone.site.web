@@ -11,11 +11,18 @@ export default function ServicesSection() {
         description="Quatre pôles d'expertise complémentaires, conçus pour la performance opérationnelle et la qualité d'image."
       />
       <div className="grid gap-5 md:grid-cols-2">
-        {services.map((service) => (
+        {services.map((service) => {
+          const isComingSoon = service.slug === "nettoyage-par-drone";
+          return (
           <article
             key={service.title}
             className="glass group flex h-full flex-col rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300/40"
           >
+            {isComingSoon ? (
+              <p className="mb-3 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
+                Bientôt disponible
+              </p>
+            ) : null}
             <h3 className="text-xl font-semibold sm:text-2xl md:min-h-[64px] md:flex md:items-center">{service.title}</h3>
             <p className="mt-3 text-sm text-slate-300 sm:text-base md:min-h-[72px]">{service.description}</p>
             <ul className="mt-5 space-y-2 text-sm text-slate-200">
@@ -38,7 +45,8 @@ export default function ServicesSection() {
               </Link>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
