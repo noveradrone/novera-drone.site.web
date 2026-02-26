@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react";
 
 export default function DroneShowcaseSection() {
   const drones = [
@@ -11,7 +11,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Performance aérienne professionnelle",
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
-      imageUrl: "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1800&q=80",
+      imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DJI%20AIR%203S.jpg",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
     },
     {
@@ -22,6 +22,9 @@ export default function DroneShowcaseSection() {
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
     }
   ];
+  const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
+    "DJI Air 3S": 0
+  });
 
   return (
     <section className="reveal-up w-full bg-slate-50 py-16 sm:py-20">
@@ -39,28 +42,80 @@ export default function DroneShowcaseSection() {
                 {drone.imageUrl ? (
                   <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.3)] sm:p-6">
                     <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: "62%" }}>
-                      <Image
-                        src={drone.imageUrl}
-                        alt={`${drone.name} photo produit`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                      {activeSlides[drone.name] === 0 ? (
+                        <img
+                          src={drone.imageUrl}
+                          alt={`${drone.name} photo produit`}
+                          className="absolute inset-0 h-full w-full object-contain bg-white"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <iframe
+                          title={`${drone.name} en 3D`}
+                          src={drone.embedUrl}
+                          className="absolute inset-0 h-full w-full"
+                          allow="autoplay; fullscreen; xr-spatial-tracking"
+                          allowFullScreen
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between gap-3">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveSlides((prev) => ({
+                            ...prev,
+                            [drone.name]: prev[drone.name] === 0 ? 1 : 0
+                          }))
+                        }
+                        className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                      >
+                        Précédent
+                      </button>
+                      <div className="flex items-center gap-2">
+                        {[0, 1].map((slide) => (
+                          <button
+                            key={slide}
+                            type="button"
+                            onClick={() => setActiveSlides((prev) => ({ ...prev, [drone.name]: slide }))}
+                            className={`h-2.5 w-2.5 rounded-full transition ${
+                              activeSlides[drone.name] === slide ? "bg-blue-500" : "bg-slate-300"
+                            }`}
+                            aria-label={slide === 0 ? "Voir image" : "Voir modèle 3D"}
+                          />
+                        ))}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveSlides((prev) => ({
+                            ...prev,
+                            [drone.name]: prev[drone.name] === 0 ? 1 : 0
+                          }))
+                        }
+                        className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                      >
+                        Suivant
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
+                {!drone.imageUrl ? (
+                  <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.3)] sm:p-6">
+                    <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: "62%" }}>
+                      <iframe
+                        title={`${drone.name} en 3D`}
+                        src={drone.embedUrl}
+                        className="absolute inset-0 h-full w-full"
+                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                        allowFullScreen
+                        loading="lazy"
                       />
                     </div>
                   </div>
                 ) : null}
-                <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.3)] sm:p-6">
-                  <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: "62%" }}>
-                    <iframe
-                      title={`${drone.name} en 3D`}
-                      src={drone.embedUrl}
-                      className="absolute inset-0 h-full w-full"
-                      allow="autoplay; fullscreen; xr-spatial-tracking"
-                      allowFullScreen
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
