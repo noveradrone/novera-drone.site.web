@@ -12,6 +12,8 @@ export default function DroneShowcaseSection() {
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
       imageUrl: "/images/drones/dji-air-3s.png",
+      fallbackImageUrl:
+        "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
     },
     {
@@ -48,6 +50,13 @@ export default function DroneShowcaseSection() {
                           alt={`${drone.name} photo produit`}
                           className="absolute inset-0 h-full w-full object-contain bg-white"
                           loading="lazy"
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            const fallback = (drone as { fallbackImageUrl?: string }).fallbackImageUrl;
+                            if (fallback && target.src !== fallback) {
+                              target.src = fallback;
+                            }
+                          }}
                         />
                       ) : (
                         <iframe
