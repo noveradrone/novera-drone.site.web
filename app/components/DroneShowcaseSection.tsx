@@ -11,7 +11,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Performance aérienne professionnelle",
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
-      imageUrl: "https://shop.coptrz.com/cdn/shop/files/air-3s-rcn3.webp?v=1746113392&width=1200",
+      imageUrl: "/images/dji-air-3s.jpg",
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
@@ -28,11 +28,12 @@ export default function DroneShowcaseSection() {
     }
   ];
   const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
-    "DJI Air 3S": 0
+    "DJI Air 3S": 0,
+    "DJI Avata 2": 0
   });
 
   return (
-    <section className="reveal-up w-full bg-slate-50 py-16 sm:py-20">
+    <section data-light-section="true" className="reveal-up w-full bg-slate-50 py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl space-y-10 px-4 sm:px-6 md:space-y-12 md:px-10">
         {drones.map((drone, index) => (
           <div key={drone.name} className="grid items-center gap-10 md:grid-cols-2 md:gap-12">

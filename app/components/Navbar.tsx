@@ -1,9 +1,45 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [overLightSection, setOverLightSection] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+
+    const detectBackground = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const nav = document.querySelector("header[data-navbar='main']") as HTMLElement | null;
+        if (!nav) return;
+        const navRect = nav.getBoundingClientRect();
+        const target = document.elementFromPoint(window.innerWidth / 2, Math.min(navRect.bottom + 4, window.innerHeight - 1));
+        const isLight = !!target?.closest("[data-light-section='true']");
+        setOverLightSection(isLight);
+      });
+    };
+
+    detectBackground();
+    window.addEventListener("scroll", detectBackground, { passive: true });
+    window.addEventListener("resize", detectBackground);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", detectBackground);
+      window.removeEventListener("resize", detectBackground);
+    };
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 mx-auto mt-2 w-[97%] max-w-6xl rounded-2xl glass sm:mt-3 sm:w-[96%]">
+    <header
+      data-navbar="main"
+      className={`fixed inset-x-0 top-0 z-50 mx-auto mt-2 w-[97%] max-w-6xl rounded-2xl glass transition-colors duration-300 sm:mt-3 sm:w-[96%] ${
+        overLightSection ? "border-slate-700/70 bg-slate-900/90" : ""
+      }`}
+    >
       <nav className="flex h-14 items-center justify-between px-3 sm:h-16 sm:px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-[0.12em] text-white sm:gap-2.5 sm:tracking-[0.15em]">
           <span className="h-9 w-[58px] shrink-0 sm:h-11 sm:w-[70px]">
