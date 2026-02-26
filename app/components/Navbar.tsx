@@ -6,9 +6,35 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [overLightSection, setOverLightSection] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     let frame = 0;
+
+    const parseRgb = (value: string): [number, number, number] | null => {
+      const match = value.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+      if (!match) return null;
+      return [Number(match[1]), Number(match[2]), Number(match[3])];
+    };
+
+    const getEffectiveBackground = (el: Element | null): [number, number, number] | null => {
+      let node: Element | null = el;
+      while (node && node !== document.documentElement) {
+        const bg = window.getComputedStyle(node).backgroundColor;
+        if (bg && bg !== "transparent" && bg !== "rgba(0, 0, 0, 0)") {
+          const rgb = parseRgb(bg);
+          if (rgb) return rgb;
+        }
+        node = node.parentElement;
+      }
+      return null;
+    };
+
+    const isLightRgb = (rgb: [number, number, number]) => {
+      const [r, g, b] = rgb.map((v) => v / 255);
+      const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      return luminance > 0.62;
+    };
 
     const detectBackground = () => {
       if (frame) cancelAnimationFrame(frame);
@@ -17,7 +43,10 @@ export default function Navbar() {
         if (!nav) return;
         const navRect = nav.getBoundingClientRect();
         const target = document.elementFromPoint(window.innerWidth / 2, Math.min(navRect.bottom + 4, window.innerHeight - 1));
-        const isLight = !!target?.closest("[data-light-section='true']");
+        const markerLight = !!target?.closest("[data-light-section='true']");
+        const rgb = getEffectiveBackground(target);
+        const computedLight = rgb ? isLightRgb(rgb) : false;
+        const isLight = markerLight || computedLight;
         setOverLightSection(isLight);
       });
     };
@@ -53,24 +82,41 @@ export default function Navbar() {
           </span>
           <span className="hidden sm:inline">NOVERA DRONE</span>
         </Link>
-        <div className="flex items-center gap-3">
-          <div className="relative lg:hidden">
-            <details className="group">
-              <summary className="list-none cursor-pointer rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/10 sm:px-4 sm:py-2 sm:text-sm">
-                Menu
-              </summary>
-              <div className="absolute right-0 mt-2 w-48 overflow-hidden rounded-2xl border border-white/20 bg-[#0b1225]/95 p-2 shadow-2xl backdrop-blur-xl sm:w-56">
-                <Link href="/" className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10">
-                  Accueil
-                </Link>
-                <Link href="/services" className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10">
-                  Services
-                </Link>
-              </div>
-            </details>
-          </div>
 
-          <div className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/5 p-1 lg:flex">
+        <div className="relative flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/10 md:hidden"
+            aria-expanded={mobileOpen}
+            aria-label="Ouvrir le menu"
+          >
+            Menu
+          </button>
+
+          {mobileOpen ? (
+            <div className="absolute right-0 top-11 z-20 w-56 overflow-hidden rounded-2xl border border-white/20 bg-[#0b1225]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+              <Link onClick={() => setMobileOpen(false)} href="/" className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10">
+                Accueil
+              </Link>
+              <Link
+                onClick={() => setMobileOpen(false)}
+                href="/services"
+                className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10"
+              >
+                Services
+              </Link>
+              <Link
+                onClick={() => setMobileOpen(false)}
+                href="/demander-un-devis"
+                className="mt-1 block rounded-xl bg-blue-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-400"
+              >
+                Demander un devis
+              </Link>
+            </div>
+          ) : null}
+
+          <div className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/5 p-1 md:flex">
             <Link
               href="/"
               className="rounded-full px-4 py-1.5 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
@@ -86,7 +132,7 @@ export default function Navbar() {
           </div>
           <Link
             href="/demander-un-devis"
-            className="whitespace-nowrap rounded-full bg-blue-500 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
+            className="hidden whitespace-nowrap rounded-full bg-blue-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-400 md:inline-flex"
           >
             Demander un devis
           </Link>
