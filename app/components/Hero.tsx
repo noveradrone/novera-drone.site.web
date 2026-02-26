@@ -17,13 +17,14 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-[#020617]/55" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/20 via-[#020617]/70 to-[#020617]/95" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(56,189,248,0.2),transparent_48%)]" />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-28 text-center sm:px-8 md:py-36">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85 }}
-          className="max-w-4xl text-4xl font-semibold leading-[1.1] text-white sm:text-5xl md:text-7xl"
+          className="max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-5xl font-semibold leading-[1.02] tracking-[0.1em] text-transparent sm:text-6xl md:text-8xl"
         >
           NOVERA DRONE
         </motion.h1>
@@ -31,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12 }}
-          className="mt-5 max-w-xl text-base text-slate-200 sm:text-lg"
+          className="mt-6 max-w-3xl text-lg font-medium text-slate-100 sm:text-xl md:text-2xl"
         >
           La précision aérienne au service de vos décisions
         </motion.p>
@@ -39,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.18 }}
-          className="mt-3 max-w-xl text-sm text-slate-300 sm:text-base"
+          className="mt-3 max-w-2xl text-sm text-slate-300 sm:text-base md:text-lg"
         >
           Inspection, analyse et imagerie professionnelle
         </motion.p>
@@ -51,7 +52,7 @@ export default function Hero() {
         >
           <Link
             href="/demander-un-devis"
-            className="inline-flex min-w-[240px] items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 px-9 py-4 text-base font-semibold text-white shadow-[0_0_0_0_rgba(56,189,248,0.45)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_35px_-12px_rgba(56,189,248,0.55)]"
+            className="inline-flex min-w-[250px] items-center justify-center rounded-full bg-gradient-to-r from-[#1d4ed8] via-[#0ea5e9] to-[#2563eb] px-9 py-4 text-base font-semibold text-white shadow-[0_8px_25px_-14px_rgba(56,189,248,0.75)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.75)]"
           >
             Demander un devis
           </Link>
