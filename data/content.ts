@@ -679,7 +679,7 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Prise de vue événementielle",
     category: "Photographie",
-    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=80"
+    image: "/images/mariage.PNG"
   },
   {
     id: 2,
