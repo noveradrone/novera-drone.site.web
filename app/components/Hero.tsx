@@ -23,9 +23,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85 }}
-          className="max-w-4xl text-3xl font-semibold leading-[1.15] text-white sm:text-4xl md:text-6xl"
+          className="max-w-4xl text-4xl font-semibold leading-[1.1] text-white sm:text-5xl md:text-7xl"
         >
-          L&apos;expertise drone au service de vos projets en Normandie
+          NOVERA DRONE
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,15 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.12 }}
           className="mt-5 max-w-xl text-base text-slate-200 sm:text-lg"
         >
-          Photo et vidéo aérienne professionnelle
+          La précision aérienne au service de vos décisions
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.18 }}
+          className="mt-3 max-w-xl text-sm text-slate-300 sm:text-base"
+        >
+          Inspection, analyse et imagerie professionnelle
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 18 }}
