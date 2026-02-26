@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.1 }}
           className="max-w-5xl leading-tight"
         >
-          <span className="block text-5xl font-semibold tracking-[0.08em] text-white md:text-7xl">
+          <span className="block bg-gradient-to-r from-cyan-200 via-sky-300 to-blue-500 bg-clip-text text-5xl font-semibold tracking-[0.08em] text-transparent md:text-7xl">
             NOVERA DRONE
           </span>
           <span className="text-gradient mt-3 block text-2xl font-medium md:text-4xl">
