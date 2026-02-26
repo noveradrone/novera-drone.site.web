@@ -1,4 +1,5 @@
 import Footer from "@/app/components/Footer";
+import DroneShowcaseSection from "@/app/components/DroneShowcaseSection";
 import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
 import PortfolioSection from "@/app/components/PortfolioSection";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ScrollEffects />
+      <DroneShowcaseSection />
       <PortfolioSection />
       <ServicesSection />
       <WhyChooseSection />

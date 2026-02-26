@@ -28,8 +28,8 @@ export default function Footer() {
             <a href="mailto:noveradrone@gmail.com" className="block hover:text-blue-300">
               noveradrone@gmail.com
             </a>
-            <a href="tel:+33000000000" className="block hover:text-blue-300">
-              +33 0 00 00 00 00
+            <a href="tel:+33771764713" className="block hover:text-blue-300">
+              07 71 76 47 13
             </a>
           </div>
         </div>
