@@ -11,7 +11,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Performance aérienne professionnelle",
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
-      imageUrl: "/images/drones/dji-air-3s.png",
+      imageUrl: "https://shop.coptrz.com/cdn/shop/files/air-3s-rcn3.webp?v=1746113392&width=1200",
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
