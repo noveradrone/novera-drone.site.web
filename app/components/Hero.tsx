@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85 }}
-          className="max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-5xl font-semibold leading-[1.02] tracking-[0.1em] text-transparent sm:text-6xl md:text-8xl"
+          className="max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.06em] text-transparent sm:text-6xl sm:tracking-[0.1em] md:text-8xl"
         >
           NOVERA DRONE
         </motion.h1>
@@ -52,7 +52,7 @@ export default function Hero() {
         >
           <Link
             href="/demander-un-devis"
-            className="inline-flex min-w-[250px] items-center justify-center rounded-full bg-gradient-to-r from-[#1d4ed8] via-[#0ea5e9] to-[#2563eb] px-9 py-4 text-base font-semibold text-white shadow-[0_8px_25px_-14px_rgba(56,189,248,0.75)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.75)]"
+            className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gradient-to-r from-[#1d4ed8] via-[#0ea5e9] to-[#2563eb] px-7 py-3 text-sm font-semibold text-white shadow-[0_8px_25px_-14px_rgba(56,189,248,0.75)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.75)] sm:min-w-[250px] sm:px-9 sm:py-4 sm:text-base"
           >
             Demander un devis
           </Link>
@@ -63,7 +63,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute inset-x-0 bottom-8 z-10 flex justify-center"
       >
         <div className="flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-slate-300">
           <span>Scroll</span>

@@ -713,23 +713,7 @@ export const galleryItems: GalleryItem[] = [
   }
 ];
 
-export const testimonials = [
-  {
-    name: "Responsable Patrimoine - Caen",
-    quote:
-      "Novera Drone nous a permis de détecter rapidement des anomalies en toiture, avec un rapport clair et exploitable."
-  },
-  {
-    name: "Agence Immobilière - Cherbourg",
-    quote:
-      "Les visuels aériens ont transformé nos annonces. Le rendu est premium et les délais sont parfaitement tenus."
-  },
-  {
-    name: "Exploitant Photovoltaïque - Alençon",
-    quote:
-      "Inspection thermique précise, intervention rapide et recommandations concrètes. Prestation très professionnelle."
-  }
-];
+export const testimonials: Array<{ name: string; quote: string }> = [];
 
 export const faqItems = [
   {

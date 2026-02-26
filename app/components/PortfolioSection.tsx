@@ -27,12 +27,12 @@ export default function PortfolioSection() {
         description="Filtrez nos projets par catégorie pour visualiser les différents domaines d'application."
       />
 
-      <div className="mb-8 flex gap-3 overflow-x-auto pb-2 scrollbar-hide md:justify-center">
+      <div className="mb-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide md:justify-center md:gap-3">
         {filters.map((filter) => (
           <button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`rounded-full px-5 py-2 text-sm transition ${
+            className={`rounded-full px-4 py-2 text-xs transition sm:px-5 sm:text-sm ${
               activeFilter === filter ? "bg-blue-500 text-white" : "glass text-slate-200 hover:text-white"
             }`}
           >

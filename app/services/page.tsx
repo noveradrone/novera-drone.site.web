@@ -15,7 +15,7 @@ export default function ServicesPage() {
     <main className="relative overflow-hidden">
       <Navbar />
 
-      <section className="section-shell pt-36">
+      <section className="section-shell pt-28 sm:pt-32 md:pt-36">
         <div className="mb-10 mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-blue-300/90">Services</p>
           <h1 className="text-3xl font-semibold leading-tight md:text-5xl">
@@ -35,11 +35,11 @@ export default function ServicesPage() {
                 alt={service.title}
                 width={1400}
                 height={800}
-                className="h-56 w-full object-cover"
+                className="h-48 w-full object-cover sm:h-56"
               />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold">{service.title}</h2>
-                <p className="mt-3 text-slate-300">{service.description}</p>
+              <div className="p-5 sm:p-6">
+                <h2 className="text-xl font-semibold sm:text-2xl">{service.title}</h2>
+                <p className="mt-3 text-sm text-slate-300 sm:text-base">{service.description}</p>
                 <Link
                   href={`/services/${service.slug}`}
                   className="mt-6 inline-flex rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-400"

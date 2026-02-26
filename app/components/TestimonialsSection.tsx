@@ -5,6 +5,10 @@ import { testimonials } from "@/data/content";
 import { motion } from "framer-motion";
 
 export default function TestimonialsSection() {
+  if (!testimonials.length) {
+    return null;
+  }
+
   return (
     <section className="section-shell reveal-up">
       <SectionTitle

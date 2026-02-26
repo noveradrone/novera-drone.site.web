@@ -16,8 +16,8 @@ export default function ServicesSection() {
             key={service.title}
             className="glass group flex h-full flex-col rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300/40"
           >
-            <h3 className="flex min-h-[64px] items-center text-2xl font-semibold">{service.title}</h3>
-            <p className="mt-3 min-h-[72px] text-slate-300">{service.description}</p>
+            <h3 className="text-xl font-semibold sm:text-2xl md:min-h-[64px] md:flex md:items-center">{service.title}</h3>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base md:min-h-[72px]">{service.description}</p>
             <ul className="mt-5 space-y-2 text-sm text-slate-200">
               {service.subServices.slice(0, 4).map((detail) => (
                 <li key={detail.title}>• {detail.title}</li>

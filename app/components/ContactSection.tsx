@@ -98,20 +98,20 @@ export default function ContactSection() {
       />
 
       <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        <div className="glass rounded-3xl p-6">
-          <h3 className="text-xl font-semibold">Zone d'intervention</h3>
-          <p className="mt-3 text-slate-300">Manche, Orne, Calvados et toute la Normandie selon votre projet.</p>
+        <div className="glass rounded-3xl p-5 sm:p-6">
+          <h3 className="text-lg font-semibold sm:text-xl">Zone d'intervention</h3>
+          <p className="mt-3 text-sm text-slate-300 sm:text-base">Manche, Orne, Calvados et toute la Normandie selon votre projet.</p>
           <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
             <iframe
               title="Carte Normandie"
               src="https://www.google.com/maps?q=Normandie&output=embed"
-              className="h-64 w-full"
+              className="h-56 w-full sm:h-64"
               loading="lazy"
             />
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="glass rounded-3xl p-6 md:p-8">
+        <form onSubmit={onSubmit} className="glass rounded-3xl p-5 sm:p-6 md:p-8">
           {/* Champs essentiels pour faciliter une demande de devis rapide. */}
           <div className="grid gap-4 md:grid-cols-2">
             <label className="text-sm text-slate-200">
