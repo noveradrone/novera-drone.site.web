@@ -21,7 +21,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Immersion FPV cinématographique",
       description:
         "Drone FPV compact conçu pour des plans dynamiques et immersifs, avec une excellente stabilité en vol et une captation vidéo fluide. Il est idéal pour apporter une perspective spectaculaire à vos projets événementiels, promotionnels et contenus à fort impact visuel.",
-      imageUrl: "https://shop.coptrz.com/cdn/shop/files/dji-avata-2-fly-more-combo-3-batteries-rc-motion-3.webp?v=1746113354&width=1200",
+      imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DJI_AVATA_2_cropped.jpg",
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
