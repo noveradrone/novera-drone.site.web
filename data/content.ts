@@ -685,7 +685,7 @@ export const galleryItems: GalleryItem[] = [
     id: 2,
     title: "Suivi thermique de toiture",
     category: "Thermographie",
-    image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=1400&q=80"
+    image: "/images/thermo.PNG"
   },
   {
     id: 3,
