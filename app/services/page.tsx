@@ -15,7 +15,7 @@ export default function ServicesPage() {
     <main className="relative overflow-hidden">
       <Navbar />
 
-      <section className="section-shell pt-28 sm:pt-32 md:pt-36">
+      <section className="section-shell pt-36 sm:pt-32 md:pt-36">
         <div className="mb-10 mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-blue-300/90">Services</p>
           <h1 className="text-3xl font-semibold leading-tight md:text-5xl">

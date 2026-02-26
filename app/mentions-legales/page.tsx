@@ -16,11 +16,11 @@ export default function MentionsLegalesPage() {
         <section className="mt-8">
           <h2 className="text-xl font-semibold sm:text-2xl">Éditeur du site</h2>
           <p className="mt-3 text-slate-300">
-            <strong>{legalInfo.companyName}</strong>
+            Nom complet: {legalInfo.fullName}
+            <br />
+            Nom commercial: {legalInfo.companyName}
             <br />
             Statut: {legalInfo.status}
-            <br />
-            Nom: {legalInfo.fullName}
             <br />
             SIRET: {legalInfo.siret}
             <br />
@@ -37,15 +37,21 @@ export default function MentionsLegalesPage() {
 
         <section className="mt-8">
           <h2 className="text-xl font-semibold sm:text-2xl">Hébergeur</h2>
-          <p className="mt-3 text-slate-300">{legalInfo.host}</p>
+          <p className="mt-3 text-slate-300">
+            Nom: {legalInfo.hostName}
+            <br />
+            Site web:{" "}
+            <a href={legalInfo.hostWebsite} target="_blank" rel="noreferrer" className="underline hover:text-blue-300">
+              {legalInfo.hostWebsite}
+            </a>
+          </p>
         </section>
 
         <section className="mt-8">
           <h2 className="text-xl font-semibold sm:text-2xl">Propriété intellectuelle</h2>
           <p className="mt-3 text-slate-300">
-            L'ensemble des contenus présents sur ce site (textes, images, vidéos, graphismes, logo, structure) est
-            protégé par le Code de la propriété intellectuelle. Toute reproduction, représentation, modification,
-            publication ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.
+            L’ensemble des contenus présents sur ce site (photos, vidéos drone, textes, logo) est la propriété
+            exclusive de Novera Drone et ne peut être reproduit sans autorisation préalable.
           </p>
         </section>
       </article>

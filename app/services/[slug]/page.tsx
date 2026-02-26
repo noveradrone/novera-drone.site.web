@@ -39,7 +39,7 @@ export default function ServiceDetailPage({ params }: Props) {
     <main className="relative overflow-hidden">
       <Navbar />
 
-      <section className="section-shell pt-28 sm:pt-32 md:pt-36">
+      <section className="section-shell pt-36 sm:pt-32 md:pt-36">
         <div className="glass overflow-hidden rounded-3xl">
           <Image
             src={service.heroImage}
