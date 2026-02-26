@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -29,31 +28,15 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-gradient max-w-5xl text-4xl font-semibold leading-tight md:text-6xl"
+          className="max-w-5xl leading-tight"
         >
-          Novera Drone - L&apos;expertise aérienne au service de vos projets
+          <span className="block text-5xl font-semibold tracking-[0.08em] text-white md:text-7xl">
+            NOVERA DRONE
+          </span>
+          <span className="text-gradient mt-3 block text-2xl font-medium md:text-4xl">
+            L&apos;expertise aérienne au service de vos projets
+          </span>
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-lg text-slate-100 md:text-xl"
-        >
-          Des interventions précises, sécurisées et rapides pour vos besoins visuels, techniques et opérationnels.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-10"
-        >
-          <Link
-            href="/demander-un-devis"
-            className="rounded-full bg-[#1d4ed8] px-8 py-3 font-medium text-white transition hover:scale-[1.03] hover:bg-[#2563eb]"
-          >
-            Demander un devis
-          </Link>
-        </motion.div>
       </div>
 
       <motion.div
