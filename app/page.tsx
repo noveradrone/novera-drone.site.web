@@ -14,9 +14,9 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ScrollEffects />
-      <DroneShowcaseSection />
       <PortfolioSection />
       <ServicesSection />
+      <DroneShowcaseSection />
       <WhyChooseSection />
       <TestimonialsSection />
       <Footer />
