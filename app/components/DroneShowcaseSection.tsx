@@ -21,7 +21,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Immersion FPV cinématographique",
       description:
         "Drone FPV compact conçu pour des plans dynamiques et immersifs, avec une excellente stabilité en vol et une captation vidéo fluide. Il est idéal pour apporter une perspective spectaculaire à vos projets événementiels, promotionnels et contenus à fort impact visuel.",
-      imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DJI_AVATA_2_cropped.jpg",
+      imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/DJI_AVATA_2_-_2.jpg",
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
