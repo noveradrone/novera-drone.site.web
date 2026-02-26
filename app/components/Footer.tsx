@@ -1,10 +1,13 @@
+import Link from "next/link";
+import { legalInfo } from "@/data/legal";
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black/20 py-10">
       <div className="section-shell !py-0">
         <div className="grid gap-8 text-sm text-slate-300 md:grid-cols-4">
           <div>
-            <p className="mb-3 text-white">Novera Drone</p>
+            <p className="mb-3 text-white">{legalInfo.companyName}</p>
             <p>Expertise drone pour la photographie, l'inspection, la thermographie et le nettoyage.</p>
           </div>
           <div>
@@ -18,24 +21,27 @@ export default function Footer() {
           </div>
           <div>
             <p className="mb-3 text-white">Informations</p>
-            <a href="#top" className="block hover:text-blue-300">
+            <Link href="/mentions-legales" className="block hover:text-blue-300">
               Mentions légales
-            </a>
-            <p className="mt-1">Zone d'intervention: Manche, Orne, Calvados</p>
+            </Link>
+            <Link href="/politique-de-confidentialite" className="block hover:text-blue-300">
+              Politique de confidentialité
+            </Link>
+            <p className="mt-1">Zone d'intervention: {legalInfo.coverage}</p>
           </div>
           <div>
             <p className="mb-3 text-white">Contact</p>
-            <a href="mailto:noveradrone@gmail.com" className="block hover:text-blue-300">
-              noveradrone@gmail.com
+            <a href={`mailto:${legalInfo.email}`} className="block hover:text-blue-300">
+              {legalInfo.email}
             </a>
-            <a href="tel:+33771764713" className="block hover:text-blue-300">
-              07 71 76 47 13
+            <a href={`tel:${legalInfo.phoneHref}`} className="block hover:text-blue-300">
+              {legalInfo.phoneDisplay}
             </a>
           </div>
         </div>
 
         <p className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-slate-400">
-          © {new Date().getFullYear()} Novera Drone. Tous droits réservés.
+          © {new Date().getFullYear()} {legalInfo.companyName}. Tous droits réservés.
         </p>
       </div>
     </footer>

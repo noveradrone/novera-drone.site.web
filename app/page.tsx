@@ -1,3 +1,4 @@
+import AboutIntroSection from "@/app/components/AboutIntroSection";
 import Footer from "@/app/components/Footer";
 import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
@@ -13,10 +14,11 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ScrollEffects />
-      <PortfolioSection />
+      <AboutIntroSection />
       <ServicesSection />
       <WhyChooseSection />
       <TestimonialsSection />
+      <PortfolioSection />
       <Footer />
     </main>
   );
