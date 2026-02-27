@@ -688,18 +688,6 @@ export const galleryItems: GalleryItem[] = [
     image: "/images/thermo.PNG"
   },
   {
-    id: 3,
-    title: "Inspection de façade",
-    category: "Inspection",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    id: 4,
-    title: "Nettoyage panneaux solaires",
-    category: "Nettoyage",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
     id: 5,
     title: "Promotion immobilière",
     category: "Photographie",

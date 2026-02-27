@@ -15,10 +15,10 @@ export default function HomePage() {
       <Hero />
       <ScrollEffects />
       <AboutIntroSection />
+      <PortfolioSection />
       <ServicesSection />
       <WhyChooseSection />
       <TestimonialsSection />
-      <PortfolioSection />
       <Footer />
     </main>
   );
