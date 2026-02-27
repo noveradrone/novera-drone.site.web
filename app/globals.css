@@ -61,6 +61,26 @@ body {
   display: none;
 }
 
+.cyl-track {
+  scroll-snap-type: x mandatory;
+  perspective: 1200px;
+}
+
+.cyl-card {
+  scroll-snap-align: center;
+  transform: rotateY(-12deg);
+  transform-origin: center center;
+  transition: transform 0.35s ease;
+}
+
+.cyl-card:nth-child(even) {
+  transform: rotateY(12deg);
+}
+
+.cyl-card:hover {
+  transform: rotateY(0deg);
+}
+
 video::-webkit-media-controls {
   display: none !important;
 }

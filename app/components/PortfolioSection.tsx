@@ -41,12 +41,15 @@ export default function PortfolioSection() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
+      <div className="cyl-wrapper relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#020817] to-transparent sm:w-16" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#020817] to-transparent sm:w-16" />
+        <div className="cyl-track scrollbar-hide flex gap-3 overflow-x-auto px-2 py-2 sm:gap-4 sm:px-6">
         {list.map((item) => (
           <motion.article
             key={item.id}
-            className="group glass relative block w-full overflow-hidden rounded-2xl text-left"
-            whileHover={{ y: -4 }}
+            className="cyl-card group glass relative block w-[220px] shrink-0 overflow-hidden rounded-2xl text-left sm:w-[260px] lg:w-[300px]"
+            whileHover={{ y: -4, rotateY: 0 }}
           >
             <Image
               src={item.image}
@@ -62,6 +65,7 @@ export default function PortfolioSection() {
             </div>
           </motion.article>
         ))}
+        </div>
       </div>
     </section>
   );
