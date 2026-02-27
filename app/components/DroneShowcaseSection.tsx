@@ -34,7 +34,7 @@ export default function DroneShowcaseSection() {
       imageUrl: "/images/dji4.PNG",
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=1800&q=80",
-      embedUrl: "https://sketchfab.com/models/a1e1827266964f0eba7529a86b457d0d/embed"
+      embedUrl: "https://sketchfab.com/models/144dac2629b443f89242058f20146958/embed"
     }
   ];
   const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
