@@ -206,7 +206,7 @@ export const services: ServicePageContent[] = [
     title: "Thermographie par drone",
     shortTitle: "Thermographie",
     description: "Détection rapide des anomalies thermiques pour maintenance et performance énergétique.",
-    heroImage: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=1800&q=80",
+    heroImage: "/images/thermo1.jpg",
     metaTitle: "Thermographie drone en Normandie | Novera Drone",
     metaDescription:
       "Détectez les anomalies thermiques sur toitures, panneaux solaires et bâtiments en Manche, Orne et Calvados.",
