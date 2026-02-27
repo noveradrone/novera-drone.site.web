@@ -33,8 +33,7 @@ export default function DroneShowcaseSection() {
         "Drone professionnel conçu pour les missions techniques exigeantes: inspection d'infrastructures, thermographie et relevés de précision. Sa conception robuste et ses capteurs spécialisés en font un outil adapté aux interventions industrielles et de sécurité.",
       imageUrl: "/images/dji4.PNG",
       fallbackImageUrl:
-        "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=1800&q=80",
-      embedUrl: "https://sketchfab.com/models/0f55bc9e8f6f481896e95ad447d286c8/embed"
+        "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=1800&q=80"
     }
   ];
   const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
@@ -59,7 +58,7 @@ export default function DroneShowcaseSection() {
                 {drone.imageUrl ? (
                   <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_16px_40px_-20px_rgba(15,23,42,0.3)] sm:p-6">
                     <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: "62%" }}>
-                      {activeSlides[drone.name] === 0 ? (
+                      {activeSlides[drone.name] === 0 || !drone.embedUrl ? (
                         <img
                           src={drone.imageUrl}
                           alt={`${drone.name} photo produit`}
@@ -85,45 +84,47 @@ export default function DroneShowcaseSection() {
                       )}
                     </div>
 
-                    <div className="mt-4 flex items-center justify-between gap-3">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveSlides((prev) => ({
-                            ...prev,
-                            [drone.name]: prev[drone.name] === 0 ? 1 : 0
-                          }))
-                        }
-                        className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
-                      >
-                        Précédent
-                      </button>
-                      <div className="flex items-center gap-2">
-                        {[0, 1].map((slide) => (
-                          <button
-                            key={slide}
-                            type="button"
-                            onClick={() => setActiveSlides((prev) => ({ ...prev, [drone.name]: slide }))}
-                            className={`h-2.5 w-2.5 rounded-full transition ${
-                              activeSlides[drone.name] === slide ? "bg-blue-500" : "bg-slate-300"
-                            }`}
-                            aria-label={slide === 0 ? "Voir image" : "Voir modèle 3D"}
-                          />
-                        ))}
+                    {drone.embedUrl ? (
+                      <div className="mt-4 flex items-center justify-between gap-3">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveSlides((prev) => ({
+                              ...prev,
+                              [drone.name]: prev[drone.name] === 0 ? 1 : 0
+                            }))
+                          }
+                          className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                        >
+                          Précédent
+                        </button>
+                        <div className="flex items-center gap-2">
+                          {[0, 1].map((slide) => (
+                            <button
+                              key={slide}
+                              type="button"
+                              onClick={() => setActiveSlides((prev) => ({ ...prev, [drone.name]: slide }))}
+                              className={`h-2.5 w-2.5 rounded-full transition ${
+                                activeSlides[drone.name] === slide ? "bg-blue-500" : "bg-slate-300"
+                              }`}
+                              aria-label={slide === 0 ? "Voir image" : "Voir modèle 3D"}
+                            />
+                          ))}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveSlides((prev) => ({
+                              ...prev,
+                              [drone.name]: prev[drone.name] === 0 ? 1 : 0
+                            }))
+                          }
+                          className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                        >
+                          Suivant
+                        </button>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveSlides((prev) => ({
-                            ...prev,
-                            [drone.name]: prev[drone.name] === 0 ? 1 : 0
-                          }))
-                        }
-                        className="rounded-full border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
-                      >
-                        Suivant
-                      </button>
-                    </div>
+                    ) : null}
                   </div>
                 ) : null}
                 {!drone.imageUrl ? (
