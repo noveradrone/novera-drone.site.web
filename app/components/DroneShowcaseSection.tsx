@@ -25,11 +25,22 @@ export default function DroneShowcaseSection() {
       fallbackImageUrl:
         "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
+    },
+    {
+      name: "DJI Matrice 4T / 4E",
+      subtitle: "Plateforme d'inspection et de cartographie avancée",
+      description:
+        "Drone professionnel conçu pour les missions techniques exigeantes: inspection d'infrastructures, thermographie et relevés de précision. Sa conception robuste et ses capteurs spécialisés en font un outil adapté aux interventions industrielles et de sécurité.",
+      imageUrl: "/images/dji4.PNG",
+      fallbackImageUrl:
+        "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=1800&q=80",
+      embedUrl: "https://sketchfab.com/models/a1e1827266964f0eba7529a86b457d0d/embed"
     }
   ];
   const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
     "DJI Air 3S": 0,
-    "DJI Avata 2": 0
+    "DJI Avata 2": 0,
+    "DJI Matrice 4T / 4E": 0
   });
 
   return (
