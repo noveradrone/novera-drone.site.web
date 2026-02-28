@@ -50,6 +50,9 @@ export default function ContactSection() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
+  const [sending, setSending] = useState(false);
+  const [website, setWebsite] = useState("");
+  const [startedAt] = useState(() => Date.now());
 
   const canSubmit = useMemo(() => {
     const hasOtherMission = form.typePrestation !== "Autre" || !!form.missionAutre.trim();
@@ -58,30 +61,48 @@ export default function ContactSection() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (sending) return;
     if (!canSubmit) {
       setError("Merci de compléter les champs requis.");
       return;
     }
 
     setError("");
+    setSending(true);
+    setStatus("idle");
 
     try {
-      const subject = encodeURIComponent(`Demande de devis - ${form.typePrestation}`);
-      const body = encodeURIComponent(
-        `Nom: ${form.nom}\nEmail: ${form.email}\nTelephone: ${form.telephone || "Non renseigne"}\nType de prestation: ${
-          form.typePrestation
-        }\n${
-          form.typePrestation === "Autre" ? `Demande specifique (Autre): ${form.missionAutre}\n` : ""
-        }\nMessage:\n${form.message}`
-      );
-      window.location.href = `mailto:noveradrone@gmail.com?subject=${subject}&body=${body}`;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nom: form.nom,
+          email: form.email,
+          telephone: form.telephone || undefined,
+          typePrestation: form.typePrestation,
+          missionAutre: form.typePrestation === "Autre" ? form.missionAutre : undefined,
+          message: form.message,
+          website,
+          startedAt
+        })
+      });
+
+      const result = (await response.json()) as { ok?: boolean; error?: string };
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Impossible d'envoyer la demande.");
+      }
 
       setStatus("success");
       setForm(initialState);
+      setWebsite("");
       setTimeout(() => setStatus("idle"), 3500);
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setError("Impossible d'ouvrir votre client email. Contactez-nous via WhatsApp.");
+      setError(err instanceof Error ? err.message : "Erreur d'envoi. Merci de réessayer.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -112,6 +133,19 @@ export default function ContactSection() {
         </div>
 
         <form onSubmit={onSubmit} className="glass rounded-3xl p-5 sm:p-6 md:p-8">
+          {/* Honeypot anti-bot : doit rester vide pour un humain. */}
+          <label className="hidden" aria-hidden="true">
+            Site web
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              type="text"
+              name="website"
+            />
+          </label>
+
           {/* Champs essentiels pour faciliter une demande de devis rapide. */}
           <div className="grid gap-4 md:grid-cols-2">
             <label className="text-sm text-slate-200">
@@ -188,9 +222,10 @@ export default function ContactSection() {
           {error ? <p className="mt-4 text-sm text-rose-300">{error}</p> : null}
 
           <button
+            disabled={sending}
             className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 md:mx-0"
           >
-            Demander un devis
+            {sending ? "Envoi en cours..." : "Demander un devis"}
           </button>
 
           <motion.p

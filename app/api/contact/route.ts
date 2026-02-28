@@ -3,31 +3,91 @@ import nodemailer from "nodemailer";
 import { Resend } from "resend";
 import { z } from "zod";
 
+export const runtime = "nodejs";
+
 const schema = z.object({
-  nom: z.string().min(2),
+  nom: z.string().min(2).max(100),
   email: z.string().email(),
-  telephone: z.string().optional(),
-  typeEvenement: z.string().min(2),
-  date: z.string().min(2),
-  lieu: z.string().min(2),
-  message: z.string().min(10)
+  telephone: z.string().max(40).optional(),
+  typePrestation: z.string().min(2).max(160),
+  missionAutre: z.string().max(1000).optional(),
+  message: z.string().min(10).max(4000),
+  website: z.string().max(0).optional(),
+  startedAt: z.number().int().optional()
 });
+
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 6;
+const ipHits = new Map<string, number[]>();
+
+function getClientIp(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",")[0]?.trim() || "unknown";
+  }
+  return request.headers.get("x-real-ip") || "unknown";
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const current = ipHits.get(ip) || [];
+  const fresh = current.filter((ts) => now - ts < RATE_LIMIT_WINDOW_MS);
+  fresh.push(now);
+  ipHits.set(ip, fresh);
+  return fresh.length > RATE_LIMIT_MAX;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
 export async function POST(request: Request) {
   try {
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      return NextResponse.json({ ok: false, error: "Format de requête invalide." }, { status: 415 });
+    }
+
+    const ip = getClientIp(request);
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { ok: false, error: "Trop de tentatives. Merci de réessayer dans une minute." },
+        { status: 429 }
+      );
+    }
+
     const payload = await request.json();
     const data = schema.parse(payload);
 
-    const subject = `Nouvelle demande devis - ${data.typeEvenement}`;
+    // Honeypot + timing anti-bot
+    if ((data.website || "").trim().length > 0) {
+      return NextResponse.json({ ok: true });
+    }
+    if (data.startedAt && Date.now() - data.startedAt < 2500) {
+      return NextResponse.json(
+        { ok: false, error: "Soumission trop rapide. Merci de recommencer." },
+        { status: 400 }
+      );
+    }
+
+    const subject = `Nouvelle demande devis - ${data.typePrestation}`;
     const html = `
       <h2>Nouvelle demande de devis</h2>
-      <p><strong>Nom:</strong> ${data.nom}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Téléphone:</strong> ${data.telephone || "Non renseigné"}</p>
-      <p><strong>Type:</strong> ${data.typeEvenement}</p>
-      <p><strong>Date:</strong> ${data.date}</p>
-      <p><strong>Lieu:</strong> ${data.lieu}</p>
-      <p><strong>Message:</strong><br/>${data.message}</p>
+      <p><strong>Nom:</strong> ${escapeHtml(data.nom)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+      <p><strong>Téléphone:</strong> ${escapeHtml(data.telephone || "Non renseigné")}</p>
+      <p><strong>Type de prestation:</strong> ${escapeHtml(data.typePrestation)}</p>
+      ${
+        data.typePrestation === "Autre" && data.missionAutre
+          ? `<p><strong>Mission spécifique:</strong> ${escapeHtml(data.missionAutre)}</p>`
+          : ""
+      }
+      <p><strong>Message:</strong><br/>${escapeHtml(data.message).replaceAll("\n", "<br/>")}</p>
     `;
 
     if (process.env.RESEND_API_KEY) {
@@ -72,7 +132,10 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ ok: false, error: error.issues[0]?.message }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: error.issues[0]?.message || "Données invalides." },
+        { status: 400 }
+      );
     }
 
     return NextResponse.json({ ok: false, error: "Erreur serveur" }, { status: 500 });
