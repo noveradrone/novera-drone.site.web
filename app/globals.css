@@ -98,3 +98,24 @@ video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;
 }
+
+@media (max-width: 767px) {
+  main :where(h1, h2, h3, h4, p, li, label) {
+    text-align: center;
+  }
+
+  main :where(button, a[class*="rounded-full"]) {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main form :where(input, textarea, select) {
+    text-align: center;
+  }
+
+  main :where(ul, ol) {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+}
