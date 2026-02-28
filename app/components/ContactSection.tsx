@@ -188,7 +188,7 @@ export default function ContactSection() {
           {error ? <p className="mt-4 text-sm text-rose-300">{error}</p> : null}
 
           <button
-            className="mt-6 rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400"
+            className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 md:mx-0"
           >
             Demander un devis
           </button>

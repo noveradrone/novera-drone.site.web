@@ -39,7 +39,7 @@ export default function ServicesPage() {
                 height={800}
                 className="h-48 w-full object-cover sm:h-56"
               />
-              <div className="p-5 sm:p-6">
+              <div className="flex flex-col p-5 sm:p-6 md:items-center md:text-center">
                 {isComingSoon ? (
                   <p className="mb-3 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
                     Bientôt disponible
@@ -49,7 +49,7 @@ export default function ServicesPage() {
                 <p className="mt-3 text-sm text-slate-300 sm:text-base">{service.description}</p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-6 inline-flex rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-400"
+                  className="mx-auto mt-6 inline-flex rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-400"
                 >
                   Voir la page
                 </Link>
