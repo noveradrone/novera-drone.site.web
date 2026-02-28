@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 
 export const runtime = "nodejs";
+const STRICT_EMAIL_PROVIDER = process.env.CONTACT_STRICT_EMAIL_PROVIDER === "true";
 
 const schema = z.object({
   nom: z.string().min(2).max(100),
@@ -123,13 +124,30 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, provider: "smtp" });
     }
 
-    return NextResponse.json(
-      {
-        ok: false,
-        error: "Aucun fournisseur email configuré. Utilisez RESEND_API_KEY ou SMTP_HOST/SMTP_USER/SMTP_PASS."
-      },
-      { status: 500 }
-    );
+    if (STRICT_EMAIL_PROVIDER) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Aucun fournisseur email configuré. Utilisez RESEND_API_KEY ou SMTP_HOST/SMTP_USER/SMTP_PASS."
+        },
+        { status: 500 }
+      );
+    }
+
+    // Fallback non bloquant: le formulaire reste fonctionnel même sans service email configuré.
+    console.warn("[contact] Aucun provider email configuré. Demande reçue sans envoi.", {
+      nom: data.nom,
+      email: data.email,
+      telephone: data.telephone || null,
+      typePrestation: data.typePrestation,
+      missionAutre: data.missionAutre || null
+    });
+
+    return NextResponse.json({
+      ok: true,
+      provider: "none",
+      warning: "Demande reçue, mais aucun service email n'est actuellement configuré."
+    });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
