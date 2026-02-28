@@ -27,6 +27,9 @@ export default function Footer() {
             <Link href="/politique-de-confidentialite" className="block hover:text-blue-300">
               Politique de confidentialité
             </Link>
+            <button type="button" data-open-cookie-settings className="mt-1 block hover:text-blue-300">
+              Gérer mes cookies
+            </button>
             <p className="mt-1">Zone d'intervention: {legalInfo.coverage}</p>
           </div>
           <div className="flex flex-col items-center md:items-start">

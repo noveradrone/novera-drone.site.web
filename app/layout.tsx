@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import CookieConsent from "@/app/components/CookieConsent";
 import "./globals.css";
+import "./cookies.css";
 
 const siteUrl = "https://noveradrone.fr";
 
@@ -47,7 +50,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+        <Script src="/cookies.js" strategy="afterInteractive" />
+      </body>
     </html>
   );
 }
