@@ -22,8 +22,6 @@ const initialState: FormState = {
   message: ""
 };
 
-const CONTACT_EMAIL = "noveradrone@gmail.com";
-
 const prestationOptions = [
   "Photographie aérienne - Mariage",
   "Photographie aérienne - Événements sportifs",
@@ -52,45 +50,59 @@ export default function ContactSection() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
+  const [sending, setSending] = useState(false);
+  const [website, setWebsite] = useState("");
+  const [startedAt] = useState(() => Date.now());
 
   const canSubmit = useMemo(() => {
     const hasOtherMission = form.typePrestation !== "Autre" || !!form.missionAutre.trim();
     return form.nom && form.email && form.typePrestation && form.message && hasOtherMission;
   }, [form]);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (sending) return;
     if (!canSubmit) {
       setError("Merci de compléter les champs requis.");
       return;
     }
 
     setError("");
+    setSending(true);
     setStatus("idle");
 
     try {
-      const subject = `Demande de devis - ${form.typePrestation}`;
-      const lines = [
-        `Nom: ${form.nom}`,
-        `Email: ${form.email}`,
-        `Téléphone: ${form.telephone || "Non renseigné"}`,
-        `Type de prestation: ${form.typePrestation}`,
-        form.typePrestation === "Autre" && form.missionAutre ? `Mission spécifique: ${form.missionAutre}` : "",
-        "",
-        "Message:",
-        form.message
-      ].filter(Boolean);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nom: form.nom,
+          email: form.email,
+          telephone: form.telephone || undefined,
+          typePrestation: form.typePrestation,
+          missionAutre: form.typePrestation === "Autre" ? form.missionAutre : undefined,
+          message: form.message,
+          website,
+          startedAt
+        })
+      });
 
-      const body = lines.join("\n");
-      const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoUrl;
+      const result = (await response.json()) as { ok?: boolean; error?: string };
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Impossible d'envoyer la demande.");
+      }
 
       setStatus("success");
       setForm(initialState);
+      setWebsite("");
       setTimeout(() => setStatus("idle"), 3500);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Erreur d'envoi. Merci de réessayer.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -121,6 +133,18 @@ export default function ContactSection() {
         </div>
 
         <form onSubmit={onSubmit} className="glass rounded-3xl p-5 sm:p-6 md:p-8">
+          <label className="hidden" aria-hidden="true">
+            Site web
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              type="text"
+              name="website"
+            />
+          </label>
+
           <div className="grid gap-4 md:grid-cols-2">
             <label className="text-sm text-slate-200">
               Nom
@@ -195,8 +219,11 @@ export default function ContactSection() {
 
           {error ? <p className="mt-4 text-sm text-rose-300">{error}</p> : null}
 
-          <button className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 md:mx-0">
-            Demander un devis
+          <button
+            disabled={sending}
+            className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70 md:mx-0"
+          >
+            {sending ? "Envoi en cours..." : "Demander un devis"}
           </button>
 
           <motion.p
@@ -204,7 +231,7 @@ export default function ContactSection() {
             animate={{ opacity: status === "success" ? 1 : 0, y: status === "success" ? 0 : 8 }}
             className="mt-4 text-sm text-emerald-300"
           >
-            Votre application email s&apos;ouvre avec la demande préremplie.
+            Votre demande a bien été envoyée. Nous vous répondons rapidement.
           </motion.p>
         </form>
       </div>

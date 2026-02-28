@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 
 export const runtime = "nodejs";
-const STRICT_EMAIL_PROVIDER = process.env.CONTACT_STRICT_EMAIL_PROVIDER === "true";
+const STRICT_EMAIL_PROVIDER = process.env.CONTACT_STRICT_EMAIL_PROVIDER !== "false";
 
 const schema = z.object({
   nom: z.string().min(2).max(100),
