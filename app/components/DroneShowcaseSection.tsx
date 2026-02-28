@@ -158,7 +158,7 @@ export default function DroneShowcaseSection() {
 
               <Link
                 href="/#galerie"
-                className="mx-auto mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-12px_rgba(14,165,233,0.65)] md:mx-0"
+                className="mx-auto mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-12px_rgba(14,165,233,0.65)]"
               >
                 Voir nos réalisations
               </Link>
