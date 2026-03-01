@@ -16,7 +16,7 @@ export default function ServicesSection() {
           return (
           <article
             key={service.title}
-            className="glass group flex h-full flex-col rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300/40"
+            className="glass group flex h-full flex-col items-center rounded-3xl p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-blue-300/40"
           >
             {isComingSoon ? (
               <p className="mb-3 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
@@ -30,7 +30,7 @@ export default function ServicesSection() {
                 <li key={detail.title}>• {detail.title}</li>
               ))}
             </ul>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
               <Link
                 href={`/services/${service.slug}`}
                 className="inline-flex w-fit items-center rounded-full border border-white/20 px-4 py-1.5 text-sm leading-none transition group-hover:border-blue-400 group-hover:text-blue-200"
