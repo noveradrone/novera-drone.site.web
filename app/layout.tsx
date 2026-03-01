@@ -32,9 +32,12 @@ export const metadata: Metadata = {
     description: "Services drone premium en Normandie."
   },
   icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-    shortcut: "/favicon.png",
-    apple: "/favicon.png"
+    icon: [
+      { url: "/favicon.ico?v=3", type: "image/x-icon" },
+      { url: "/favicon.png?v=3", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico?v=3",
+    apple: "/favicon.png?v=3"
   }
 };
 
