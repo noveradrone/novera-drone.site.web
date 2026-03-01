@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Novera Drone",
     description: "Services drone premium en Normandie."
+  },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png"
   }
 };
 

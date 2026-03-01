@@ -216,6 +216,15 @@ README - Novera Drone Cookie Manager (Vanilla JS)
       const target = event.target;
       if (!(target instanceof HTMLElement)) return;
 
+      const openSettingsEl = target.closest("[data-open-cookie-settings]");
+      if (openSettingsEl) {
+        event.preventDefault();
+        const current = getStoredConsent();
+        syncModalTogglesFromConsent(current || { analytics: false, marketing: false });
+        openModal();
+        return;
+      }
+
       const actionEl = target.closest("[data-nd-cookie-action]");
       const action = actionEl?.getAttribute("data-nd-cookie-action");
       if (!action) return;
@@ -256,15 +265,6 @@ README - Novera Drone Cookie Manager (Vanilla JS)
     });
 
     document.addEventListener("keydown", onGlobalKeydown);
-
-    document.querySelectorAll("[data-open-cookie-settings]").forEach((node) => {
-      node.addEventListener("click", (event) => {
-        event.preventDefault();
-        const current = getStoredConsent();
-        syncModalTogglesFromConsent(current || { analytics: false, marketing: false });
-        openModal();
-      });
-    });
   }
 
   function init() {
