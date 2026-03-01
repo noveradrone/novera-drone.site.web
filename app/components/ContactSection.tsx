@@ -118,8 +118,8 @@ export default function ContactSection() {
         description="Recevez une proposition claire, rapide et adaptée à votre événement."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        <div className="glass rounded-3xl p-5 sm:p-6">
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr_1.2fr]">
+        <div className="glass rounded-3xl p-5 text-center sm:p-6">
           <h3 className="text-lg font-semibold sm:text-xl">Zone d'intervention</h3>
           <p className="mt-3 text-sm text-slate-300 sm:text-base">Manche, Orne, Calvados et toute la Normandie selon votre projet.</p>
           <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
@@ -132,7 +132,7 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="glass rounded-3xl p-5 sm:p-6 md:p-8">
+        <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-6 md:p-8">
           <label className="hidden" aria-hidden="true">
             Site web
             <input
@@ -146,7 +146,7 @@ export default function ContactSection() {
           </label>
 
           <div className="grid gap-4 md:grid-cols-2">
-            <label className="text-sm text-slate-200">
+            <label className="block text-center text-sm text-slate-200">
               Nom
               <input
                 required
@@ -156,7 +156,7 @@ export default function ContactSection() {
                 className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
               />
             </label>
-            <label className="text-sm text-slate-200">
+            <label className="block text-center text-sm text-slate-200">
               Email
               <input
                 required
@@ -166,7 +166,7 @@ export default function ContactSection() {
                 className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
               />
             </label>
-            <label className="text-sm text-slate-200">
+            <label className="block text-center text-sm text-slate-200">
               Telephone
               <input
                 value={form.telephone}
@@ -175,7 +175,7 @@ export default function ContactSection() {
                 className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
               />
             </label>
-            <label className="text-sm text-slate-200">
+            <label className="block text-center text-sm text-slate-200">
               Type de prestation
               <select
                 required
@@ -194,7 +194,7 @@ export default function ContactSection() {
           </div>
 
           {form.typePrestation === "Autre" ? (
-            <label className="mt-4 block text-sm text-slate-200">
+            <label className="mt-4 block text-center text-sm text-slate-200">
               Décrivez votre mission
               <textarea
                 required
@@ -206,7 +206,7 @@ export default function ContactSection() {
             </label>
           ) : null}
 
-          <label className="mt-4 block text-sm text-slate-200">
+          <label className="mt-4 block text-center text-sm text-slate-200">
             Message
             <textarea
               required
@@ -217,11 +217,11 @@ export default function ContactSection() {
             />
           </label>
 
-          {error ? <p className="mt-4 text-sm text-rose-300">{error}</p> : null}
+          {error ? <p className="mt-4 text-center text-sm text-rose-300">{error}</p> : null}
 
           <button
             disabled={sending}
-            className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70 md:mx-0"
+            className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {sending ? "Envoi en cours..." : "Demander un devis"}
           </button>
@@ -229,7 +229,7 @@ export default function ContactSection() {
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: status === "success" ? 1 : 0, y: status === "success" ? 0 : 8 }}
-            className="mt-4 text-sm text-emerald-300"
+            className="mt-4 text-center text-sm text-emerald-300"
           >
             Votre demande a bien été envoyée. Nous vous répondons rapidement.
           </motion.p>
