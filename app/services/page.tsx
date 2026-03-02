@@ -19,11 +19,10 @@ export default function ServicesPage() {
         <div className="mb-10 mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-blue-300/90">Services</p>
           <h1 className="text-3xl font-semibold leading-tight md:text-5xl">
-            Des pages dédiées pour chaque expertise drone.
+            Découvrez chaque spécialité à travers une page dédiée.
           </h1>
           <p className="mt-5 text-base text-slate-300 md:text-lg">
-            Choisissez un service pour découvrir nos méthodes d'intervention, nos sous-prestations et les bénéfices
-            opérationnels.
+            Explorez un service pour comprendre notre approche, nos interventions et leurs avantages opérationnels.
           </p>
         </div>
 

@@ -51,8 +51,6 @@ export default function ContactSection() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
   const [sending, setSending] = useState(false);
-  const [website, setWebsite] = useState("");
-  const [startedAt] = useState(() => Date.now());
 
   const canSubmit = useMemo(() => {
     const hasOtherMission = form.typePrestation !== "Autre" || !!form.missionAutre.trim();
@@ -78,14 +76,19 @@ export default function ContactSection() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          nom: form.nom,
+          name: form.nom,
           email: form.email,
-          telephone: form.telephone || undefined,
-          typePrestation: form.typePrestation,
-          missionAutre: form.typePrestation === "Autre" ? form.missionAutre : undefined,
-          message: form.message,
-          website,
-          startedAt
+          message: [
+            `Téléphone: ${form.telephone || "Non renseigné"}`,
+            `Type de prestation: ${form.typePrestation}`,
+            form.typePrestation === "Autre" && form.missionAutre
+              ? `Mission spécifique: ${form.missionAutre}`
+              : "",
+            "",
+            form.message
+          ]
+            .filter(Boolean)
+            .join("\n")
         })
       });
 
@@ -96,7 +99,6 @@ export default function ContactSection() {
 
       setStatus("success");
       setForm(initialState);
-      setWebsite("");
       setTimeout(() => setStatus("idle"), 3500);
     } catch (err) {
       setStatus("error");
@@ -133,18 +135,6 @@ export default function ContactSection() {
         </div>
 
         <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-6 md:p-8">
-          <label className="hidden" aria-hidden="true">
-            Site web
-            <input
-              tabIndex={-1}
-              autoComplete="off"
-              value={website}
-              onChange={(e) => setWebsite(e.target.value)}
-              type="text"
-              name="website"
-            />
-          </label>
-
           <div className="grid gap-4 md:grid-cols-2">
             <label className="block text-center text-sm text-slate-200">
               Nom

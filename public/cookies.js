@@ -23,6 +23,7 @@ README - Novera Drone Cookie Manager (Vanilla JS)
 (function () {
   const STORAGE_KEY = "noveradrone_cookie_consent";
   const CONSENT_VERSION = 1;
+  const CONSENT_MAX_AGE_DAYS = 180; // CNIL: conservation du choix ~6 mois
 
   const $banner = document.getElementById("nd-cookie-banner");
   const $modal = document.getElementById("nd-cookie-modal");
@@ -72,6 +73,18 @@ README - Novera Drone Cookie Manager (Vanilla JS)
       return migrated;
     }
 
+    const consentDate = Date.parse(parsed.timestamp || "");
+    if (Number.isNaN(consentDate)) {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+
+    const maxAgeMs = CONSENT_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+    if (Date.now() - consentDate > maxAgeMs) {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+
     return parsed;
   }
 
@@ -86,6 +99,7 @@ README - Novera Drone Cookie Manager (Vanilla JS)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     hasSavedConsent = true;
     applyConsent(payload);
+    trackConsent(payload);
     hideBanner();
     return payload;
   }
@@ -150,6 +164,30 @@ README - Novera Drone Cookie Manager (Vanilla JS)
     window.NOVERA_COOKIE_CONSENT = consent;
     activateDeferredScripts(consent);
     maybeInitGoogleAnalytics(consent);
+  }
+
+  function trackConsent(consent) {
+    const payload = {
+      consent: {
+        version: consent.version,
+        timestamp: consent.timestamp,
+        essential: !!consent.essential,
+        analytics: !!consent.analytics,
+        marketing: !!consent.marketing
+      },
+      page: window.location.pathname,
+      language: navigator.language || "",
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || ""
+    };
+
+    fetch("/api/cookie-consent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(function () {
+      // Intentionally silent: consent UI should never break on tracking failure.
+    });
   }
 
   function openModal() {

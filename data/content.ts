@@ -105,7 +105,7 @@ export const services: ServicePageContent[] = [
       {
         title: "Communication d'entreprise",
         description:
-          "Sites industriels, bureaux, infrastructures logistiques: nous créons des contenus sobres et premium pour vos présentations commerciales, corporate et marque employeur."
+          "Sites industriels, bureaux, plateformes logistiques : des contenus sobres et haut de gamme pour valoriser votre image professionnelle."
       },
       {
         title: "Captation événement sportif",

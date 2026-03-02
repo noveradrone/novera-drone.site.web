@@ -8,7 +8,7 @@ export default function ServicesSection() {
       <SectionTitle
         eyebrow="Services"
         title={<>Des prestations drone complètes pour vos besoins terrain et communication.</>}
-        description="Quatre pôles d'expertise complémentaires, conçus pour la performance opérationnelle et la qualité d'image."
+        description="Quatre expertises distinctes, une même exigence de précision."
       />
       <div className="grid gap-5 md:grid-cols-2">
         {services.map((service) => {

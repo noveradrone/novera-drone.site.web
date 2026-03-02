@@ -8,8 +8,8 @@ export default function WhyChooseSection() {
         <div>
           <SectionTitle
             eyebrow="Pourquoi nous choisir"
-            title={<>Une expertise drone fiable, précise et orientée résultats.</>}
-            description="Nous préparons chaque mission avec un protocole de sécurité rigoureux et des outils professionnels pour vous livrer des données visuelles claires, exploitables rapidement."
+            title={<>Une expertise drone alliant fiabilité, précision et performance.</>}
+            description="Chaque mission est préparée selon un protocole de sécurité strict, avec des équipements professionnels pour garantir des données visuelles claires et immédiatement exploitables."
           />
         </div>
 

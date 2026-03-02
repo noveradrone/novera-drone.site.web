@@ -23,8 +23,8 @@ export default function PortfolioSection() {
     <section id="galerie" className="section-shell reveal-up">
       <SectionTitle
         eyebrow="Galerie"
-        title={<>Des réalisations terrain qui montrent la précision de nos interventions.</>}
-        description="Filtrez nos projets par catégorie pour visualiser les différents domaines d'application."
+        title={<>Des réalisations concrètes qui témoignent de notre précision.</>}
+        description="Explorez nos projets par catégorie pour découvrir nos domaines d’expertise."
       />
 
       <div className="mb-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide md:justify-center md:gap-3">

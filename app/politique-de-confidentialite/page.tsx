@@ -19,6 +19,10 @@ export default function PolitiqueConfidentialitePage() {
             Via le formulaire de devis, nous collectons les informations suivantes: nom, email, téléphone, type de
             prestation et informations liées au besoin (message et détails de la mission/événement).
           </p>
+          <p className="mt-3 text-slate-300">
+            Pour la gestion du consentement cookies, nous enregistrons également le choix exprimé (acceptation, refus
+            ou personnalisation), la date du choix, la page concernée et une adresse IP anonymisée.
+          </p>
         </section>
 
         <section className="mt-8">
@@ -27,6 +31,10 @@ export default function PolitiqueConfidentialitePage() {
             Ces données sont utilisées uniquement pour traiter les demandes de devis, répondre aux prospects et assurer
             le suivi commercial des prestations de services drone.
           </p>
+          <p className="mt-3 text-slate-300">
+            Les données liées aux cookies sont utilisées pour prouver le recueil du consentement conformément au RGPD
+            et aux recommandations de la CNIL.
+          </p>
         </section>
 
         <section className="mt-8">
@@ -34,6 +42,18 @@ export default function PolitiqueConfidentialitePage() {
           <p className="mt-3 text-slate-300">
             Les données sont conservées pendant {legalInfo.privacyRetentionYears} ans maximum à compter du dernier
             contact entrant, sauf obligation légale contraire.
+          </p>
+          <p className="mt-3 text-slate-300">
+            Le choix de consentement cookies est conservé pendant 6 mois maximum, puis une nouvelle demande de choix
+            peut être présentée.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-xl font-semibold sm:text-2xl">Gestion des cookies</h2>
+          <p className="mt-3 text-slate-300">
+            Vous pouvez modifier votre choix à tout moment via le lien « Gérer mes cookies » présent en bas de page.
+            Les cookies non essentiels ne sont pas déposés sans votre consentement préalable.
           </p>
         </section>
 
