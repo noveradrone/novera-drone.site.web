@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -26,10 +27,19 @@ body {
   min-height: 100vh;
   font-family: "SF Pro Display", "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 .section-shell {
-  @apply mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 md:px-10 md:py-24;
+  @apply mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-24;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .glass {
@@ -100,6 +110,13 @@ video::-webkit-media-controls-start-playback-button {
 }
 
 @media (max-width: 767px) {
+  .section-shell {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
   main :where(h1, h2, h3, h4, p, li, label) {
     text-align: center;
   }
@@ -117,5 +134,14 @@ video::-webkit-media-controls-start-playback-button {
   main :where(ul, ol) {
     padding-left: 0;
     list-style-position: inside;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section-shell {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 }

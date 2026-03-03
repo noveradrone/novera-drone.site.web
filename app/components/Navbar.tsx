@@ -83,7 +83,7 @@ export default function Navbar() {
           <span className="hidden sm:inline">NOVERA DRONE</span>
         </Link>
 
-        <div className="relative flex items-center gap-2 sm:gap-3">
+        <div className="relative flex items-center gap-1.5 sm:gap-3">
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -145,9 +145,10 @@ export default function Navbar() {
           </div>
           <Link
             href="/demander-un-devis"
-            className="inline-flex whitespace-nowrap rounded-full bg-blue-500 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
+            className="inline-flex whitespace-nowrap rounded-full bg-blue-500 px-2.5 py-1.5 text-[11px] font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
           >
-            Demander un devis
+            <span className="sm:hidden">Devis</span>
+            <span className="hidden sm:inline">Demander un devis</span>
           </Link>
         </div>
       </nav>
