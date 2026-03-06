@@ -22,7 +22,12 @@ export default function Footer() {
               <Instagram size={14} className="text-white" />
               <span>Instagram</span>
             </a>
-            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="mt-1 flex items-center gap-2 hover:text-blue-300">
+            <a
+              href="https://www.tiktok.com/@noveradrone?_r=1&_t=ZN-94SXb1jlwwN"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 flex items-center gap-2 hover:text-blue-300"
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" className="text-white">
                 <path
                   fill="currentColor"
@@ -31,7 +36,12 @@ export default function Footer() {
               </svg>
               <span>TikTok</span>
             </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="mt-1 flex items-center gap-2 hover:text-blue-300">
+            <a
+              href="https://www.facebook.com/share/1H9NYorVQq/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 flex items-center gap-2 hover:text-blue-300"
+            >
               <Facebook size={14} className="text-white" />
               <span>Facebook</span>
             </a>
