@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/app/components/CookieConsent";
 import "./globals.css";
 import "./cookies.css";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <CookieConsent />
+        <Analytics />
         <Script src="/cookies.js" strategy="afterInteractive" />
       </body>
     </html>
