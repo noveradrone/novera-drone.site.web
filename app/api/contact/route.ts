@@ -5,6 +5,7 @@ type ContactPayload = {
   name?: string;
   email?: string;
   message?: string;
+  requestType?: "quote" | "solidaire";
 };
 
 export async function POST(request: Request) {
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
     const name = body.name?.trim() || "";
     const email = body.email?.trim() || "";
     const message = body.message?.trim() || "";
+    const requestType = body.requestType === "solidaire" ? "solidaire" : "quote";
 
     if (!name || !email || !message) {
       return NextResponse.json({ ok: false, error: "Les champs name, email et message sont requis." }, { status: 400 });
@@ -31,14 +33,20 @@ export async function POST(request: Request) {
       );
     }
 
+    const isSolidarityRequest = requestType === "solidaire";
+    const subject = isSolidarityRequest
+      ? "Nouvelle demande - Novera Drone Solidaire"
+      : "Nouvelle demande de devis";
+    const heading = isSolidarityRequest ? "Nouvelle demande Novera Drone Solidaire" : "Nouvelle demande de devis";
+
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: CONTACT_FROM_EMAIL,
       to: CONTACT_TO_EMAIL,
-      subject: "Nouvelle demande de devis",
+      subject,
       replyTo: email,
       html: `
-        <h2>Nouvelle demande de devis</h2>
+        <h2>${heading}</h2>
         <p><strong>Nom :</strong> ${name}</p>
         <p><strong>Email :</strong> ${email}</p>
         <p><strong>Message :</strong></p>

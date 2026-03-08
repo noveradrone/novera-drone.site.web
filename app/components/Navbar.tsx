@@ -2,11 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Navbar() {
+type NavbarProps = {
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+export default function Navbar({ ctaLabel = "Demander un devis", ctaHref = "/demander-un-devis" }: NavbarProps) {
   const [overLightSection, setOverLightSection] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
+  const mobileCtaLabel = /devis/i.test(ctaLabel) ? "Devis" : "Contact";
 
   useEffect(() => {
     let frame = 0;
@@ -96,29 +106,46 @@ export default function Navbar() {
 
           {mobileOpen ? (
             <div className="absolute right-0 top-11 z-20 w-56 overflow-hidden rounded-2xl border border-white/20 bg-[#0b1225]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
-              <Link onClick={() => setMobileOpen(false)} href="/" className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10">
+              <Link
+                onClick={() => setMobileOpen(false)}
+                href="/"
+                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${isActive("/") ? "bg-white/10" : ""}`}
+              >
                 Accueil
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
                 href="/services"
-                className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10"
+                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
+                  isActive("/services") ? "bg-white/10" : ""
+                }`}
               >
                 Services
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
                 href="/drone"
-                className="block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10"
+                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
+                  isActive("/drone") ? "bg-white/10" : ""
+                }`}
               >
                 Drone
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
-                href="/demander-un-devis"
+                href="/novera-drone-solidaire"
+                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
+                  isActive("/novera-drone-solidaire") ? "bg-white/10" : ""
+                }`}
+              >
+                Solidaire
+              </Link>
+              <Link
+                onClick={() => setMobileOpen(false)}
+                href={ctaHref}
                 className="mt-1 block rounded-xl bg-blue-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-400"
               >
-                Demander un devis
+                {ctaLabel}
               </Link>
             </div>
           ) : null}
@@ -126,29 +153,43 @@ export default function Navbar() {
           <div className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/5 p-1 md:flex">
             <Link
               href="/"
-              className="rounded-full px-4 py-1.5 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
+              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
+                isActive("/") ? "bg-white/10 text-white" : "text-slate-200"
+              }`}
             >
               Accueil
             </Link>
             <Link
               href="/services"
-              className="rounded-full px-4 py-1.5 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
+              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
+                isActive("/services") ? "bg-white/10 text-white" : "text-slate-200"
+              }`}
             >
               Services
             </Link>
             <Link
               href="/drone"
-              className="rounded-full px-4 py-1.5 text-sm text-slate-200 transition hover:bg-white/10 hover:text-white"
+              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
+                isActive("/drone") ? "bg-white/10 text-white" : "text-slate-200"
+              }`}
             >
               Drone
             </Link>
+            <Link
+              href="/novera-drone-solidaire"
+              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
+                isActive("/novera-drone-solidaire") ? "bg-white/10 text-white" : "text-slate-200"
+              }`}
+            >
+              Solidaire
+            </Link>
           </div>
           <Link
-            href="/demander-un-devis"
+            href={ctaHref}
             className="inline-flex whitespace-nowrap rounded-full bg-blue-500 px-2.5 py-1.5 text-[11px] font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
           >
-            <span className="sm:hidden">Devis</span>
-            <span className="hidden sm:inline">Demander un devis</span>
+            <span className="sm:hidden">{mobileCtaLabel}</span>
+            <span className="hidden sm:inline">{ctaLabel}</span>
           </Link>
         </div>
       </nav>

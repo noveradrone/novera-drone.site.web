@@ -8,6 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
       lastModified: new Date()
+    },
+    {
+      url: `${base}/novera-drone-solidaire`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: new Date()
     }
   ];
 }
