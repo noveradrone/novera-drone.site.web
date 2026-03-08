@@ -66,7 +66,7 @@ export default function Hero({
       ? "inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/20 bg-gradient-to-r from-[#1d4ed8] via-[#0ea5e9] to-[#2563eb] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_28px_-12px_rgba(56,189,248,0.75)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_-16px_rgba(56,189,248,0.8)] sm:min-w-[250px] sm:px-9 sm:py-4 sm:text-base"
       : "inline-flex min-w-[220px] items-center justify-center rounded-full bg-gradient-to-r from-[#1d4ed8] via-[#0ea5e9] to-[#2563eb] px-7 py-3 text-sm font-semibold text-white shadow-[0_8px_25px_-14px_rgba(56,189,248,0.75)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-16px_rgba(56,189,248,0.75)] sm:min-w-[250px] sm:px-9 sm:py-4 sm:text-base";
   const contentPanelClass = contentPanel
-    ? "mx-auto w-full max-w-4xl rounded-[28px] border border-white/15 bg-[#020617]/34 px-5 py-7 shadow-[0_24px_80px_-40px_rgba(2,6,23,0.95)] backdrop-blur-[2px] sm:px-9 sm:py-9"
+    ? "mx-auto w-full max-w-4xl rounded-[28px] border border-white/15 bg-[#020617]/34 px-5 py-7 text-center shadow-[0_24px_80px_-40px_rgba(2,6,23,0.95)] backdrop-blur-[2px] sm:px-9 sm:py-9"
     : "";
 
   return (
@@ -89,7 +89,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85 }}
-            className={titleClass}
+            className={`${titleClass} mx-auto text-center`}
           >
             {title}
           </motion.h1>
@@ -97,7 +97,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.12 }}
-            className={subtitleClass}
+            className={`${subtitleClass} mx-auto text-center`}
           >
             {subtitle}
           </motion.p>
@@ -105,7 +105,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.18 }}
-            className={supportTextClass}
+            className={`${supportTextClass} mx-auto text-center`}
           >
             {supportText}
           </motion.p>
@@ -113,7 +113,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.2 }}
-            className="mt-10"
+            className="mt-10 flex justify-center"
           >
             <Link href={ctaHref} className={ctaClass}>
               {ctaLabel}

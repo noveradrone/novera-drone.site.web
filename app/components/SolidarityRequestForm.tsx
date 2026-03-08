@@ -51,6 +51,8 @@ export default function SolidarityRequestForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [websiteHoneypot, setWebsiteHoneypot] = useState("");
+  const [startedAt] = useState(() => Date.now());
 
   const setField = (key: keyof SolidarityFormState, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -89,12 +91,14 @@ export default function SolidarityRequestForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "X-Novera-Form": "1" },
         body: JSON.stringify({
           name: form.contactName,
           email: form.email,
           message,
-          requestType: "solidaire"
+          requestType: "solidaire",
+          website: websiteHoneypot,
+          startedAt
         })
       });
 
@@ -105,6 +109,7 @@ export default function SolidarityRequestForm() {
 
       setStatus("success");
       setForm(initialState);
+      setWebsiteHoneypot("");
     } catch (error) {
       setStatus("error");
       setErrors({
@@ -117,6 +122,18 @@ export default function SolidarityRequestForm() {
 
   return (
     <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-7 md:p-10" noValidate>
+      <label className="hidden" aria-hidden="true">
+        Site web
+        <input
+          tabIndex={-1}
+          autoComplete="off"
+          value={websiteHoneypot}
+          onChange={(e) => setWebsiteHoneypot(e.target.value)}
+          type="text"
+          name="website"
+        />
+      </label>
+
       <div className="grid gap-4 md:grid-cols-2">
         <label className="text-sm text-slate-200">
           Nom de l'association
