@@ -51,7 +51,7 @@ export default function NoveraDroneSolidairePage() {
         backgroundImage="/images/solidaire/deb_solidaire.PNG"
         overlayPreset="cinematic"
         contentPanel
-        minHeightClassName="min-h-[92vh] sm:min-h-screen"
+        minHeightClassName="min-h-screen"
       />
       <ScrollEffects />
 
