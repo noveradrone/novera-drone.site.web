@@ -49,7 +49,8 @@ export default function NoveraDroneSolidairePage() {
         ctaLabel="Découvrir l’initiative"
         ctaHref="/novera-drone-solidaire#engagement-solidaire"
         backgroundImage="/images/solidaire/deb_solidaire.PNG"
-        darkOverlay="strong"
+        overlayPreset="cinematic"
+        contentPanel
         minHeightClassName="min-h-[92vh] sm:min-h-screen"
       />
       <ScrollEffects />
@@ -122,22 +123,6 @@ export default function NoveraDroneSolidairePage() {
             description="Si vous représentez une association humanitaire ou solidaire et que vous souhaitez bénéficier d’images aériennes pour valoriser votre projet ou votre événement, vous pouvez nous adresser une demande via le formulaire ci-dessous. Chaque demande est étudiée en fonction des disponibilités dans le cadre de Novera Drone Solidaire."
           />
           <SolidarityRequestForm />
-        </article>
-      </section>
-
-      <section className="section-shell pt-0">
-        <article className="glass reveal-up rounded-3xl p-6 text-center sm:p-8 md:p-10">
-          <h2 className="text-2xl font-semibold md:text-3xl">Faire une demande</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-            Vous souhaitez vérifier l&apos;éligibilité de votre action avant l&apos;envoi complet ? Nous pouvons vous
-            orienter rapidement sur les disponibilités de l&apos;initiative Novera Drone Solidaire.
-          </p>
-          <Link
-            href="#formulaire-solidaire"
-            className="mt-6 inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400"
-          >
-            Faire une demande
-          </Link>
         </article>
       </section>
 
