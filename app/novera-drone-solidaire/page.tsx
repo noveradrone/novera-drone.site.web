@@ -1,4 +1,5 @@
 import Footer from "@/app/components/Footer";
+import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
 import ScrollEffects from "@/app/components/ScrollEffects";
 import SectionTitle from "@/app/components/SectionTitle";
@@ -40,27 +41,20 @@ export default function NoveraDroneSolidairePage() {
   return (
     <main className="relative overflow-hidden">
       <Navbar ctaHref="/novera-drone-solidaire#formulaire-solidaire" ctaLabel="Nous contacter" />
+      <Hero
+        id="hero-solidaire"
+        title="Novera Drone Solidaire"
+        subtitle="Mettre l’image aérienne au service des causes humanitaires et solidaires."
+        supportText="Une initiative de Novera Drone pour accompagner les associations engagées sur le terrain."
+        ctaLabel="Découvrir l’initiative"
+        ctaHref="/novera-drone-solidaire#engagement-solidaire"
+        backgroundImage="/images/solidaire/deb_solidaire.PNG"
+        darkOverlay="strong"
+        minHeightClassName="min-h-[92vh] sm:min-h-screen"
+      />
       <ScrollEffects />
 
-      <section className="section-shell pt-32 sm:pt-36 md:pt-40">
-        <div className="glass reveal-up rounded-3xl p-6 text-center sm:p-10">
-          <p className="mb-4 text-xs uppercase tracking-[0.28em] text-blue-300/90">Initiative Novera Drone</p>
-          <h1 className="text-3xl font-semibold leading-tight md:text-5xl">Novera Drone Solidaire</h1>
-          <p className="mx-auto mt-5 max-w-3xl text-base text-slate-300 md:text-lg">
-            Mettre l&apos;image aérienne au service des causes humanitaires et solidaires.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="#formulaire-solidaire"
-              className="inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400"
-            >
-              Faire une demande
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell pt-0">
+      <section id="engagement-solidaire" className="section-shell pt-0">
         <article className="glass reveal-up rounded-3xl p-6 sm:p-8 md:p-10">
           <SectionTitle eyebrow="Notre engagement" title={<>Une initiative portée par Novera Drone.</>} />
           <div className="mx-auto max-w-4xl space-y-4 text-slate-300">
