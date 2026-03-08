@@ -51,7 +51,7 @@ export default function Hero({
       : "bg-[radial-gradient(circle_at_50%_35%,rgba(56,189,248,0.2),transparent_48%)]";
   const titleClass =
     overlayPreset === "cinematic"
-      ? "max-w-4xl bg-gradient-to-r from-[#f8fafc] via-[#94a3b8] to-[#334155] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.04em] text-transparent [text-shadow:0_10px_28px_rgba(2,6,23,0.82)] sm:text-6xl sm:tracking-[0.06em] md:text-8xl"
+      ? "max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.04em] text-transparent [text-shadow:0_10px_28px_rgba(2,6,23,0.82)] sm:text-6xl sm:tracking-[0.06em] md:text-8xl"
       : "max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.06em] text-transparent sm:text-6xl sm:tracking-[0.1em] md:text-8xl";
   const subtitleClass =
     overlayPreset === "cinematic"

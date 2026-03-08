@@ -5,7 +5,6 @@ import ScrollEffects from "@/app/components/ScrollEffects";
 import SectionTitle from "@/app/components/SectionTitle";
 import SolidarityRequestForm from "@/app/components/SolidarityRequestForm";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { HandHeart, Megaphone, Sparkles, Video } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -55,7 +54,7 @@ export default function NoveraDroneSolidairePage() {
       />
       <ScrollEffects />
 
-      <section id="engagement-solidaire" className="section-shell pt-0">
+      <section id="engagement-solidaire" className="section-shell pb-8 pt-0 sm:pb-10 md:pb-12">
         <article className="glass reveal-up rounded-3xl p-6 sm:p-8 md:p-10">
           <SectionTitle eyebrow="Notre engagement" title={<>Une initiative portée par Novera Drone.</>} />
           <div className="mx-auto max-w-4xl space-y-4 text-center text-slate-300">
@@ -76,7 +75,7 @@ export default function NoveraDroneSolidairePage() {
         </article>
       </section>
 
-      <section className="section-shell pt-0">
+      <section className="section-shell pb-8 pt-0 sm:pb-10 md:pb-12">
         <article className="glass reveal-up rounded-3xl p-6 sm:p-8 md:p-10">
           <SectionTitle
             eyebrow="Soutien aux associations humanitaires"
@@ -101,7 +100,7 @@ export default function NoveraDroneSolidairePage() {
         </article>
       </section>
 
-      <section className="section-shell pt-0">
+      <section className="section-shell pb-8 pt-0 sm:pb-10 md:pb-12">
         <article className="reveal-up rounded-3xl border border-blue-300/20 bg-gradient-to-br from-blue-500/15 to-cyan-400/10 p-6 sm:p-8 md:p-10">
           <h2 className="text-center text-2xl font-semibold md:text-3xl">Une démarche solidaire</h2>
           <p className="mx-auto mt-5 max-w-4xl text-center text-slate-200">
@@ -115,7 +114,7 @@ export default function NoveraDroneSolidairePage() {
         </article>
       </section>
 
-      <section id="formulaire-solidaire" className="section-shell pt-0">
+      <section id="formulaire-solidaire" className="section-shell pb-8 pt-0 sm:pb-10 md:pb-12">
         <article className="reveal-up">
           <SectionTitle
             eyebrow="Faire une demande"
