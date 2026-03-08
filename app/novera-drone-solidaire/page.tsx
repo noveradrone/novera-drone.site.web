@@ -57,7 +57,7 @@ export default function NoveraDroneSolidairePage() {
       <section id="engagement-solidaire" className="section-shell pt-0">
         <article className="glass reveal-up rounded-3xl p-6 sm:p-8 md:p-10">
           <SectionTitle eyebrow="Notre engagement" title={<>Une initiative portée par Novera Drone.</>} />
-          <div className="mx-auto max-w-4xl space-y-4 text-slate-300">
+          <div className="mx-auto max-w-4xl space-y-4 text-center text-slate-300">
             <p>
               Chez <strong className="text-slate-100">Novera Drone</strong>, nous souhaitons également mettre la
               technologie au service de l&apos;intérêt général.
@@ -87,7 +87,7 @@ export default function NoveraDroneSolidairePage() {
             {impactCards.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="rounded-2xl border border-white/10 bg-black/15 p-5">
+                <div key={item.title} className="rounded-2xl border border-white/10 bg-black/15 p-5 text-center">
                   <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-200">
                     <Icon size={18} />
                   </div>

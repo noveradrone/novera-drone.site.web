@@ -116,7 +116,7 @@ export default function SolidarityRequestForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-left sm:p-7 md:p-10" noValidate>
+    <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-7 md:p-10" noValidate>
       <div className="grid gap-4 md:grid-cols-2">
         <label className="text-sm text-slate-200">
           Nom de l'association
@@ -128,7 +128,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.associationName}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.associationName ? <span className="mt-1 block text-xs text-rose-300">{errors.associationName}</span> : null}
+          {errors.associationName ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.associationName}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -141,7 +141,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.contactName}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.contactName ? <span className="mt-1 block text-xs text-rose-300">{errors.contactName}</span> : null}
+          {errors.contactName ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.contactName}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -154,7 +154,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.email}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.email ? <span className="mt-1 block text-xs text-rose-300">{errors.email}</span> : null}
+          {errors.email ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.email}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -167,7 +167,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.phone}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.phone ? <span className="mt-1 block text-xs text-rose-300">{errors.phone}</span> : null}
+          {errors.phone ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.phone}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -180,7 +180,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.actionType}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.actionType ? <span className="mt-1 block text-xs text-rose-300">{errors.actionType}</span> : null}
+          {errors.actionType ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.actionType}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -193,7 +193,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.location}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.location ? <span className="mt-1 block text-xs text-rose-300">{errors.location}</span> : null}
+          {errors.location ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.location}</span> : null}
         </label>
       </div>
 
@@ -208,7 +208,7 @@ export default function SolidarityRequestForm() {
             aria-invalid={!!errors.desiredDate}
             className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
           />
-          {errors.desiredDate ? <span className="mt-1 block text-xs text-rose-300">{errors.desiredDate}</span> : null}
+          {errors.desiredDate ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.desiredDate}</span> : null}
         </label>
 
         <label className="text-sm text-slate-200">
@@ -233,15 +233,15 @@ export default function SolidarityRequestForm() {
           aria-invalid={!!errors.description}
           className="mt-1 w-full rounded-xl border border-white/15 bg-black/35 px-3 py-2 outline-none transition focus:border-blue-400"
         />
-        {errors.description ? <span className="mt-1 block text-xs text-rose-300">{errors.description}</span> : null}
+        {errors.description ? <span className="mt-1 block text-center text-xs text-rose-300">{errors.description}</span> : null}
       </label>
 
-      {errors.global ? <p className="mt-4 text-sm text-rose-300">{errors.global}</p> : null}
+      {errors.global ? <p className="mt-4 text-center text-sm text-rose-300">{errors.global}</p> : null}
 
       <button
         type="submit"
         disabled={sending}
-        className="mt-6 inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mx-auto mt-6 inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {sending ? "Envoi en cours..." : "Envoyer la demande"}
       </button>
@@ -249,7 +249,7 @@ export default function SolidarityRequestForm() {
       <motion.p
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: status === "success" ? 1 : 0, y: status === "success" ? 0 : 8 }}
-        className="mt-4 text-sm text-emerald-300"
+        className="mt-4 text-center text-sm text-emerald-300"
       >
         Votre demande solidaire a bien été envoyée. Nous revenons vers vous dès que possible.
       </motion.p>

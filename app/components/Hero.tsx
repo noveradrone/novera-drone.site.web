@@ -27,10 +27,10 @@ export default function Hero({
   darkOverlay = "default",
   minHeightClassName = "min-h-screen"
 }: HeroProps) {
-  const darkOverlayClass = darkOverlay === "strong" ? "bg-[#020617]/70" : "bg-[#020617]/55";
+  const darkOverlayClass = darkOverlay === "strong" ? "bg-[#020617]/48" : "bg-[#020617]/55";
   const gradientOverlayClass =
     darkOverlay === "strong"
-      ? "bg-gradient-to-b from-[#020617]/45 via-[#020617]/80 to-[#020617]/96"
+      ? "bg-gradient-to-b from-[#020617]/18 via-[#020617]/60 to-[#020617]/84"
       : "bg-gradient-to-b from-[#020617]/20 via-[#020617]/70 to-[#020617]/95";
 
   return (
