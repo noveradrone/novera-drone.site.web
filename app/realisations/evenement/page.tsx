@@ -7,12 +7,18 @@ import SectionTitle from "@/app/components/SectionTitle";
 
 type Reel = {
   title: string;
+  description: string[];
   url: string;
 };
 
 const reels: Reel[] = [
   {
-    title: "Réalisation événementielle en Normandie",
+    title: "Trail La Véroise",
+    description: [
+      "Captation drone réalisée lors du Trail La Véroise afin de retranscrire l’ambiance de l’événement au plus près de l’action.",
+      "Les images aériennes permettent de suivre les coureurs, de mettre en valeur le parcours et le cadre naturel.",
+      "Un format court et dynamique, pensé pour les réseaux sociaux."
+    ],
     url: "https://www.instagram.com/reel/DXCzC9DjS15/?igsh=MXhuaHM1ajU5amJ4Zw=="
   }
 ];
@@ -89,19 +95,38 @@ export default function EventShowcasePage() {
         />
 
         {reels.length > 0 ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl gap-6">
             {reels.map((reel) => (
-              <article key={reel.url} className="glass overflow-hidden rounded-3xl p-3">
-                <div className="aspect-[9/16] overflow-hidden rounded-2xl bg-slate-950">
-                  <iframe
-                    src={toInstagramEmbedUrl(reel.url)}
-                    title={reel.title}
-                    className="h-full w-full border-0"
-                    loading="lazy"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  />
+              <article key={reel.url} className="glass grid gap-6 rounded-3xl p-4 sm:p-5 lg:grid-cols-[360px_1fr] lg:items-center lg:p-6">
+                <div className="mx-auto w-full max-w-[300px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 sm:max-w-[340px] lg:mx-0">
+                  <div className="h-[600px] sm:h-[660px]">
+                    <iframe
+                      src={toInstagramEmbedUrl(reel.url)}
+                      title={reel.title}
+                      className="h-full w-full border-0"
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    />
+                  </div>
                 </div>
-                <h2 className="px-2 pt-4 text-lg font-semibold text-white">{reel.title}</h2>
+
+                <div className="mx-auto max-w-2xl px-1 py-2 text-center lg:mx-0 lg:px-4 lg:py-6 lg:text-left">
+                  <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
+                    Captation événementielle
+                  </p>
+                  <h2 className="text-3xl font-semibold text-white sm:text-4xl">{reel.title}</h2>
+                  <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
+                    {reel.description.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <Link
+                    href="/demander-un-devis"
+                    className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
+                  >
+                    Demander une captation
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
