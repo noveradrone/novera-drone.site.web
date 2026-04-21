@@ -11,9 +11,10 @@ type Reel = {
 };
 
 const reels: Reel[] = [
-  // Ajoute ici les liens de Reels Instagram publics, un objet par realisation.
-  // Exemple:
-  // { title: "Evenement sportif en Normandie", url: "https://www.instagram.com/reel/XXXXXXXXXXX/" }
+  {
+    title: "Réalisation événementielle en Normandie",
+    url: "https://www.instagram.com/reel/DXCzC9DjS15/?igsh=MXhuaHM1ajU5amJ4Zw=="
+  }
 ];
 
 export const metadata: Metadata = {
