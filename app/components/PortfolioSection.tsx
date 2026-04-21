@@ -3,6 +3,7 @@
 import { galleryItems } from "@/data/content";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import SectionTitle from "@/app/components/SectionTitle";
 
@@ -39,6 +40,12 @@ export default function PortfolioSection() {
             {filter}
           </button>
         ))}
+        <Link
+          href="/realisations/evenement"
+          className="rounded-full px-4 py-2 text-xs transition glass text-slate-200 hover:text-white sm:px-5 sm:text-sm"
+        >
+          Événement
+        </Link>
       </div>
 
       <div className="cyl-wrapper relative">
