@@ -75,7 +75,7 @@ export const services: ServicePageContent[] = [
     primaryCta: "Demander un devis",
     secondaryCta: {
       label: "Voir nos réalisations",
-      href: "/#galerie"
+      href: "/realisations/evenement"
     },
     whyTitle: "Pourquoi choisir la photographie aérienne ?",
     whyIntro:
@@ -672,6 +672,7 @@ export type GalleryItem = {
   title: string;
   category: GalleryCategory;
   image: string;
+  href?: string;
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -679,7 +680,8 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Prise de vue événementielle",
     category: "Photographie",
-    image: "/images/mariage.PNG"
+    image: "/images/mariage.PNG",
+    href: "/realisations/evenement"
   },
   {
     id: 2,

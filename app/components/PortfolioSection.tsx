@@ -52,26 +52,40 @@ export default function PortfolioSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#020817] to-transparent sm:w-16" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#020817] to-transparent sm:w-16" />
         <div className="cyl-track scrollbar-hide flex gap-3 overflow-x-auto px-2 py-2 sm:gap-4 sm:px-6">
-        {list.map((item) => (
-          <motion.article
-            key={item.id}
-            className="cyl-card group glass relative block w-[220px] shrink-0 overflow-hidden rounded-2xl text-left sm:w-[260px] lg:w-[300px]"
-            whileHover={{ y: -4, rotateY: 0 }}
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={800}
-              height={1100}
-              loading="lazy"
-              className="aspect-[3/4] w-full object-cover object-center transition duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-sm text-blue-200">{item.category}</p>
-              <p className="text-lg font-medium">{item.title}</p>
-            </div>
-          </motion.article>
-        ))}
+        {list.map((item) => {
+          const cardContent = (
+            <>
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={800}
+                height={1100}
+                loading="lazy"
+                className="aspect-[3/4] w-full object-cover object-center transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="text-sm text-blue-200">{item.category}</p>
+                <p className="text-lg font-medium">{item.title}</p>
+              </div>
+            </>
+          );
+
+          return (
+            <motion.article
+              key={item.id}
+              className="cyl-card group glass relative block w-[220px] shrink-0 overflow-hidden rounded-2xl text-left sm:w-[260px] lg:w-[300px]"
+              whileHover={{ y: -4, rotateY: 0 }}
+            >
+              {item.href ? (
+                <Link href={item.href} aria-label={`Voir la galerie ${item.title}`} className="block">
+                  {cardContent}
+                </Link>
+              ) : (
+                cardContent
+              )}
+            </motion.article>
+          );
+        })}
         </div>
       </div>
     </section>
