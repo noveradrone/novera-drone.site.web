@@ -89,9 +89,7 @@ export default function EventShowcasePage() {
 
       <section className="section-shell reveal-up">
         <SectionTitle
-          eyebrow="Reels Instagram"
           title={<>Nos réalisations événementielles</>}
-          description="Les Reels publics peuvent être intégrés ici pour présenter vos projets avec un rendu direct, moderne et facile à consulter."
         />
 
         {reels.length > 0 ? (
@@ -110,7 +108,7 @@ export default function EventShowcasePage() {
                   </div>
                 </div>
 
-                <div className="mx-auto max-w-2xl px-1 py-2 text-center lg:mx-0 lg:px-4 lg:py-6 lg:text-left">
+                <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
                   <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
                     Captation événementielle
                   </p>
