@@ -97,6 +97,14 @@ export default function ServiceDetailPage({ params }: Props) {
               <div key={item.title} className="rounded-2xl border border-white/10 bg-black/15 p-4 text-center sm:p-5">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
                 <p className="mt-3 text-sm text-slate-300">{item.description}</p>
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="mt-5 inline-flex rounded-full border border-blue-300/30 px-5 py-2 text-sm font-medium text-blue-100 transition hover:border-blue-300 hover:bg-blue-400/10"
+                  >
+                    Voir la page dédiée
+                  </Link>
+                ) : null}
               </div>
             ))}
           </div>

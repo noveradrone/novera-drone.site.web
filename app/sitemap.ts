@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date()
     },
     {
+      url: `${base}/realisations/immobilier`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: new Date()
+    },
+    {
       url: `${base}/novera-drone-solidaire`,
       changeFrequency: "monthly",
       priority: 0.8,

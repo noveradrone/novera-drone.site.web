@@ -1,6 +1,7 @@
 export type ServiceSubItem = {
   title: string;
   description: string;
+  href?: string;
 };
 
 export type ServiceCaseStudy = {
@@ -90,7 +91,8 @@ export const services: ServicePageContent[] = [
       {
         title: "Photographie drone pour l'immobilier",
         description:
-          "Nous réalisons des vues aériennes qui mettent en évidence l'implantation, les accès et l'environnement immédiat d'un bien. Cela aide vos prospects à comprendre rapidement la valeur réelle du site."
+          "Nous réalisons des vues aériennes qui mettent en évidence l'implantation, les accès et l'environnement immédiat d'un bien. Cela aide vos prospects à comprendre rapidement la valeur réelle du site.",
+        href: "/realisations/immobilier"
       },
       {
         title: "Vidéo aérienne pour événements",
@@ -693,7 +695,8 @@ export const galleryItems: GalleryItem[] = [
     id: 5,
     title: "Promotion immobilière",
     category: "Photographie",
-    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80"
+    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
+    href: "/realisations/immobilier"
   },
   {
     id: 6,
