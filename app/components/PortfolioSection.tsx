@@ -7,17 +7,34 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import SectionTitle from "@/app/components/SectionTitle";
 
-const filters = ["Tous", "Photographie", "Thermographie", "Inspection", "Nettoyage"] as const;
+const filters = [
+  {
+    key: "event",
+    label: "Prise de vue événementielle",
+    match: (item: (typeof galleryItems)[number]) => item.id === 1
+  },
+  {
+    key: "real-estate",
+    label: "Promotion immobilière",
+    match: (item: (typeof galleryItems)[number]) => item.id === 5
+  },
+  {
+    key: "inspection",
+    label: "Inspections de bâtiment",
+    match: (item: (typeof galleryItems)[number]) => item.category === "Inspection"
+  }
+] as const;
 
 type Filter = (typeof filters)[number];
 
 export default function PortfolioSection() {
-  const [activeFilter, setActiveFilter] = useState<Filter>("Tous");
+  const [activeFilter, setActiveFilter] = useState<Filter["key"] | null>(null);
 
-  // Filtre client-side pour conserver une galerie instantanée et fluide.
   const list = useMemo(() => {
-    if (activeFilter === "Tous") return galleryItems;
-    return galleryItems.filter((item) => item.category === activeFilter);
+    if (!activeFilter) return galleryItems;
+    const selectedFilter = filters.find((filter) => filter.key === activeFilter);
+    if (!selectedFilter) return galleryItems;
+    return galleryItems.filter(selectedFilter.match);
   }, [activeFilter]);
 
   return (
@@ -31,21 +48,15 @@ export default function PortfolioSection() {
       <div className="mb-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide md:justify-center md:gap-3">
         {filters.map((filter) => (
           <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
+            key={filter.key}
+            onClick={() => setActiveFilter((current) => (current === filter.key ? null : filter.key))}
             className={`rounded-full px-4 py-2 text-xs transition sm:px-5 sm:text-sm ${
-              activeFilter === filter ? "bg-blue-500 text-white" : "glass text-slate-200 hover:text-white"
+              activeFilter === filter.key ? "bg-blue-500 text-white" : "glass text-slate-200 hover:text-white"
             }`}
           >
-            {filter}
+            {filter.label}
           </button>
         ))}
-        <Link
-          href="/realisations/evenement"
-          className="rounded-full px-4 py-2 text-xs transition glass text-slate-200 hover:text-white sm:px-5 sm:text-sm"
-        >
-          Événement
-        </Link>
       </div>
 
       <div className="cyl-wrapper relative">
@@ -63,9 +74,8 @@ export default function PortfolioSection() {
                 loading="lazy"
                 className="aspect-[3/4] w-full object-cover object-center transition duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <p className="text-sm text-blue-200">{item.category}</p>
-                <p className="text-lg font-medium">{item.title}</p>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 text-center">
+                <p className="text-lg font-medium text-white">{item.title}</p>
               </div>
             </>
           );
