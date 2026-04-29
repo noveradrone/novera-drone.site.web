@@ -15,6 +15,13 @@ export type ServiceFaq = {
   a: string;
 };
 
+export type GoogleReview = {
+  name: string;
+  quote: string;
+  rating?: 5 | 4 | 3 | 2 | 1;
+  source?: string;
+};
+
 export type ServicePageContent = {
   slug: string;
   title: string;
@@ -682,8 +689,7 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Mariage",
     category: "Photographie",
-    image: "/images/mariage.PNG",
-    href: "/realisations/evenement"
+    image: "/images/mariage.PNG"
   },
   {
     id: 2,
@@ -707,7 +713,9 @@ export const galleryItems: GalleryItem[] = [
   }
 ];
 
-export const testimonials: Array<{ name: string; quote: string }> = [];
+export const googleReviewsLink = "";
+
+export const testimonials: GoogleReview[] = [];
 
 export const faqItems = [
   {
