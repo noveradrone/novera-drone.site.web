@@ -715,7 +715,22 @@ export const galleryItems: GalleryItem[] = [
 
 export const googleReviewsLink = "";
 
-export const testimonials: GoogleReview[] = [];
+export const testimonials: GoogleReview[] = [
+  {
+    name: "Maxence",
+    rating: 5,
+    source: "Google",
+    quote:
+      "Excellente expérience ! Je suis très satisfait du résultat final, qui est parfaitement conforme au devis initial. Un travail de qualité respectant les engagements pris, je recommande."
+  },
+  {
+    name: "Eliot FICHET",
+    rating: 5,
+    source: "Google",
+    quote:
+      "Enes était présent sur la premier édition de La Veroise le 12 avril dernier. Il a mené un travail exemplaire digne d’un professionnel avec des images aériennes de notre course d’une grande qualité."
+  }
+];
 
 export const faqItems = [
   {
