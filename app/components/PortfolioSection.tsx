@@ -11,7 +11,7 @@ const filters = [
   {
     key: "event",
     label: "Prise de vue événementielle",
-    match: (item: (typeof galleryItems)[number]) => item.id === 1
+    match: (item: (typeof galleryItems)[number]) => item.href === "/realisations/evenement"
   },
   {
     key: "real-estate",

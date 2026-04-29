@@ -680,16 +680,17 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    title: "Prise de vue événementielle",
+    title: "Mariage",
     category: "Photographie",
     image: "/images/mariage.PNG",
     href: "/realisations/evenement"
   },
   {
     id: 2,
-    title: "Suivi thermique de toiture",
-    category: "Thermographie",
-    image: "/images/thermo.PNG"
+    title: "Événement sportif",
+    category: "Photographie",
+    image: "/images/sport.PNG",
+    href: "/realisations/evenement"
   },
   {
     id: 5,
