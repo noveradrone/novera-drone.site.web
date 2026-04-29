@@ -56,7 +56,7 @@ export default function EventShowcasePage() {
         className="relative flex min-h-[72vh] items-center overflow-hidden bg-cover bg-center px-4 pt-28 sm:min-h-[76vh] sm:px-6 lg:px-10"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(2, 8, 23, 0.88) 0%, rgba(2, 8, 23, 0.58) 46%, rgba(2, 8, 23, 0.28) 100%), url('/images/mariage.PNG')"
+            "linear-gradient(90deg, rgba(2, 8, 23, 0.88) 0%, rgba(2, 8, 23, 0.58) 46%, rgba(2, 8, 23, 0.28) 100%), url('/images/sport.PNG')"
         }}
       >
         <div className="absolute inset-0 grid-fade opacity-40" />

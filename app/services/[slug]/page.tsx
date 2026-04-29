@@ -29,7 +29,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
 export default function ServiceDetailPage({ params }: Props) {
   const service = services.find((item) => item.slug === params.slug);
-  const isComingSoon = service?.slug === "nettoyage-par-drone";
+  const isComingSoon = ["thermographie", "nettoyage-par-drone"].includes(service?.slug ?? "");
 
   if (!service) {
     notFound();
@@ -51,6 +51,11 @@ export default function ServiceDetailPage({ params }: Props) {
           />
           <div className="p-5 sm:p-7 md:p-10">
             <p className="mb-3 text-xs uppercase tracking-[0.26em] text-blue-300">{service.primaryKeyword}</p>
+            {isComingSoon ? (
+              <p className="mx-auto mb-4 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
+                Bientôt disponible
+              </p>
+            ) : null}
             <h1 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-5xl">{service.h1}</h1>
             <p className="mx-auto mt-4 max-w-4xl text-sm text-slate-300 sm:text-base md:text-lg">{service.subtitle}</p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">

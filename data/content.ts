@@ -231,7 +231,7 @@ export const services: ServicePageContent[] = [
       "devis thermographie Manche",
       "prestataire thermographie Calvados"
     ],
-    h1: "Thermographie par drone pour diagnostics rapides et fiables",
+    h1: "Thermographie par drone pour diagnostics rapides et fiables • Bientôt disponible",
     subtitle:
       "Novera Drone inspecte vos actifs en Normandie pour détecter les anomalies invisibles, prioriser les actions de maintenance et réduire les pertes énergétiques.",
     primaryCta: "Demander un devis",

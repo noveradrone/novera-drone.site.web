@@ -28,7 +28,7 @@ export default function ServicesPage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => {
-            const isComingSoon = service.slug === "nettoyage-par-drone";
+            const isComingSoon = ["thermographie", "nettoyage-par-drone"].includes(service.slug);
             return (
             <article key={service.slug} className="glass overflow-hidden rounded-3xl">
               <Image

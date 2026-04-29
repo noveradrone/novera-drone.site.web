@@ -12,7 +12,7 @@ export default function ServicesSection() {
       />
       <div className="grid gap-5 md:grid-cols-2">
         {services.map((service) => {
-          const isComingSoon = service.slug === "nettoyage-par-drone";
+          const isComingSoon = ["thermographie", "nettoyage-par-drone"].includes(service.slug);
           return (
           <article
             key={service.title}

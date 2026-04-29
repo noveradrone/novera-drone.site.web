@@ -17,7 +17,7 @@ export default function TestimonialsSection() {
         title={<>Ce que nos clients disent de Novera Drone.</>}
         description="Des retours publiés sur Google qui reflètent notre exigence de précision, de réactivité et de qualité de service."
       />
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
         {testimonials.map((item, index) => (
           <motion.article
             key={item.name}
