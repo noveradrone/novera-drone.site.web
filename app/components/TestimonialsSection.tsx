@@ -17,7 +17,7 @@ export default function TestimonialsSection() {
         title={<>Ce que nos clients disent de Novera Drone.</>}
         description="Des retours publiés sur Google qui reflètent notre exigence de précision, de réactivité et de qualité de service."
       />
-      <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+      <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-5">
         {testimonials.map((item, index) => (
           <motion.article
             key={item.name}
@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.45, delay: index * 0.08 }}
-            className="glass flex h-full flex-col rounded-3xl p-6 text-center"
+            className="glass flex w-full max-w-sm flex-col rounded-3xl p-6 text-center"
           >
             <p className="mb-4 text-xl text-amber-300">
               {"★".repeat(item.rating ?? 5)}
