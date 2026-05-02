@@ -149,7 +149,7 @@ export default function DroneShowcaseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
-              className={index % 2 === 1 ? "order-2 md:order-1" : "order-2"}
+              className={index % 2 === 1 ? "order-2 md:order-1 md:pl-8 lg:pl-12" : "order-2"}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Équipement</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">{drone.name}</h2>
