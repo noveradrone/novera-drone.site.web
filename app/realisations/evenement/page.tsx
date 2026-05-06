@@ -98,78 +98,99 @@ export default function EventShowcasePage() {
       </section>
 
       <section className="section-shell reveal-up">
-        <SectionTitle
-          title={<>Nos réalisations événementielles</>}
-        />
+        <SectionTitle title={<>Nos réalisations événementielles</>} />
 
         {reels.length > 0 ? (
-          <div className="mx-auto grid max-w-6xl gap-6">
+          <div className="relative mx-auto max-w-6xl">
+            <div className="absolute bottom-8 left-7 top-10 hidden w-px bg-gradient-to-b from-blue-400/40 via-white/10 to-transparent lg:block" />
+            <div className="space-y-14 lg:space-y-20">
             {reels.map((reel) => (
-              <article key={reel.url} className="glass grid gap-6 rounded-3xl p-4 sm:p-5 lg:grid-cols-[360px_1fr] lg:items-center lg:p-6">
-                <div className="mx-auto w-full max-w-[300px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 sm:max-w-[340px] lg:mx-0">
-                  <div className="h-[600px] sm:h-[660px]">
-                    <iframe
-                      src={toInstagramEmbedUrl(reel.url)}
-                      title={reel.title}
-                      className="h-full w-full border-0"
-                      loading="lazy"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    />
+              <article key={reel.url} className="relative grid gap-6 lg:grid-cols-[72px_minmax(0,1fr)] lg:gap-8">
+                <div className="hidden lg:flex lg:justify-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-blue-300/25 bg-blue-400/10 text-sm font-semibold text-blue-100">
+                    01
                   </div>
                 </div>
+                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] px-4 py-5 shadow-[0_24px_80px_-50px_rgba(15,23,42,0.75)] backdrop-blur-sm sm:px-5 lg:px-7 lg:py-8">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/35 to-transparent" />
+                  <div className="grid gap-6 lg:grid-cols-[360px_1fr] lg:items-center">
+                    <div className="mx-auto w-full max-w-[300px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 sm:max-w-[340px] lg:mx-0">
+                      <div className="h-[600px] sm:h-[660px]">
+                        <iframe
+                          src={toInstagramEmbedUrl(reel.url)}
+                          title={reel.title}
+                          className="h-full w-full border-0"
+                          loading="lazy"
+                          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        />
+                      </div>
+                    </div>
 
-                <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
-                  <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
-                    Captation événementielle
-                  </p>
-                  <h2 className="text-3xl font-semibold text-white sm:text-4xl">{reel.title}</h2>
-                  <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
-                    {reel.description.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
+                    <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
+                      <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
+                        Captation événementielle
+                      </p>
+                      <h2 className="text-3xl font-semibold text-white sm:text-4xl">{reel.title}</h2>
+                      <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
+                        {reel.description.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+                      <Link
+                        href="/demander-un-devis"
+                        className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
+                      >
+                        Demander une captation
+                      </Link>
+                    </div>
                   </div>
-                  <Link
-                    href="/demander-un-devis"
-                    className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
-                  >
-                    Demander une captation
-                  </Link>
                 </div>
               </article>
             ))}
 
-            <article className="glass grid gap-6 rounded-3xl p-4 sm:p-5 lg:grid-cols-[1fr_420px] lg:items-center lg:p-6">
-              <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
-                <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
-                  Captation événementielle
-                </p>
-                <h2 className="text-3xl font-semibold text-white sm:text-4xl">{youtubeShowcase.title}</h2>
-                <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
-                  {youtubeShowcase.description.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+            <article className="relative grid gap-6 lg:grid-cols-[72px_minmax(0,1fr)] lg:gap-8">
+              <div className="hidden lg:flex lg:justify-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-blue-300/25 bg-blue-400/10 text-sm font-semibold text-blue-100">
+                  02
                 </div>
-                <Link
-                  href="/demander-un-devis"
-                  className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
-                >
-                  Demander une captation
-                </Link>
               </div>
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] px-4 py-5 shadow-[0_24px_80px_-50px_rgba(15,23,42,0.75)] backdrop-blur-sm sm:px-5 lg:px-7 lg:py-8">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/30 to-transparent" />
+                <div className="grid gap-6 lg:grid-cols-[1fr_420px] lg:items-center">
+                  <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
+                    <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
+                      Captation événementielle
+                    </p>
+                    <h2 className="text-3xl font-semibold text-white sm:text-4xl">{youtubeShowcase.title}</h2>
+                    <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
+                      {youtubeShowcase.description.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                    <Link
+                      href="/demander-un-devis"
+                      className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
+                    >
+                      Demander une captation
+                    </Link>
+                  </div>
 
-              <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 lg:mx-0">
-                <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                  <iframe
-                    src={youtubeShowcase.embedUrl}
-                    title={youtubeShowcase.title}
-                    className="absolute inset-0 h-full w-full border-0"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
+                  <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 lg:mx-0">
+                    <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                      <iframe
+                        src={youtubeShowcase.embedUrl}
+                        title={youtubeShowcase.title}
+                        className="absolute inset-0 h-full w-full border-0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </article>
+            </div>
           </div>
         ) : (
           <div className="mx-auto max-w-3xl rounded-3xl border border-white/15 bg-white/[0.06] p-6 text-center backdrop-blur">
