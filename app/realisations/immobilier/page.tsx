@@ -6,6 +6,8 @@ import ScrollEffects from "@/app/components/ScrollEffects";
 import SectionTitle from "@/app/components/SectionTitle";
 
 const matterportUrl = "https://my.matterport.com/show/?m=2EQY1NieJeL";
+const realEstateHeroImage =
+  "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80";
 
 const virtualTourShowcase = {
   title: "Visite virtuelle immersive",
@@ -61,7 +63,7 @@ export default function RealEstateShowcasePage() {
         className="relative flex min-h-[72vh] items-center overflow-hidden bg-cover bg-center px-4 pt-28 sm:min-h-[76vh] sm:px-6 lg:px-10"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(2, 8, 23, 0.9) 0%, rgba(2, 8, 23, 0.62) 46%, rgba(2, 8, 23, 0.3) 100%), url('/images/local1.jpg')"
+            `linear-gradient(90deg, rgba(2, 8, 23, 0.9) 0%, rgba(2, 8, 23, 0.62) 46%, rgba(2, 8, 23, 0.3) 100%), url('${realEstateHeroImage}')`
         }}
       >
         <div className="absolute inset-0 grid-fade opacity-40" />
