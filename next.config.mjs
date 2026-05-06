@@ -10,7 +10,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "script-src 'self' 'unsafe-inline' https://static.sketchfab.com https://sketchfab.com",
   "connect-src 'self' https://api.resend.com https://sketchfab.com https://www.google.com https://maps.googleapis.com https://vitals.vercel-insights.com",
-  "frame-src 'self' https://sketchfab.com https://www.google.com https://www.google.com/maps https://www.instagram.com https://instagram.com https://my.matterport.com https://matterport.com",
+  "frame-src 'self' https://sketchfab.com https://www.google.com https://www.google.com/maps https://www.instagram.com https://instagram.com https://my.matterport.com https://matterport.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://youtube-nocookie.com",
   "worker-src 'self' blob:",
   "media-src 'self' blob: data:",
   "object-src 'none'",
