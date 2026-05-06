@@ -23,6 +23,16 @@ const reels: Reel[] = [
   }
 ];
 
+const youtubeShowcase = {
+  title: "Jeux Ornais",
+  description: [
+    "Captation drone réalisée lors des Jeux Ornais afin de restituer l’énergie de l’événement et la diversité des temps forts sur le terrain.",
+    "J’ai filmé l’événement en drone pour apporter des plans aériens dynamiques, valoriser l’organisation et montrer l’ambiance générale au plus près de l’action.",
+    "Un format vidéo pensé pour la communication digitale, le partage sur les réseaux sociaux et la mise en valeur de l’événement."
+  ],
+  embedUrl: "https://www.youtube.com/embed/PjNchLysyLU"
+};
+
 export const metadata: Metadata = {
   title: "Réalisations événementielles drone | Novera Drone",
   description:
@@ -127,6 +137,39 @@ export default function EventShowcasePage() {
                 </div>
               </article>
             ))}
+
+            <article className="glass grid gap-6 rounded-3xl p-4 sm:p-5 lg:grid-cols-[1fr_420px] lg:items-center lg:p-6">
+              <div className="mx-auto flex max-w-2xl flex-col items-center px-1 py-2 text-center lg:px-4 lg:py-6">
+                <p className="mb-4 inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-blue-100">
+                  Captation événementielle
+                </p>
+                <h2 className="text-3xl font-semibold text-white sm:text-4xl">{youtubeShowcase.title}</h2>
+                <div className="mt-6 space-y-4 text-base leading-8 text-slate-300 sm:text-lg">
+                  {youtubeShowcase.description.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <Link
+                  href="/demander-un-devis"
+                  className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
+                >
+                  Demander une captation
+                </Link>
+              </div>
+
+              <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-2xl bg-slate-950 shadow-2xl shadow-blue-950/30 lg:mx-0">
+                <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                  <iframe
+                    src={youtubeShowcase.embedUrl}
+                    title={youtubeShowcase.title}
+                    className="absolute inset-0 h-full w-full border-0"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </article>
           </div>
         ) : (
           <div className="mx-auto max-w-3xl rounded-3xl border border-white/15 bg-white/[0.06] p-6 text-center backdrop-blur">
