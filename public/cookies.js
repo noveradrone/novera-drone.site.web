@@ -182,7 +182,11 @@ README - Novera Drone Cookie Manager (Vanilla JS)
 
     fetch("/api/cookie-consent", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "X-Novera-Cookie": "1"
+      },
+      credentials: "same-origin",
       body: JSON.stringify(payload),
       keepalive: true
     }).catch(function () {

@@ -1,39 +1,90 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { z } from "zod";
+import {
+  checkRateLimit,
+  escapeHtml,
+  getClientIp,
+  parseJsonWithLimit,
+  preflightResponse,
+  secureApiResponse,
+  validateRequestContext
+} from "@/app/lib/security";
+
+export const runtime = "nodejs";
 
 type ContactPayload = {
   name?: string;
   email?: string;
   message?: string;
   requestType?: "quote" | "solidaire";
+  website?: string;
+  startedAt?: number;
 };
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2).max(120),
+  email: z.string().trim().email().max(320),
+  message: z.string().trim().min(20).max(7000),
+  requestType: z.enum(["quote", "solidaire"]).optional(),
+  website: z.string().max(0).optional().default(""),
+  startedAt: z.number().int().positive().optional()
+});
+
+export async function OPTIONS(request: Request) {
+  return preflightResponse(request);
+}
 
 export async function POST(request: Request) {
   try {
-    const contentType = request.headers.get("content-type") || "";
-    if (!contentType.includes("application/json")) {
-      return NextResponse.json({ ok: false, error: "Format JSON requis." }, { status: 415 });
+    if (!validateRequestContext(request)) {
+      return secureApiResponse({ ok: false, error: "Accès refusé." }, { status: 403 }, request);
     }
 
-    const body = (await request.json()) as ContactPayload;
-    const name = body.name?.trim() || "";
-    const email = body.email?.trim() || "";
-    const message = body.message?.trim() || "";
-    const requestType = body.requestType === "solidaire" ? "solidaire" : "quote";
+    if (request.headers.get("x-novera-form") !== "1") {
+      return secureApiResponse({ ok: false, error: "Requête refusée." }, { status: 400 }, request);
+    }
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ ok: false, error: "Les champs name, email et message sont requis." }, { status: 400 });
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      return secureApiResponse({ ok: false, error: "Format non accepté." }, { status: 415 }, request);
+    }
+
+    const ip = getClientIp(request);
+    if (!checkRateLimit(`contact:${ip}`, 6, 60_000)) {
+      return secureApiResponse({ ok: false, error: "Trop de tentatives. Réessayez plus tard." }, { status: 429 }, request);
+    }
+
+    let rawBody: ContactPayload;
+    try {
+      rawBody = await parseJsonWithLimit<ContactPayload>(request, 30_000);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "";
+      const status = message === "PAYLOAD_TOO_LARGE" ? 413 : 400;
+      return secureApiResponse({ ok: false, error: "Requête invalide." }, { status }, request);
+    }
+
+    const parsed = contactSchema.safeParse(rawBody);
+    if (!parsed.success) {
+      return secureApiResponse({ ok: false, error: "Formulaire invalide." }, { status: 400 }, request);
+    }
+
+    const body = parsed.data;
+
+    if (body.website) {
+      return secureApiResponse({ ok: true }, { status: 200 }, request);
+    }
+
+    if (body.startedAt && Date.now() - body.startedAt < 2500) {
+      return secureApiResponse({ ok: false, error: "Soumission trop rapide." }, { status: 400 }, request);
     }
 
     const { RESEND_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } = process.env;
     if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL || !CONTACT_TO_EMAIL) {
-      return NextResponse.json(
-        { ok: false, error: "Variables manquantes: RESEND_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL." },
-        { status: 500 }
-      );
+      return secureApiResponse({ ok: false, error: "Service indisponible." }, { status: 503 }, request);
     }
 
-    const isSolidarityRequest = requestType === "solidaire";
+    const isSolidarityRequest = body.requestType === "solidaire";
     const subject = isSolidarityRequest
       ? "Nouvelle demande - Novera Drone Solidaire"
       : "Nouvelle demande de devis";
@@ -44,22 +95,22 @@ export async function POST(request: Request) {
       from: CONTACT_FROM_EMAIL,
       to: CONTACT_TO_EMAIL,
       subject,
-      replyTo: email,
+      replyTo: body.email,
       html: `
-        <h2>${heading}</h2>
-        <p><strong>Nom :</strong> ${name}</p>
-        <p><strong>Email :</strong> ${email}</p>
+        <h2>${escapeHtml(heading)}</h2>
+        <p><strong>Nom :</strong> ${escapeHtml(body.name)}</p>
+        <p><strong>Email :</strong> ${escapeHtml(body.email)}</p>
         <p><strong>Message :</strong></p>
-        <p>${message.replace(/\n/g, "<br/>")}</p>
+        <p>${escapeHtml(body.message).replace(/\n/g, "<br/>")}</p>
       `
     });
 
     if (error) {
-      return NextResponse.json({ ok: false, error: "Erreur Resend lors de l'envoi." }, { status: 502 });
+      return secureApiResponse({ ok: false, error: "Impossible d'envoyer la demande." }, { status: 502 }, request);
     }
 
-    return NextResponse.json({ ok: true });
+    return secureApiResponse({ ok: true }, { status: 200 }, request);
   } catch {
-    return NextResponse.json({ ok: false, error: "Erreur serveur." }, { status: 500 });
+    return secureApiResponse({ ok: false, error: "Erreur serveur." }, { status: 500 }, request);
   }
 }

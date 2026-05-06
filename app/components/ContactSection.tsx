@@ -51,6 +51,8 @@ export default function ContactSection() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
   const [sending, setSending] = useState(false);
+  const [websiteHoneypot, setWebsiteHoneypot] = useState("");
+  const [startedAt] = useState(() => Date.now());
 
   const canSubmit = useMemo(() => {
     const hasOtherMission = form.typePrestation !== "Autre" || !!form.missionAutre.trim();
@@ -73,11 +75,16 @@ export default function ContactSection() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "X-Novera-Form": "1"
         },
+        credentials: "same-origin",
         body: JSON.stringify({
           name: form.nom,
           email: form.email,
+          requestType: "quote",
+          website: websiteHoneypot,
+          startedAt,
           message: [
             `Téléphone: ${form.telephone || "Non renseigné"}`,
             `Type de prestation: ${form.typePrestation}`,
@@ -99,6 +106,7 @@ export default function ContactSection() {
 
       setStatus("success");
       setForm(initialState);
+      setWebsiteHoneypot("");
       setTimeout(() => setStatus("idle"), 3500);
     } catch (err) {
       setStatus("error");
@@ -134,7 +142,19 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-6 md:p-8">
+        <form onSubmit={onSubmit} className="glass rounded-3xl p-5 text-center sm:p-6 md:p-8" noValidate>
+          <label className="hidden" aria-hidden="true">
+            Site web
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              value={websiteHoneypot}
+              onChange={(e) => setWebsiteHoneypot(e.target.value)}
+              type="text"
+              name="website"
+            />
+          </label>
+
           <div className="grid gap-4 md:grid-cols-2">
             <label className="block text-center text-sm text-slate-200">
               Nom
