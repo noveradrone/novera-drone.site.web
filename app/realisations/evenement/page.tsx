@@ -27,7 +27,7 @@ const youtubeShowcase = {
   title: "Jeux Ornais",
   description: [
     "Captation drone réalisée lors des Jeux Ornais afin de restituer l’énergie de l’événement et la diversité des temps forts sur le terrain.",
-    "J’ai filmé l’événement en drone pour apporter des plans aériens dynamiques, valoriser l’organisation et montrer l’ambiance générale au plus près de l’action.",
+    "L’événement a été filmé par drone afin d’apporter des plans aériens dynamiques, de valoriser l’organisation et de montrer l’ambiance générale au plus près de l’action.",
     "Un format vidéo pensé pour la communication digitale, le partage sur les réseaux sociaux et la mise en valeur de l’événement."
   ],
   embedUrl: "https://www.youtube.com/embed/PjNchLysyLU"
