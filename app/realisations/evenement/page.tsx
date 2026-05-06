@@ -75,7 +75,7 @@ export default function EventShowcasePage() {
             Réalisations
           </p>
           <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl">
-            Événements filmés par drone en Normandie
+            Événement sportif
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
             Retrouvez ici les images aériennes réalisées pour des événements, manifestations, projets associatifs et contenus promotionnels.
