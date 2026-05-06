@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
@@ -26,14 +25,6 @@ const youtubeShowcase = {
   ],
   embedUrl: "https://www.youtube.com/embed/JDEOQj_Yn0Q"
 };
-
-const propertyImages = [
-  { src: "/images/local1.jpg", alt: "Vue immobilière du bâtiment - image 1" },
-  { src: "/images/local2.jpg", alt: "Vue immobilière du bâtiment - image 2" },
-  { src: "/images/local3.jpg", alt: "Vue immobilière du bâtiment - image 3" },
-  { src: "/images/local4.jpg", alt: "Vue immobilière du bâtiment - image 4" },
-  { src: "/images/local5.jpg", alt: "Vue immobilière du bâtiment - image 5" }
-];
 
 export const metadata: Metadata = {
   title: "Photo immobilière et visite virtuelle | Novera Drone",
@@ -192,30 +183,6 @@ export default function RealEstateShowcasePage() {
             </article>
           </div>
         </div>
-
-        <section className="mt-16">
-          <SectionTitle title={<>Galerie photo du bien</>} />
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {propertyImages.map((image, index) => (
-              <article
-                key={image.src}
-                className={`group glass overflow-hidden rounded-3xl ${index === 0 ? "lg:col-span-2" : ""}`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={1200}
-                  height={850}
-                  loading="lazy"
-                  className={`w-full object-cover transition duration-500 group-hover:scale-105 ${
-                    index === 0 ? "h-[280px] sm:h-[360px] lg:h-[430px]" : "h-[240px] sm:h-[300px] lg:h-[430px]"
-                  }`}
-                />
-              </article>
-            ))}
-          </div>
-        </section>
       </section>
 
       <Footer />
