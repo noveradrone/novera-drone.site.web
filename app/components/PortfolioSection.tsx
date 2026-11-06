@@ -66,6 +66,7 @@ export default function PortfolioSection() {
                 alt={item.alt}
                 width={800}
                 height={1100}
+                sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 300px"
                 loading="lazy"
                 className="aspect-[3/4] w-full object-cover object-center transition duration-500 group-hover:scale-105"
               />
@@ -78,7 +79,7 @@ export default function PortfolioSection() {
           return (
             <motion.article
               key={item.id}
-              className="cyl-card group glass relative block w-[220px] shrink-0 overflow-hidden rounded-2xl text-left sm:w-[260px] lg:w-[300px]"
+              className="cyl-card group relative block border border-white/15 bg-white/5 w-[220px] shrink-0 overflow-hidden rounded-2xl text-left sm:w-[260px] lg:w-[300px]"
               whileHover={{ y: -4, rotateY: 0 }}
             >
               {item.href ? (
