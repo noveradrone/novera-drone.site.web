@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid gap-8 text-center text-sm text-slate-300 md:grid-cols-4 md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">{legalInfo.companyName}</p>
-            <p>Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l&apos;Orne, le Calvados et la Manche.</p>
+            <p>Étude de toiture solaire, vidéo drone de trails, marathons et triathlons, inspection de toiture et photo aérienne dans l&apos;Orne, le Calvados et la Manche.</p>
             <p className="mb-2 mt-5 text-white">Services</p>
             {activeServicePages.map((service) => (
               <Link key={service.key} href={service.path} className="block py-1.5 hover:text-blue-300">
