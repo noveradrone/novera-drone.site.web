@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
@@ -28,11 +29,12 @@ const youtubeShowcase = {
   embedUrl: "https://www.youtube.com/embed/JDEOQj_Yn0Q"
 };
 
-export const metadata: Metadata = {
-  title: "Photo immobilière et visite virtuelle | Novera Drone",
+export const metadata: Metadata = buildMetadata({
+  title: "Photo immobilière par drone et visite virtuelle | Novera Drone",
   description:
-    "Découvrez les réalisations immobilières de Novera Drone: prises de vues aériennes, valorisation de biens et visite virtuelle Matterport en Normandie."
-};
+    "Réalisations immobilières de Novera Drone : prises de vues aériennes, valorisation de biens et visite virtuelle Matterport en Normandie.",
+  path: "/realisations/immobilier"
+});
 
 function toMatterportEmbedUrl(url: string) {
   if (!url) return "";

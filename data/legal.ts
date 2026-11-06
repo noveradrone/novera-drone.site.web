@@ -10,5 +10,14 @@ export const legalInfo = {
   hostName: "Vercel Inc.",
   hostWebsite: "https://vercel.com",
   coverage: "Manche – Orne – Calvados",
+  // TODO(Enes) : recopier l'adresse EXACTE de la fiche Google Business (laisser vide si elle est masquée).
+  address: {
+    streetAddress: "",
+    postalCode: "",
+    locality: ""
+  },
+  // TODO(Enes) : coller le lien de la fiche Google Business (ex. https://g.page/r/...).
+  googleBusinessUrl: "",
+  instagramUrl: "https://www.instagram.com/noveradrone",
   privacyRetentionYears: 3
 } as const;

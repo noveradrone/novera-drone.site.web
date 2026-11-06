@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/app/lib/seo";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 import { serviceSlugs, services } from "@/data/content";
@@ -17,14 +18,14 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const service = services.find((item) => item.slug === params.slug);
   if (!service) {
-    return { title: "Service introuvable | Novera Drone" };
+    return { title: { absolute: "Service introuvable | Novera Drone" }, robots: { index: false } };
   }
 
-  return {
+  return buildMetadata({
     title: service.metaTitle,
     description: service.metaDescription,
-    keywords: [service.primaryKeyword, ...service.secondaryKeywords]
-  };
+    path: `/services/${service.slug}`
+  });
 }
 
 export default function ServiceDetailPage({ params }: Props) {

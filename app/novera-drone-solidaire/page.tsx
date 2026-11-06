@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/app/lib/seo";
 import Footer from "@/app/components/Footer";
 import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
@@ -7,11 +8,12 @@ import SolidarityRequestForm from "@/app/components/SolidarityRequestForm";
 import type { Metadata } from "next";
 import { HandHeart, Megaphone, Sparkles, Video } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Novera Drone Solidaire | Images aériennes pour associations humanitaires",
+export const metadata: Metadata = buildMetadata({
+  title: "Novera Drone Solidaire | Images aériennes pour associations",
   description:
-    "Novera Drone Solidaire accompagne les associations humanitaires et solidaires avec des prises de vues aériennes gratuites pour valoriser leurs actions et événements."
-};
+    "Novera Drone Solidaire accompagne les associations humanitaires et solidaires de Normandie avec des prises de vues aériennes offertes pour valoriser leurs actions.",
+  path: "/novera-drone-solidaire"
+});
 
 const impactCards = [
   {

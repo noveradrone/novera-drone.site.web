@@ -1,11 +1,13 @@
+import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
 import { legalInfo } from "@/data/legal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Mentions légales | Novera Drone",
   description:
-    "Mentions légales du site professionnel de services drone en Manche, Orne et Calvados."
-};
+    "Mentions légales du site Novera Drone, services drone dans l'Orne, le Calvados et la Manche.",
+  path: "/mentions-legales"
+});
 
 export default function MentionsLegalesPage() {
   return (

@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
@@ -33,11 +34,12 @@ const youtubeShowcase = {
   embedUrl: "https://www.youtube.com/embed/PjNchLysyLU"
 };
 
-export const metadata: Metadata = {
-  title: "Réalisations événementielles drone | Novera Drone",
+export const metadata: Metadata = buildMetadata({
+  title: "Vidéo drone d'événements sportifs en Normandie | Novera Drone",
   description:
-    "Découvrez les réalisations événementielles de Novera Drone: prises de vues aériennes, vidéos et contenus professionnels en Normandie."
-};
+    "Réalisations événementielles de Novera Drone : vidéos aériennes de trails, triathlons et événements dans l'Orne, le Calvados et la Manche.",
+  path: "/realisations/evenement"
+});
 
 function toInstagramEmbedUrl(url: string) {
   try {

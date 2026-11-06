@@ -1,14 +1,17 @@
+import { buildMetadata } from "@/app/lib/seo";
+import type { Metadata } from "next";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 import { services } from "@/data/content";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Services Drone | Novera Drone",
+export const metadata: Metadata = buildMetadata({
+  title: "Services drone en Normandie : toiture solaire, inspection, photo",
   description:
-    "Découvrez tous les services Novera Drone: photographie aérienne, thermographie, inspection technique et nettoyage par drone."
-};
+    "Étude de toiture solaire, inspection de toiture et de façade, photo et vidéo aérienne par drone dans l'Orne, le Calvados et la Manche.",
+  path: "/services"
+});
 
 export default function ServicesPage() {
   return (

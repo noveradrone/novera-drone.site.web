@@ -1,11 +1,13 @@
+import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
 import { legalInfo } from "@/data/legal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Politique de confidentialité | Novera Drone",
   description:
-    "Politique de confidentialité RGPD relative aux formulaires de devis et à la gestion des données personnelles."
-};
+    "Politique de confidentialité RGPD de Novera Drone : formulaires de devis et gestion des données personnelles.",
+  path: "/politique-de-confidentialite"
+});
 
 export default function PolitiqueConfidentialitePage() {
   return (
