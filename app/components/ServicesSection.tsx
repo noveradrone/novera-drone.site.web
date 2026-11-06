@@ -8,8 +8,7 @@ export default function ServicesSection() {
     <section id="services" className="section-shell reveal-up">
       <SectionTitle
         eyebrow="Services"
-        title={<>Nos services drone dans l&apos;Orne, le Calvados et la Manche</>}
-        description="Une même exigence de précision, de l'étude solaire à la vidéo de vos événements sportifs."
+        title={<>Nos services drone</>}
       />
       <div className="grid gap-5 md:grid-cols-2">
         {activeServicePages.map((service) => (
@@ -23,9 +22,8 @@ export default function ServicesSection() {
               </p>
             ) : null}
             <h3 className="text-xl font-semibold sm:text-2xl">{service.card.title}</h3>
-            <p className="mt-3 text-sm text-slate-300 sm:text-base">{service.card.description}</p>
             <ul className="mt-5 space-y-2 text-sm text-slate-200">
-              {service.card.highlights.map((item) => (
+              {service.card.highlights.slice(0, 3).map((item) => (
                 <li key={item}>• {item}</li>
               ))}
             </ul>

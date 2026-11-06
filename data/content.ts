@@ -19,20 +19,20 @@ export const upcomingServices = [
 
 export const whyChooseUs = [
   {
-    title: "Un télépilote formé à l'efficacité énergétique",
-    text: "Enes, fondateur de Novera Drone, est diplômé d'un BUT MT2E (thermique du bâtiment, photovoltaïque) : vos toitures sont lues avec un regard technique."
+    title: "Formé au solaire",
+    text: "Diplômé BUT MT2E (thermique, photovoltaïque)."
   },
   {
     title: "Rapport sous 48 h",
-    text: "Après un vol d'environ 15 minutes, l'étude de toiture solaire vous est remise en PDF sous 48 heures."
+    text: "Vol de 15 min, rapport PDF sous 48 h."
   },
   {
-    title: "Sans échafaudage ni montée sur le toit",
-    text: "Aucun risque de chute, aucune tuile abîmée : tout le relevé est fait depuis les airs."
+    title: "Sans échafaudage",
+    text: "Personne ne monte sur le toit."
   },
   {
-    title: "Un interlocuteur local",
-    text: "Intervention dans l'Orne, le Calvados et la Manche : Flers, Vire, Argentan, Alençon, Saint-Lô, Avranches, Caen."
+    title: "Local",
+    text: "Orne, Calvados et Manche."
   }
 ];
 

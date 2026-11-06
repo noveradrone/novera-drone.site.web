@@ -60,7 +60,7 @@ export const activeServicePages: ServiceContent[] = [
       "Relevé de toiture par drone, calepinage et estimation de production PVGIS. Rapport PDF sous 48 h pour installateurs et particuliers dans l'Orne, le Calvados et la Manche.",
     h1: "Étude de toiture solaire par drone en Normandie",
     lead:
-      "Avant de poser des panneaux, il faut connaître la toiture. En un vol d'environ 15 minutes, Novera Drone relève les surfaces, les pentes, l'orientation et les obstacles, puis vous remet sous 48 h un rapport PDF avec un calepinage et une estimation de production.",
+      "Un vol de 15 minutes, puis un rapport PDF sous 48 h : surfaces, ombrages, calepinage et production estimée.",
     primaryCta: "Demander une étude de toiture",
     // TODO(Enes) : déposer un exemple de rapport anonymisé dans /public/rapports/ puis renseigner le chemin.
     reportPdf: "",
@@ -151,7 +151,7 @@ export const activeServicePages: ServiceContent[] = [
       "Captation drone de trails, marathons, courses sur route et triathlons dans l'Orne, le Calvados et la Manche : plans aériens, FPV, teaser et vidéos pour les réseaux.",
     h1: "Vidéo drone pour trails, marathons, courses et triathlons",
     lead:
-      "Organisateur d'un trail, d'un marathon, d'une course sur route ou d'un triathlon ? Novera Drone filme votre événement depuis les airs : le départ, le parcours, les passages clés, l'arrivée et l'ambiance, pour une vidéo qui donne envie de s'inscrire à la prochaine édition.",
+      "Départ, parcours, arrivée : votre course filmée en aérien et en FPV, pour donner envie de s'inscrire l'an prochain.",
     primaryCta: "Demander un devis pour mon événement",
     video: { title: "Jeux Ornais filmés par drone", embedUrl: "https://www.youtube-nocookie.com/embed/PjNchLysyLU" },
     testimonial: {
@@ -254,7 +254,7 @@ export const activeServicePages: ServiceContent[] = [
       "Inspection visuelle de toiture et de façade par drone après tempête, avant achat ou pour les couvreurs. Photos HD annotées, sans échafaudage, en Normandie.",
     h1: "Inspection de toiture et de façade par drone",
     lead:
-      "Tuiles déplacées après un coup de vent, doute avant d'acheter une maison, devis de couvreur à préparer : le drone photographie votre toiture et vos façades de près, sans échelle ni échafaudage, et vous livre des photos annotées des points à surveiller.",
+      "Après une tempête ou avant un achat : photos HD annotées de votre toiture, sans échelle ni échafaudage.",
     primaryCta: "Demander une inspection",
     sections: [
       {
@@ -349,7 +349,7 @@ export const activeServicePages: ServiceContent[] = [
       "Photos et vidéos aériennes par drone pour l'immobilier, les événements sportifs et la communication dans l'Orne, le Calvados et la Manche. Formats web et réseaux sociaux.",
     h1: "Photo et vidéo aérienne par drone en Normandie",
     lead:
-      "Montrer un bien dans son environnement, filmer une course au plus près des coureurs, donner de l'ampleur à la vidéo de votre entreprise : Novera Drone réalise des photos et vidéos aériennes prêtes à publier, dans l'Orne, le Calvados et la Manche.",
+      "Photos et vidéos aériennes prêtes à publier, pour l'immobilier, les entreprises et les événements.",
     primaryCta: "Demander un devis photo ou vidéo",
     image: {
       src: "/images/aerien-foret-normandie.webp",

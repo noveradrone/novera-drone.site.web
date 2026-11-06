@@ -27,7 +27,7 @@ export default function HomePage() {
         compactTitle
         title="Étude solaire, inspection de toiture et vidéo drone d'événements sportifs en Normandie"
         subtitle="Orne, Calvados, Manche – Flers, Vire, Argentan, Saint-Lô, Caen"
-        supportText="Toitures relevées sans échafaudage avec rapport sous 48 h · trails, marathons et triathlons filmés en aérien et en FPV."
+        supportText="Sans échafaudage · rapport sous 48 h · courses filmées en aérien et FPV"
         ctaLabel="Demander une étude de toiture"
         ctaHref="/demander-un-devis?prestation=etude"
         secondaryCtaLabel="Devis événement sportif"

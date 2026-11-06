@@ -1,6 +1,7 @@
 import Footer from "@/app/components/Footer";
 import JsonLd from "@/app/components/JsonLd";
 import Navbar from "@/app/components/Navbar";
+import ReadMore from "@/app/components/ReadMore";
 import { breadcrumbJsonLd, faqJsonLd, siteUrl } from "@/app/lib/seo";
 import { activeServicePages } from "@/data/services";
 import { villeLinks, type VilleContent } from "@/data/villes";
@@ -64,11 +65,7 @@ export default function VillePageTemplate({ ville }: { ville: VilleContent }) {
           {[ville.contexte, ville.toitures].map((block) => (
             <article key={block.h2} className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
               <h2 className="text-2xl font-semibold md:text-3xl">{block.h2}</h2>
-              {block.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className="mt-4 leading-relaxed text-slate-300">
-                  {paragraph}
-                </p>
-              ))}
+              <ReadMore paragraphs={block.paragraphs} />
             </article>
           ))}
 
@@ -125,9 +122,6 @@ export default function VillePageTemplate({ ville }: { ville: VilleContent }) {
 
           <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Un projet à {ville.name} ?</h2>
-            <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Indiquez l&apos;adresse et votre besoin : vous recevez une proposition claire et un créneau d&apos;intervention.
-            </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link href="/demander-un-devis?prestation=etude" className={primaryButton}>
                 Demander une étude de toiture

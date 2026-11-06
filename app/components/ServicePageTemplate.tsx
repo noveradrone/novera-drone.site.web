@@ -1,6 +1,7 @@
 import Footer from "@/app/components/Footer";
 import JsonLd from "@/app/components/JsonLd";
 import Navbar from "@/app/components/Navbar";
+import ReadMore from "@/app/components/ReadMore";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/app/lib/seo";
 import { activeServicePages, type ServiceContent } from "@/data/services";
 import { villeLinks } from "@/data/villes";
@@ -91,11 +92,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
           {service.sections.map((section) => (
             <article key={section.h2} className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
               <h2 className="text-2xl font-semibold md:text-3xl">{section.h2}</h2>
-              {section.paragraphs?.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className="mt-4 leading-relaxed text-slate-300">
-                  {paragraph}
-                </p>
-              ))}
+              {section.paragraphs ? <ReadMore paragraphs={section.paragraphs} /> : null}
               {section.bullets ? (
                 <ul className="mt-5 space-y-3 text-slate-200">
                   {section.bullets.map((bullet) => (
@@ -116,7 +113,6 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
                 <li key={step.title} className="rounded-2xl border border-white/10 bg-black/15 p-4">
                   <p className="text-sm font-semibold text-blue-300">Étape {index + 1}</p>
                   <h3 className="mt-1 font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{step.text}</p>
                 </li>
               ))}
             </ol>
@@ -166,7 +162,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
 
           <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Nos autres services drone</h2>
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
               {otherServices.map((item) => (
                 <Link
                   key={item.key}
@@ -174,16 +170,15 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
                   className="rounded-2xl border border-white/10 bg-black/15 p-5 transition hover:border-blue-300/50"
                 >
                   <h3 className="font-semibold text-white">{item.card.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{item.card.description}</p>
                 </Link>
               ))}
             </div>
             <p className="mt-6 text-sm text-slate-400">
-              Interventions près de chez vous :{" "}
+              Près de chez vous :{" "}
               {villeLinks.map((ville, index) => (
                 <span key={ville.slug}>
                   <Link href={ville.path} className="text-blue-300 hover:text-blue-200">
-                    drone à {ville.name}
+                    {ville.name}
                   </Link>
                   {index < villeLinks.length - 1 ? ", " : "."}
                 </span>

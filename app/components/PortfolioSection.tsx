@@ -37,7 +37,6 @@ export default function PortfolioSection() {
       <SectionTitle
         eyebrow="Galerie"
         title={<>Nos réalisations drone en Normandie</>}
-        description="Explorez nos projets par catégorie pour découvrir nos domaines d’expertise."
       />
 
       <div className="mb-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide md:justify-center md:gap-3">
