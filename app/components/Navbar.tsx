@@ -5,6 +5,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const desktopLinks = [
+  { href: "/etude-toiture-solaire-drone", label: "Étude solaire" },
+  { href: "/services", label: "Services" },
+  { href: "/simulateur-solaire", label: "Simulateur" },
+  { href: "/guides", label: "Guides" },
+  { href: "/drone-associations-humanitaires", label: "Associations" }
+];
+
+const mobileLinks = [
+  { href: "/", label: "Accueil" },
+  ...desktopLinks,
+  { href: "/realisations/evenement", label: "Réalisations" },
+  { href: "/drone", label: "Nos drones" }
+];
+
 type NavbarProps = {
   ctaLabel?: string;
   ctaHref?: string;
@@ -97,7 +112,7 @@ export default function Navbar({ ctaLabel = "Demander un devis", ctaHref = "/dem
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-slate-100 transition hover:bg-white/10 md:hidden"
+            className="min-h-[40px] rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:bg-white/10 md:hidden"
             aria-expanded={mobileOpen}
             aria-label="Ouvrir le menu"
           >
@@ -106,87 +121,42 @@ export default function Navbar({ ctaLabel = "Demander un devis", ctaHref = "/dem
 
           {mobileOpen ? (
             <div className="absolute right-0 top-11 z-20 w-56 overflow-hidden rounded-2xl border border-white/20 bg-[#0b1225]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
-              <Link
-                onClick={() => setMobileOpen(false)}
-                href="/"
-                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${isActive("/") ? "bg-white/10" : ""}`}
-              >
-                Accueil
-              </Link>
-              <Link
-                onClick={() => setMobileOpen(false)}
-                href="/services"
-                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
-                  isActive("/services") ? "bg-white/10" : ""
-                }`}
-              >
-                Services
-              </Link>
-              <Link
-                onClick={() => setMobileOpen(false)}
-                href="/drone"
-                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
-                  isActive("/drone") ? "bg-white/10" : ""
-                }`}
-              >
-                Drone
-              </Link>
-              <Link
-                onClick={() => setMobileOpen(false)}
-                href="/drone-associations-humanitaires"
-                className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
-                  isActive("/drone-associations-humanitaires") ? "bg-white/10" : ""
-                }`}
-              >
-                Associations
-              </Link>
+              {mobileLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  href={link.href}
+                  className={`block rounded-xl px-3 py-2.5 text-sm text-slate-100 hover:bg-white/10 ${isActive(link.href) ? "bg-white/10" : ""}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
                 onClick={() => setMobileOpen(false)}
                 href={ctaHref}
-                className="mt-1 block rounded-xl bg-blue-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-400"
+                className="mt-1 block rounded-xl bg-blue-600 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-500"
               >
                 {ctaLabel}
               </Link>
             </div>
           ) : null}
 
-          <div className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/5 p-1 md:flex">
-            <Link
-              href="/"
-              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
-                isActive("/") ? "bg-white/10 text-white" : "text-slate-200"
-              }`}
-            >
-              Accueil
-            </Link>
-            <Link
-              href="/services"
-              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
-                isActive("/services") ? "bg-white/10 text-white" : "text-slate-200"
-              }`}
-            >
-              Services
-            </Link>
-            <Link
-              href="/drone"
-              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
-                isActive("/drone") ? "bg-white/10 text-white" : "text-slate-200"
-              }`}
-            >
-              Drone
-            </Link>
-            <Link
-              href="/drone-associations-humanitaires"
-              className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
-                isActive("/drone-associations-humanitaires") ? "bg-white/10 text-white" : "text-slate-200"
-              }`}
-            >
-              Associations
-            </Link>
+          <div className="hidden items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1 md:flex">
+            {desktopLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-3 py-1.5 text-sm transition hover:bg-white/10 hover:text-white lg:px-4 ${
+                  isActive(link.href) ? "bg-white/10 text-white" : "text-slate-200"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <Link
             href={ctaHref}
-            className="inline-flex whitespace-nowrap rounded-full bg-blue-500 px-2.5 py-1.5 text-[11px] font-medium text-white transition hover:bg-blue-400 sm:px-4 sm:py-2 sm:text-sm"
+            className="inline-flex min-h-[40px] items-center whitespace-nowrap rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-500"
           >
             <span className="sm:hidden">{mobileCtaLabel}</span>
             <span className="hidden sm:inline">{ctaLabel}</span>

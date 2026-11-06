@@ -217,7 +217,7 @@ export default function ContactSection() {
 
           <button
             disabled={sending}
-            className="mx-auto mt-6 block rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
+            className="mx-auto mt-6 block rounded-full bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {sending ? "Envoi en cours..." : "Demander un devis"}
           </button>

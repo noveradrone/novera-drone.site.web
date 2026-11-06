@@ -272,6 +272,106 @@ export const villes: VilleContent[] = [
         a: "Oui. L'inspection par drone permet au syndic et au conseil syndical de disposer de photos précises de la toiture et des façades, sans échafaudage, avant de décider des travaux."
       }
     ]
+  },
+  {
+    slug: "alencon",
+    name: "Alençon",
+    path: "/drone-alencon",
+    departement: "Orne",
+    metaTitle: "Drone à Alençon (Orne) : étude solaire et inspection de toiture",
+    metaDescription:
+      "Étude de toiture solaire, inspection de toiture et photo aérienne par drone à Alençon et dans la communauté urbaine. Télépilote ornais, rapport sous 48 h.",
+    h1: "Drone à Alençon : étude solaire et inspection de toiture",
+    lead:
+      "À Alençon, préfecture de l'Orne, et dans les communes voisines de l'Orne et de la Sarthe, Novera Drone réalise des études de toiture solaire, des inspections de couverture et des prises de vues aériennes.",
+    contexte: {
+      h2: "Alençon, entre centre historique et portes du Maine",
+      paragraphs: [
+        "Ville de la dentelle au point d'Alençon, Alençon a conservé un centre ancien riche en hôtels particuliers et maisons à pans de bois, autour de la Maison d'Ozé et de la basilique Notre-Dame. Autour de ce cœur historique s'étendent des quartiers résidentiels, des zones d'activités et une agglomération qui déborde sur la Sarthe voisine.",
+        "Au nord, la forêt d'Écouves et, plus largement, le Parc naturel régional Normandie-Maine encadrent un territoire où se côtoient maisons de bourg, longères et exploitations agricoles."
+      ]
+    },
+    toitures: {
+      h2: "Toitures anciennes et projets solaires à Alençon",
+      paragraphs: [
+        "Dans le centre ancien, les toitures d'ardoise à fortes pentes, souvent complexes, se prêtent mal à une inspection à l'échelle : le drone permet de les observer sans intervenir sur la couverture. Les quartiers plus récents et les bâtiments d'activité offrent des toitures régulières, plus simples à équiper en panneaux.",
+        "Côté solaire, Alençon fait partie des secteurs les mieux exposés de la région : selon PVGIS, 1 kWc orienté plein sud y produit environ 1 140 kWh par an. À noter : en secteur protégé, la pose de panneaux peut demander l'avis de l'architecte des bâtiments de France. Les photos du rapport aident à préparer ce dossier."
+      ]
+    },
+    services: [
+      { key: "etude", text: "Relevé et calepinage de votre toiture à Alençon, avec estimation PVGIS localisée." },
+      { key: "inspection", text: "Inspection des toitures d'ardoise et façades anciennes sans échafaudage, pour particuliers et syndics." },
+      { key: "photo", text: "Vues aériennes de biens, d'entreprises et d'événements de la communauté urbaine." }
+    ],
+    besoins: {
+      h2: "Exemples de besoins à Alençon",
+      items: [
+        "Un propriétaire du centre historique qui veut connaître l'état de sa toiture avant de lancer des travaux.",
+        "Un particulier en périphérie qui souhaite vérifier le devis d'un installateur avant de signer.",
+        "Une entreprise de zone d'activités qui étudie l'autoconsommation sur son bâtiment."
+      ]
+    },
+    communes: ["Damigny", "Valframbert", "Saint-Germain-du-Corbéis", "Condé-sur-Sarthe", "Cerisé", "Sées", "Écouves"],
+    faq: [
+      {
+        q: "Intervenez-vous côté Sarthe, autour d'Alençon ?",
+        a: "Oui. Les communes sarthoises de l'agglomération d'Alençon font partie de la zone d'intervention habituelle."
+      },
+      {
+        q: "Peut-on installer des panneaux solaires dans le centre ancien ?",
+        a: "Cela dépend du secteur : à proximité des monuments historiques, le projet peut être soumis à l'avis de l'architecte des bâtiments de France. L'étude par drone fournit des photos et un calepinage utiles pour constituer la demande."
+      }
+    ]
+  },
+  {
+    slug: "avranches",
+    name: "Avranches",
+    path: "/drone-avranches",
+    departement: "Manche",
+    metaTitle: "Drone à Avranches (Manche) : étude solaire, toiture, photo",
+    metaDescription:
+      "Télépilote drone à Avranches et dans le sud-Manche : étude de toiture solaire, inspection de toiture exposée au vent, photo aérienne pour gîtes et immobilier.",
+    h1: "Drone à Avranches : étude solaire et inspection de toiture",
+    lead:
+      "Face à la baie du Mont-Saint-Michel, Avranches et le sud-Manche combinent maisons de caractère, hébergements touristiques et exploitations agricoles. Novera Drone y intervient pour les études solaires, les inspections de toiture et les images aériennes.",
+    contexte: {
+      h2: "Avranches et la baie : un territoire exposé",
+      paragraphs: [
+        "Perchée sur son promontoire, Avranches domine la baie du Mont-Saint-Michel. La ville et ses environs vivent beaucoup du tourisme, avec de nombreux gîtes, chambres d'hôtes et résidences secondaires, mais aussi de l'agriculture dans l'arrière-pays.",
+        "Attention : la baie et le Mont-Saint-Michel sont soumis à des restrictions de survol. Chaque adresse est vérifiée avant la mission et les démarches nécessaires sont effectuées ; si un vol n'est pas autorisé, vous en êtes informé avant toute intervention."
+      ]
+    },
+    toitures: {
+      h2: "Des toitures qui subissent le vent et l'air marin",
+      paragraphs: [
+        "Proche de la mer, le sud-Manche est régulièrement balayé par le vent, et l'air marin accélère l'usure des fixations, des faîtages et des solins. Après une tempête, une inspection par drone permet de vérifier rapidement ardoises, tuiles et cheminées sans monter sur le toit.",
+        "Pour le solaire, la côte est bien ensoleillée : selon PVGIS, 1 kWc orienté plein sud produit environ 1 130 kWh par an autour d'Avranches. Les toitures de gîtes et de bâtiments agricoles offrent souvent des surfaces intéressantes."
+      ]
+    },
+    services: [
+      { key: "etude", text: "Étude solaire de maison, de gîte ou de bâtiment agricole dans le sud-Manche." },
+      { key: "inspection", text: "Contrôle des toitures après tempête, avec photos datées pour votre assurance." },
+      { key: "photo", text: "Photos et vidéos aériennes de gîtes, de biens à vendre et d'événements autour de la baie." }
+    ],
+    besoins: {
+      h2: "Exemples de besoins autour d'Avranches",
+      items: [
+        "Un propriétaire de gîte qui veut des vues aériennes pour ses annonces de location.",
+        "Un particulier qui a perdu des ardoises lors d'un coup de vent et doit documenter les dégâts.",
+        "Un agriculteur qui envisage des panneaux sur un hangar et veut connaître la surface utile."
+      ]
+    },
+    communes: ["Saint-Quentin-sur-le-Homme", "Le Val-Saint-Père", "Pontaubault", "Ducey-Les Chéris", "Sartilly-Baie-Bocage", "Pontorson", "Granville"],
+    faq: [
+      {
+        q: "Pouvez-vous filmer près du Mont-Saint-Michel ?",
+        a: "Le secteur est soumis à des restrictions de survol strictes. Chaque demande est étudiée au cas par cas, et seuls les vols autorisés sont réalisés."
+      },
+      {
+        q: "Le climat marin abîme-t-il plus vite les toitures ?",
+        a: "Le vent et le sel sollicitent davantage les fixations, les faîtages et les éléments métalliques. Un contrôle visuel régulier par drone permet de repérer ces signes d'usure avant qu'une fuite n'apparaisse."
+      }
+    ]
   }
 ];
 

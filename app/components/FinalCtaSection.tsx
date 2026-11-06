@@ -12,7 +12,7 @@ export default function FinalCtaSection() {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             href="/demander-un-devis?prestation=etude"
-            className="inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400"
+            className="inline-flex rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-500"
           >
             Demander une étude de toiture
           </Link>

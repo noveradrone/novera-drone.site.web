@@ -38,7 +38,7 @@ export default function ServicesSection() {
               </Link>
               <Link
                 href={`/demander-un-devis?prestation=${service.key}`}
-                className="inline-flex w-fit items-center rounded-full bg-blue-500 px-4 py-1.5 text-sm leading-none text-white transition hover:bg-blue-400"
+                className="inline-flex w-fit items-center rounded-full bg-blue-600 px-4 py-1.5 text-sm leading-none text-white transition hover:bg-blue-500"
               >
                 Demander un devis
               </Link>

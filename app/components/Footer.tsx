@@ -14,10 +14,16 @@ export default function Footer() {
             <p>Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l&apos;Orne, le Calvados et la Manche.</p>
             <p className="mb-2 mt-5 text-white">Services</p>
             {activeServicePages.map((service) => (
-              <Link key={service.key} href={service.path} className="block hover:text-blue-300">
+              <Link key={service.key} href={service.path} className="block py-1.5 hover:text-blue-300">
                 {service.name}
               </Link>
             ))}
+            <Link href="/simulateur-solaire" className="block py-1.5 hover:text-blue-300">
+              Simulateur solaire gratuit
+            </Link>
+            <Link href="/guides" className="block py-1.5 hover:text-blue-300">
+              Guides pratiques
+            </Link>
             <p className="mb-2 mt-5 text-white">Zones d&apos;intervention</p>
             <p>
               {villeLinks.map((ville, index) => (
@@ -67,23 +73,23 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">Informations</p>
-            <Link href="/mentions-legales" className="block hover:text-blue-300">
+            <Link href="/mentions-legales" className="block py-1.5 hover:text-blue-300">
               Mentions légales
             </Link>
-            <Link href="/politique-de-confidentialite" className="block hover:text-blue-300">
+            <Link href="/politique-de-confidentialite" className="block py-1.5 hover:text-blue-300">
               Politique de confidentialité
             </Link>
-            <button type="button" data-open-cookie-settings className="mt-1 block hover:text-blue-300">
+            <button type="button" data-open-cookie-settings className="block py-1.5 hover:text-blue-300">
               Gérer mes cookies
             </button>
             <p className="mt-1">Zone d'intervention: {legalInfo.coverage}</p>
           </div>
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">Contact</p>
-            <a href={`mailto:${legalInfo.email}`} className="block hover:text-blue-300">
+            <a href={`mailto:${legalInfo.email}`} className="block py-1.5 hover:text-blue-300">
               {legalInfo.email}
             </a>
-            <a href={`tel:${legalInfo.phoneHref}`} className="block hover:text-blue-300">
+            <a href={`tel:${legalInfo.phoneHref}`} className="block py-1.5 hover:text-blue-300">
               {legalInfo.phoneDisplay}
             </a>
           </div>

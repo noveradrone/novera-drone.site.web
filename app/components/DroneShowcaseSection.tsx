@@ -91,7 +91,7 @@ export default function DroneShowcaseSection() {
                               type="button"
                               onClick={() => setActiveSlides((prev) => ({ ...prev, [drone.name]: slide }))}
                               className={`h-2.5 w-2.5 rounded-full transition ${
-                                activeSlides[drone.name] === slide ? "bg-blue-500" : "bg-slate-300"
+                                activeSlides[drone.name] === slide ? "bg-blue-600" : "bg-slate-300"
                               }`}
                               aria-label={slide === 0 ? "Voir image" : "Voir modèle 3D"}
                             />

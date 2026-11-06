@@ -145,3 +145,158 @@ video::-webkit-media-controls-start-playback-button {
     padding-bottom: 72px;
   }
 }
+
+/* ---------- Animation d'entrée : le logo décolle ---------- */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 55%, #0b1f3f 0%, #020617 70%);
+  animation: intro-overlay-out 0.45s ease-in 1.3s forwards;
+}
+
+html[data-intro="vu"] .intro-overlay {
+  display: none;
+}
+
+.intro-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-drone {
+  position: relative;
+  animation: intro-takeoff 1.7s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+.intro-logo {
+  width: 150px;
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 0 18px rgba(56, 189, 248, 0.55));
+}
+
+/* Hélices : traits flous qui tournent au-dessus du logo */
+.intro-rotor {
+  position: absolute;
+  top: 2px;
+  width: 54px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(138, 216, 255, 0.85), transparent);
+  animation: intro-spin 0.12s linear infinite;
+}
+
+.intro-rotor-left {
+  left: 2px;
+}
+
+.intro-rotor-right {
+  right: 2px;
+}
+
+.intro-shadow {
+  margin-top: 26px;
+  width: 120px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(56, 189, 248, 0.35), transparent);
+  animation: intro-shadow 1.7s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+/* Souffle des hélices au sol */
+.intro-wind {
+  position: absolute;
+  bottom: -2px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(138, 216, 255, 0.35);
+  transform: scaleY(0.25);
+  opacity: 0;
+  animation: intro-wind 0.8s ease-out 0.3s 2;
+}
+
+@keyframes intro-takeoff {
+  0% {
+    transform: translateY(18px) scale(0.92);
+    opacity: 0;
+  }
+  18% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  32% {
+    transform: translateY(-14px) rotate(-1.5deg);
+  }
+  46% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+  58% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-75vh) scale(0.55);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-shadow {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  18% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  58% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-spin {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.25);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-wind {
+  0% {
+    transform: scaleY(0.25) scaleX(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleY(0.25) scaleX(3);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-overlay-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-overlay {
+    display: none;
+  }
+}

@@ -5,6 +5,7 @@ import Navbar from "@/app/components/Navbar";
 import PortfolioSection from "@/app/components/PortfolioSection";
 import ScrollEffects from "@/app/components/ScrollEffects";
 import ServicesSection from "@/app/components/ServicesSection";
+import ToolsSection from "@/app/components/ToolsSection";
 import TestimonialsSection from "@/app/components/TestimonialsSection";
 import WhyChooseSection from "@/app/components/WhyChooseSection";
 import { buildMetadata } from "@/app/lib/seo";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <ScrollEffects />
       <ServicesSection />
       <WhyChooseSection />
+      <ToolsSection />
       <PortfolioSection />
       <TestimonialsSection />
       <FinalCtaSection />

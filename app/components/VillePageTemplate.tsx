@@ -7,7 +7,7 @@ import { villeLinks, type VilleContent } from "@/data/villes";
 import Link from "next/link";
 
 const primaryButton =
-  "inline-flex items-center justify-center rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400";
+  "inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-500";
 const secondaryButton =
   "inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium transition hover:border-blue-300";
 

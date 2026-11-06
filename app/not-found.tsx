@@ -22,7 +22,7 @@ export default function NotFound() {
         Page introuvable
       </motion.h1>
       <p className="mt-4 max-w-xl text-slate-300">Cette page n'existe plus ou a été déplacée.</p>
-      <Link href="/" className="mt-8 rounded-full bg-blue-500 px-6 py-3 text-white transition hover:bg-blue-400">
+      <Link href="/" className="mt-8 rounded-full bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-500">
         Retour à l'accueil
       </Link>
     </main>

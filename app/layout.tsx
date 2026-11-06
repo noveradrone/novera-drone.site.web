@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/app/components/CookieConsent";
+import IntroAnimation from "@/app/components/IntroAnimation";
+import MobileActionBar from "@/app/components/MobileActionBar";
 import { buildMetadata, localBusinessJsonLd, siteUrl } from "@/app/lib/seo";
 import "./globals.css";
 import "./cookies.css";
@@ -28,10 +30,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr" className="dark" suppressHydrationWarning>
       <head>
+        {/* Animation d'entrée une seule fois par visite : marque la page avant le premier affichage. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('nd-intro')){document.documentElement.dataset.intro='vu'}else{sessionStorage.setItem('nd-intro','1')}}catch(e){}"
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }} />
       </head>
-      <body>
+      <body className="pb-16 md:pb-0">
+        <IntroAnimation />
         {children}
+        <MobileActionBar />
         <CookieConsent />
         <Analytics />
         <Script src="/cookies.js" strategy="afterInteractive" />

@@ -46,7 +46,7 @@ export default function PortfolioSection() {
             key={filter.key}
             onClick={() => setActiveFilter((current) => (current === filter.key ? null : filter.key))}
             className={`rounded-full px-4 py-2 text-xs transition sm:px-5 sm:text-sm ${
-              activeFilter === filter.key ? "bg-blue-500 text-white" : "glass text-slate-200 hover:text-white"
+              activeFilter === filter.key ? "bg-blue-600 text-white" : "glass text-slate-200 hover:text-white"
             }`}
           >
             {filter.label}

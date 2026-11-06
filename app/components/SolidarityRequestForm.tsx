@@ -258,7 +258,7 @@ export default function SolidarityRequestForm() {
       <button
         type="submit"
         disabled={sending}
-        className="mx-auto mt-6 inline-flex rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mx-auto mt-6 inline-flex rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {sending ? "Envoi en cours..." : "Envoyer la demande"}
       </button>
