@@ -175,7 +175,7 @@ html[data-intro="vu"] .intro-overlay {
 }
 
 .intro-logo {
-  width: 150px;
+  width: clamp(220px, 60vw, 300px);
   height: auto;
   filter: brightness(0) invert(1) drop-shadow(0 0 18px rgba(56, 189, 248, 0.55));
 }
@@ -183,9 +183,9 @@ html[data-intro="vu"] .intro-overlay {
 /* Hélices : traits flous qui tournent au-dessus du logo */
 .intro-rotor {
   position: absolute;
-  top: 2px;
-  width: 54px;
-  height: 6px;
+  top: 4px;
+  width: clamp(80px, 22vw, 108px);
+  height: 8px;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent, rgba(138, 216, 255, 0.85), transparent);
   animation: intro-spin 0.12s linear infinite;
@@ -200,9 +200,9 @@ html[data-intro="vu"] .intro-overlay {
 }
 
 .intro-shadow {
-  margin-top: 26px;
-  width: 120px;
-  height: 14px;
+  margin-top: 36px;
+  width: clamp(170px, 48vw, 240px);
+  height: 20px;
   border-radius: 50%;
   background: radial-gradient(closest-side, rgba(56, 189, 248, 0.35), transparent);
   animation: intro-shadow 1.7s cubic-bezier(0.45, 0, 0.2, 1) forwards;
@@ -212,8 +212,8 @@ html[data-intro="vu"] .intro-overlay {
 .intro-wind {
   position: absolute;
   bottom: -2px;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 1px solid rgba(138, 216, 255, 0.35);
   transform: scaleY(0.25);

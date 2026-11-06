@@ -12,7 +12,7 @@ export default function IntroAnimation() {
           <span className="intro-rotor intro-rotor-left" />
           <span className="intro-rotor intro-rotor-right" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logo.png/logo_nav_cropped.png" alt="" width={196} height={124} className="intro-logo" />
+          <img src="/images/logo.png/logo_nav_cropped.png" alt="" width={300} height={190} className="intro-logo" />
         </div>
         <span className="intro-shadow" />
         <span className="intro-wind" />
