@@ -71,6 +71,11 @@ export const activeServices = [
       "Relevé de toiture par drone, surfaces, pentes, obstacles, calepinage des panneaux et estimation de production PVGIS. Rapport PDF sous 48 h."
   },
   {
+    name: "Vidéo drone d'événements sportifs",
+    description:
+      "Captation par drone et FPV de trails, marathons, courses sur route et triathlons : teaser, formats réseaux sociaux et photos aériennes."
+  },
+  {
     name: "Inspection de toiture et de façade par drone",
     description:
       "Inspection visuelle de toitures et façades par drone, sans échafaudage ni montée sur le toit : après tempête, avant achat, pour les couvreurs."
@@ -94,7 +99,7 @@ export function localBusinessJsonLd() {
     "@id": `${siteUrl}/#entreprise`,
     name: legalInfo.companyName,
     description:
-      "Étude de toiture solaire, inspection de toiture et de façade, photo et vidéo aérienne par drone dans l'Orne, le Calvados et la Manche.",
+      "Étude de toiture solaire, vidéo drone d'événements sportifs, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche.",
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png/logo_entreprise.png`,
     image: `${siteUrl}/opengraph-image`,

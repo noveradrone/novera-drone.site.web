@@ -7,16 +7,17 @@ import { useEffect, useState } from "react";
 
 const desktopLinks = [
   { href: "/etude-toiture-solaire-drone", label: "Étude solaire" },
+  { href: "/video-drone-evenement-sportif", label: "Événements sportifs" },
   { href: "/services", label: "Services" },
   { href: "/simulateur-solaire", label: "Simulateur" },
-  { href: "/guides", label: "Guides" },
-  { href: "/drone-associations-humanitaires", label: "Associations" }
+  { href: "/guides", label: "Guides" }
 ];
 
 const mobileLinks = [
   { href: "/", label: "Accueil" },
   ...desktopLinks,
   { href: "/realisations/evenement", label: "Réalisations" },
+  { href: "/drone-associations-humanitaires", label: "Associations" },
   { href: "/drone", label: "Nos drones" }
 ];
 

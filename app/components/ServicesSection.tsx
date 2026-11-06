@@ -9,17 +9,17 @@ export default function ServicesSection() {
       <SectionTitle
         eyebrow="Services"
         title={<>Nos services drone dans l&apos;Orne, le Calvados et la Manche</>}
-        description="Une même exigence de précision, de l'étude solaire à l'image aérienne."
+        description="Une même exigence de précision, de l'étude solaire à la vidéo de vos événements sportifs."
       />
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2">
         {activeServicePages.map((service) => (
           <article
             key={service.key}
             className="glass group flex h-full flex-col items-center rounded-3xl p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-blue-300/40"
           >
-            {service.key === "etude" ? (
+            {service.badge ? (
               <p className="mb-3 rounded-full border border-blue-300/40 bg-blue-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-blue-200">
-                Offre phare
+                {service.badge}
               </p>
             ) : null}
             <h3 className="text-xl font-semibold sm:text-2xl">{service.card.title}</h3>

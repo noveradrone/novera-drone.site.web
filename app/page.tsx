@@ -6,6 +6,7 @@ import PortfolioSection from "@/app/components/PortfolioSection";
 import ScrollEffects from "@/app/components/ScrollEffects";
 import ServicesSection from "@/app/components/ServicesSection";
 import ToolsSection from "@/app/components/ToolsSection";
+import SportsSection from "@/app/components/SportsSection";
 import TestimonialsSection from "@/app/components/TestimonialsSection";
 import WhyChooseSection from "@/app/components/WhyChooseSection";
 import { buildMetadata } from "@/app/lib/seo";
@@ -14,7 +15,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = buildMetadata({
   title: "Étude solaire & inspection de toiture par drone en Normandie",
   description:
-    "Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche. Rapport sous 48 h.",
+    "Étude de toiture solaire, vidéo drone de trails et triathlons, inspection de toiture par drone dans l'Orne, le Calvados et la Manche.",
   path: "/"
 });
 
@@ -34,6 +35,7 @@ export default function HomePage() {
       />
       <ScrollEffects />
       <ServicesSection />
+      <SportsSection />
       <WhyChooseSection />
       <ToolsSection />
       <PortfolioSection />

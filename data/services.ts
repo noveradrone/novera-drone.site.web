@@ -4,7 +4,7 @@
  * le sitemap et le formulaire de devis (champ `formValue`).
  */
 
-export type ServiceKey = "etude" | "inspection" | "photo";
+export type ServiceKey = "etude" | "sport" | "inspection" | "photo";
 
 export type ServiceSection = {
   h2: string;
@@ -29,6 +29,12 @@ export type ServiceContent = {
   image?: { src: string; alt: string; width: number; height: number };
   /** Exemple de rapport PDF anonymisé (dans /public). Étude solaire uniquement. */
   reportPdf?: string;
+  /** Vidéo de réalisation intégrée (YouTube). */
+  video?: { title: string; embedUrl: string };
+  /** Avis client réel à afficher sur la page. */
+  testimonial?: { quote: string; author: string; source: string };
+  /** Badge affiché sur les cartes. */
+  badge?: string;
   sections: ServiceSection[];
   steps: { title: string; text: string }[];
   stepsTitle: string;
@@ -42,6 +48,7 @@ export const activeServicePages: ServiceContent[] = [
     path: "/etude-toiture-solaire-drone",
     name: "Étude de toiture solaire",
     formValue: "Étude de toiture solaire",
+    badge: "Offre phare",
     card: {
       title: "Étude de toiture solaire par drone",
       description:
@@ -125,6 +132,110 @@ export const activeServicePages: ServiceContent[] = [
     finalCta: {
       title: "Faites étudier votre toiture avant d'installer des panneaux",
       text: "Indiquez l'adresse du bâtiment et votre projet : vous recevez une proposition rapidement, puis votre rapport sous 48 h après le vol."
+    }
+  },
+  {
+    key: "sport",
+    path: "/video-drone-evenement-sportif",
+    name: "Événements sportifs",
+    formValue: "Vidéo drone d'événement sportif (trail, marathon, course, triathlon)",
+    badge: "Le plus demandé",
+    card: {
+      title: "Vidéo drone pour trails, marathons et triathlons",
+      description:
+        "Images aériennes et plans FPV de vos courses : départ, parcours, arrivée, ambiance. Vidéos prêtes pour vos réseaux.",
+      highlights: ["Trails et courses nature", "Marathons et courses sur route", "Triathlons et raids", "Teaser et formats réseaux sociaux"]
+    },
+    metaTitle: "Vidéo drone trail, marathon et triathlon en Normandie | Novera Drone",
+    metaDescription:
+      "Captation drone de trails, marathons, courses sur route et triathlons dans l'Orne, le Calvados et la Manche : plans aériens, FPV, teaser et vidéos pour les réseaux.",
+    h1: "Vidéo drone pour trails, marathons, courses et triathlons",
+    lead:
+      "Organisateur d'un trail, d'un marathon, d'une course sur route ou d'un triathlon ? Novera Drone filme votre événement depuis les airs : le départ, le parcours, les passages clés, l'arrivée et l'ambiance, pour une vidéo qui donne envie de s'inscrire à la prochaine édition.",
+    primaryCta: "Demander un devis pour mon événement",
+    video: { title: "Jeux Ornais filmés par drone", embedUrl: "https://www.youtube-nocookie.com/embed/PjNchLysyLU" },
+    testimonial: {
+      quote:
+        "Enes était présent sur la première édition de La Veroise le 12 avril dernier. Il a mené un travail exemplaire digne d'un professionnel avec des images aériennes de notre course d'une grande qualité.",
+      author: "Eliot Fichet",
+      source: "Avis Google"
+    },
+    sections: [
+      {
+        h2: "Des images aériennes pour toutes les épreuves",
+        bullets: [
+          "Trails et courses nature : le relief, les sentiers, les crêtes et les paysages traversés, pour montrer la beauté et la difficulté du parcours.",
+          "Marathons, semi-marathons et courses sur route : le départ en masse, la traversée de la ville, les points de passage et l'arrivée.",
+          "Triathlons : la natation vue du ciel, les transitions et les parties vélo et course à pied.",
+          "Raids, courses à obstacles, cyclisme et événements multisports."
+        ]
+      },
+      {
+        h2: "Ce que vous recevez",
+        bullets: [
+          "Un teaser ou aftermovie monté, qui résume l'événement en quelques minutes.",
+          "Des formats verticaux courts pour Instagram, TikTok et Facebook.",
+          "Une sélection de photos aériennes pour votre site, vos affiches et vos partenaires.",
+          "Des plans bruts sur demande, pour votre propre monteur ou vos sponsors."
+        ],
+        paragraphs: [
+          "Ces images servent toute l'année : pour annoncer la prochaine édition, remercier les bénévoles et les partenaires, convaincre de nouveaux sponsors et donner envie aux coureurs de s'inscrire."
+        ]
+      },
+      {
+        h2: "Plans aériens et FPV au plus près de l'action",
+        paragraphs: [
+          "Le DJI Air 3S et le DJI Air 3 réalisent les grands plans stables : vue d'ensemble du départ, suivi des coureurs sur une portion du parcours, plans larges des paysages. Le DJI Avata 2, un drone FPV, apporte des images immersives et dynamiques, au ras des sentiers ou le long d'une ligne d'arrivée.",
+          "Les plans sont préparés à l'avance avec l'organisation, à partir du tracé du parcours, pour être aux bons endroits au bon moment : départ, ravitaillements, passages spectaculaires, arrivée."
+        ]
+      },
+      {
+        h2: "Un vol préparé et encadré",
+        paragraphs: [
+          "Filmer une course implique des coureurs, des bénévoles et souvent du public. Le survol des personnes est très encadré par la réglementation : chaque captation est donc préparée avec l'organisateur, avec des zones de décollage sécurisées, des trajectoires qui évitent de survoler le public et les démarches nécessaires auprès des autorités.",
+          "Pour cela, il est utile de prendre contact quelques semaines avant l'événement, avec le tracé et le programme de la journée."
+        ]
+      },
+      {
+        h2: "Événements sportifs dans l'Orne, le Calvados et la Manche",
+        paragraphs: [
+          "Novera Drone a notamment filmé le Trail La Véroise et les Jeux Ornais. Les déplacements couvrent toute la Normandie occidentale : bocage ornais et virois, Suisse normande, Pays d'Auge, côte de la Manche et baie du Mont-Saint-Michel, Caen et son agglomération."
+        ]
+      }
+    ],
+    stepsTitle: "Comment se déroule la captation de votre événement",
+    steps: [
+      { title: "Votre demande", text: "Date, lieu, type d'épreuve, nombre de participants et usage des images." },
+      { title: "Préparation", text: "Étude du parcours et du programme, choix des plans, démarches de vol." },
+      { title: "Jour J", text: "Captation drone et FPV aux moments clés, en coordination avec l'organisation." },
+      { title: "Montage", text: "Teaser, formats verticaux et sélection de photos, à vos couleurs." },
+      { title: "Livraison", text: "Fichiers prêts à publier, dans les délais convenus dans le devis." }
+    ],
+    faq: [
+      {
+        q: "Combien de temps à l'avance faut-il réserver ?",
+        a: "Idéalement plusieurs semaines avant l'événement : cela laisse le temps de préparer les plans avec vous et d'effectuer les démarches de vol nécessaires. Les dates de printemps et d'été partent vite."
+      },
+      {
+        q: "Le drone peut-il survoler les coureurs et le public ?",
+        a: "Le survol des personnes est strictement encadré. Les trajectoires sont préparées pour filmer les coureurs et l'ambiance sans survoler le public, en accord avec l'organisation et la réglementation."
+      },
+      {
+        q: "Pouvez-vous filmer un événement sur toute une journée ?",
+        a: "Oui. Pour un trail avec plusieurs distances ou un triathlon, la captation peut couvrir plusieurs départs et plusieurs points du parcours. Le programme est défini ensemble dans le devis."
+      },
+      {
+        q: "Que se passe-t-il en cas de pluie ou de vent fort ?",
+        a: "Une course se court souvent par tous les temps, mais un drone ne vole pas dans toutes les conditions. Les conditions sont évaluées le jour même ; les vols sont adaptés, ou remplacés par des prises de vues complémentaires lorsque c'est possible."
+      },
+      {
+        q: "Pouvons-nous utiliser les vidéos pour nos partenaires et sponsors ?",
+        a: "Oui, les images sont faites pour être diffusées : réseaux sociaux, site de l'événement, communication auprès des partenaires. Les conditions d'utilisation sont précisées dans le devis."
+      }
+    ],
+    finalCta: {
+      title: "Faites voler votre prochaine course",
+      text: "Envoyez la date, le lieu et le type d'épreuve : vous recevez une proposition adaptée à votre événement."
     }
   },
   {
@@ -227,11 +338,11 @@ export const activeServicePages: ServiceContent[] = [
     key: "photo",
     path: "/photo-video-aerienne",
     name: "Photo et vidéo aérienne",
-    formValue: "Photo et vidéo aérienne (immobilier, événement, communication)",
+    formValue: "Photo et vidéo aérienne (immobilier, communication, mariage)",
     card: {
       title: "Photo et vidéo aérienne par drone",
-      description: "Images aériennes pour l'immobilier, les événements sportifs et la communication des entreprises.",
-      highlights: ["Immobilier et visite virtuelle", "Trails, triathlons, événements", "Communication et réseaux sociaux", "Vidéo 4K et FPV"]
+      description: "Images aériennes pour l'immobilier, la communication des entreprises et les événements privés.",
+      highlights: ["Immobilier et visite virtuelle", "Communication et réseaux sociaux", "Tourisme, gîtes et domaines", "Vidéo 4K et FPV"]
     },
     metaTitle: "Photo et vidéo aérienne par drone en Normandie | Novera Drone",
     metaDescription:
@@ -255,7 +366,7 @@ export const activeServicePages: ServiceContent[] = [
         ]
       },
       {
-        h2: "Vidéo drone d'événements sportifs",
+        h2: "Vidéo drone d'événements",
         paragraphs: [
           "Trails, courses nature, triathlons, cyclisme : le drone montre le parcours, les paysages traversés et l'ambiance de l'événement. Le DJI Avata 2, un drone FPV, permet en plus des plans immersifs au plus près de l'action, dans le respect des règles de sécurité vis-à-vis du public.",
           "Chaque tournage est préparé avec l'organisateur : zones de décollage, survol du parcours, autorisations. Vous recevez des vidéos montées, prêtes pour vos réseaux sociaux et la promotion de l'édition suivante."

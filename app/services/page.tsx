@@ -8,9 +8,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Services drone en Normandie : toiture solaire, inspection, photo",
+  title: "Services drone en Normandie : solaire, sport, inspection, photo",
   description:
-    "Étude de toiture solaire, inspection de toiture et de façade, photo et vidéo aérienne par drone dans l'Orne, le Calvados et la Manche.",
+    "Étude de toiture solaire, vidéo drone de trails et triathlons, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche.",
   path: "/services"
 });
 
@@ -25,12 +25,12 @@ export default function ServicesPage() {
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-blue-300/90">Services</p>
           <h1 className="text-3xl font-semibold leading-tight md:text-5xl">Nos services drone en Normandie</h1>
           <p className="mt-5 text-base text-slate-300 md:text-lg">
-            Étude de toiture solaire, inspection de toiture et prises de vues aériennes dans l&apos;Orne, le Calvados et
-            la Manche.
+            Étude de toiture solaire, vidéo d&apos;événements sportifs, inspection de toiture et prises de vues
+            aériennes dans l&apos;Orne, le Calvados et la Manche.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {activeServicePages.map((service) => (
             <article key={service.key} className="glass flex flex-col rounded-3xl p-6 text-center">
               <h2 className="text-xl font-semibold sm:text-2xl">{service.card.title}</h2>

@@ -62,6 +62,31 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
           </div>
         ) : null}
 
+        {service.video ? (
+          <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-3xl border border-white/10">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src={service.video.embedUrl}
+                title={service.video.title}
+                loading="lazy"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+        ) : null}
+
+        {service.testimonial ? (
+          <figure className="glass mx-auto mt-8 max-w-3xl rounded-3xl p-6 text-center sm:p-8">
+            <p className="text-xl text-amber-300" aria-label="5 étoiles sur 5">★★★★★</p>
+            <blockquote className="mt-3 text-lg leading-relaxed text-slate-100">« {service.testimonial.quote} »</blockquote>
+            <figcaption className="mt-4 text-sm text-slate-400">
+              {service.testimonial.author} · {service.testimonial.source}
+            </figcaption>
+          </figure>
+        ) : null}
+
         <div className="mx-auto mt-8 max-w-5xl space-y-6">
           {service.sections.map((section) => (
             <article key={section.h2} className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">

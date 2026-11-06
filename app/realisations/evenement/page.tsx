@@ -94,7 +94,7 @@ export default function EventShowcasePage() {
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <Link
-              href="/demander-un-devis"
+              href="/demander-un-devis?prestation=sport"
               className="rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(37,99,235,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(56,189,248,0.34)]"
             >
               Demander un devis
@@ -149,7 +149,7 @@ export default function EventShowcasePage() {
                         ))}
                       </div>
                       <Link
-                        href="/demander-un-devis"
+                        href="/demander-un-devis?prestation=sport"
                         className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
                       >
                         Demander une captation
@@ -180,7 +180,7 @@ export default function EventShowcasePage() {
                       ))}
                     </div>
                     <Link
-                      href="/demander-un-devis"
+                      href="/demander-un-devis?prestation=sport"
                       className="mt-8 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_44px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(56,189,248,0.32)]"
                     >
                       Demander une captation
