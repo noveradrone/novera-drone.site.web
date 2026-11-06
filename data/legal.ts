@@ -16,8 +16,8 @@ export const legalInfo = {
     postalCode: "",
     locality: ""
   },
-  // TODO(Enes) : coller le lien de la fiche Google Business (ex. https://g.page/r/...).
-  googleBusinessUrl: "",
+  // Lien de partage de la fiche Google Business.
+  googleBusinessUrl: "https://share.google/F9JOWqC5NcGh8XNZy",
   instagramUrl: "https://www.instagram.com/noveradrone",
   privacyRetentionYears: 3
 } as const;
