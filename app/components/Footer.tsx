@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Facebook, Instagram } from "lucide-react";
 import { legalInfo } from "@/data/legal";
+import { activeServicePages } from "@/data/services";
+import { villeLinks } from "@/data/villes";
 
 export default function Footer() {
   return (
@@ -9,7 +11,24 @@ export default function Footer() {
         <div className="grid gap-8 text-center text-sm text-slate-300 md:grid-cols-4 md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">{legalInfo.companyName}</p>
-            <p>Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche.</p>
+            <p>Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l&apos;Orne, le Calvados et la Manche.</p>
+            <p className="mb-2 mt-5 text-white">Services</p>
+            {activeServicePages.map((service) => (
+              <Link key={service.key} href={service.path} className="block hover:text-blue-300">
+                {service.name}
+              </Link>
+            ))}
+            <p className="mb-2 mt-5 text-white">Zones d&apos;intervention</p>
+            <p>
+              {villeLinks.map((ville, index) => (
+                <span key={ville.slug}>
+                  <Link href={ville.path} className="hover:text-blue-300">
+                    Drone {ville.name}
+                  </Link>
+                  {index < villeLinks.length - 1 ? " · " : ""}
+                </span>
+              ))}
+            </p>
           </div>
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">Réseaux sociaux</p>
