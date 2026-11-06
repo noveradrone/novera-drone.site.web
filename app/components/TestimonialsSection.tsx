@@ -14,7 +14,7 @@ export default function TestimonialsSection() {
     <section className="section-shell reveal-up">
       <SectionTitle
         eyebrow="Avis Google"
-        title={<>Ce que nos clients disent de Novera Drone.</>}
+        title={<>Avis clients Google sur Novera Drone</>}
         description="Des retours publiés sur Google qui reflètent notre exigence de précision, de réactivité et de qualité de service."
       />
       <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-5">

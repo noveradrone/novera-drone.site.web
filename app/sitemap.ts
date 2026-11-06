@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { serviceSlugs } from "@/data/content";
+import { activeServicePages } from "@/data/services";
+import { villeLinks } from "@/data/villes";
 import { siteUrl } from "@/app/lib/seo";
 
 type Entry = { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] };
@@ -8,7 +9,8 @@ type Entry = { path: string; priority: number; changeFrequency: MetadataRoute.Si
 const pages: Entry[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
-  ...serviceSlugs.map((slug) => ({ path: `/services/${slug}`, priority: 0.8, changeFrequency: "monthly" as const })),
+  ...activeServicePages.map((service) => ({ path: service.path, priority: service.key === "etude" ? 0.95 : 0.85, changeFrequency: "monthly" as const })),
+  ...villeLinks.map((ville) => ({ path: ville.path, priority: 0.7, changeFrequency: "monthly" as const })),
   { path: "/demander-un-devis", priority: 0.8, changeFrequency: "yearly" },
   { path: "/realisations/immobilier", priority: 0.7, changeFrequency: "monthly" },
   { path: "/realisations/evenement", priority: 0.7, changeFrequency: "monthly" },

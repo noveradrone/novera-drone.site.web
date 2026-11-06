@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -11,6 +12,10 @@ type HeroProps = {
   supportText?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  /** Titre long (H1 descriptif) : taille de police réduite. */
+  compactTitle?: boolean;
   backgroundImage?: string;
   darkOverlay?: "default" | "strong";
   overlayPreset?: "default" | "cinematic";
@@ -26,6 +31,9 @@ export default function Hero({
   supportText = "Inspection, analyse et imagerie professionnelle",
   ctaLabel = "Demander un devis",
   ctaHref = "/demander-un-devis",
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  compactTitle = false,
   backgroundImage = "/images/instagram/instagram-01.jpg",
   darkOverlay = "default",
   overlayPreset = "default",
@@ -53,6 +61,8 @@ export default function Hero({
     overlayPreset === "cinematic"
       ? "max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.04em] text-transparent [text-shadow:0_10px_28px_rgba(2,6,23,0.82)] sm:text-6xl sm:tracking-[0.06em] md:text-8xl"
       : "max-w-4xl bg-gradient-to-r from-[#e2f3ff] via-[#8ad8ff] to-[#2d82ff] bg-clip-text text-4xl font-semibold leading-[1.02] tracking-[0.06em] text-transparent sm:text-6xl sm:tracking-[0.1em] md:text-8xl";
+  const compactTitleClass =
+    "max-w-4xl text-3xl font-semibold leading-tight text-white [text-shadow:0_8px_24px_rgba(2,6,23,0.8)] sm:text-5xl md:text-6xl";
   const subtitleClass =
     overlayPreset === "cinematic"
       ? "mt-6 max-w-3xl text-lg font-medium text-slate-100 [text-shadow:0_6px_20px_rgba(2,6,23,0.75)] sm:text-xl md:text-2xl"
@@ -72,27 +82,20 @@ export default function Hero({
   return (
     <section id={id} className={`relative overflow-hidden ${minHeightClassName}`}>
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('${backgroundImage}')`
-        }}
+        className="absolute inset-0"
         animate={{ scale: [1, 1.04, 1], y: [0, -8, 0] }}
         transition={{ duration: 16, ease: "easeInOut", repeat: Infinity }}
-      />
+      >
+        <Image src={backgroundImage} alt="" fill priority sizes="100vw" className="object-cover object-center" />
+      </motion.div>
       <div className={`absolute inset-0 ${darkOverlayClass}`} />
       <div className={`absolute inset-0 ${gradientOverlayClass}`} />
       <div className={`absolute inset-0 ${centerOverlayClass}`} />
 
       <div className={`relative z-10 flex ${minHeightClassName} flex-col items-center justify-center px-5 py-28 text-center sm:px-8 md:py-36`}>
         <div className={contentPanelClass}>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85 }}
-            className={`${titleClass} mx-auto text-center`}
-          >
-            {title}
-          </motion.h1>
+          {/* H1 affiché immédiatement (pas d'animation d'opacité) : meilleur LCP et lisible par Google. */}
+          <h1 className={`${compactTitle ? compactTitleClass : titleClass} mx-auto text-center`}>{title}</h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,11 +116,19 @@ export default function Hero({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.2 }}
-            className="mt-10 flex justify-center"
+            className="mt-10 flex flex-wrap justify-center gap-3"
           >
             <Link href={ctaHref} className={ctaClass}>
               {ctaLabel}
             </Link>
+            {secondaryCtaLabel && secondaryCtaHref ? (
+              <Link
+                href={secondaryCtaHref}
+                className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/30 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:border-blue-300 sm:min-w-[200px] sm:px-9 sm:py-4 sm:text-base"
+              >
+                {secondaryCtaLabel}
+              </Link>
+            ) : null}
           </motion.div>
         </div>
       </div>

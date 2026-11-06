@@ -17,11 +17,6 @@ const filters = [
     key: "real-estate",
     label: "Promotion immobilière",
     match: (item: (typeof galleryItems)[number]) => item.id === 5
-  },
-  {
-    key: "inspection",
-    label: "Inspections de bâtiment",
-    match: (item: (typeof galleryItems)[number]) => item.category === "Inspection"
   }
 ] as const;
 
@@ -41,7 +36,7 @@ export default function PortfolioSection() {
     <section id="galerie" className="section-shell reveal-up">
       <SectionTitle
         eyebrow="Galerie"
-        title={<>Des réalisations concrètes qui témoignent de notre précision.</>}
+        title={<>Nos réalisations drone en Normandie</>}
         description="Explorez nos projets par catégorie pour découvrir nos domaines d’expertise."
       />
 
@@ -68,7 +63,7 @@ export default function PortfolioSection() {
             <>
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={item.alt}
                 width={800}
                 height={1100}
                 loading="lazy"

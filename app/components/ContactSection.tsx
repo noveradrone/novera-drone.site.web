@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
+import { activeServicePages } from "@/data/services";
 import SectionTitle from "@/app/components/SectionTitle";
 import { motion } from "framer-motion";
 
@@ -22,15 +23,17 @@ const initialState: FormState = {
   message: ""
 };
 
-const prestationOptions = [
-  "Étude de toiture solaire",
-  "Inspection de toiture ou de façade",
-  "Photo et vidéo aérienne (immobilier, événement, communication)",
-  "Autre"
-];
+const prestationOptions = [...activeServicePages.map((service) => service.formValue), "Autre"];
 
 export default function ContactSection() {
   const [form, setForm] = useState(initialState);
+
+  // Présélectionne la prestation quand on arrive depuis une page de service (?prestation=etude|inspection|photo).
+  useEffect(() => {
+    const key = new URLSearchParams(window.location.search).get("prestation");
+    const match = activeServicePages.find((service) => service.key === key);
+    if (match) setForm((current) => (current.typePrestation ? current : { ...current, typePrestation: match.formValue }));
+  }, []);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
   const [sending, setSending] = useState(false);

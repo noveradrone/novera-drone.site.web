@@ -124,3 +124,46 @@ export function localBusinessJsonLd() {
     ...(sameAs.length ? { sameAs } : {})
   };
 }
+
+/** Données structurées FAQPage, à partir des questions affichées sur la page. */
+export function faqJsonLd(faq: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a }
+    }))
+  };
+}
+
+/** Données structurées Service, rattachées à l'entreprise. */
+export function serviceJsonLd({ name, description, path }: { name: string; description: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: `${siteUrl}${path}`,
+    provider: { "@id": `${siteUrl}/#entreprise` },
+    areaServed: [
+      ...serviceAreas.departements.map((area) => ({ "@type": "AdministrativeArea", name: area })),
+      ...serviceAreas.villes.map((city) => ({ "@type": "City", name: city }))
+    ]
+  };
+}
+
+/** Fil d'Ariane pour les résultats Google. */
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [{ name: "Accueil", path: "/" }, ...items].map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path === "/" ? siteUrl : `${siteUrl}${item.path}`
+    }))
+  };
+}

@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/app/lib/seo";
-import AboutIntroSection from "@/app/components/AboutIntroSection";
+import FinalCtaSection from "@/app/components/FinalCtaSection";
 import Footer from "@/app/components/Footer";
 import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
@@ -9,6 +7,8 @@ import ScrollEffects from "@/app/components/ScrollEffects";
 import ServicesSection from "@/app/components/ServicesSection";
 import TestimonialsSection from "@/app/components/TestimonialsSection";
 import WhyChooseSection from "@/app/components/WhyChooseSection";
+import { buildMetadata } from "@/app/lib/seo";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
   title: "Étude solaire & inspection de toiture par drone en Normandie",
@@ -21,13 +21,22 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
       <Navbar />
-      <Hero />
+      <Hero
+        compactTitle
+        title="Étude solaire et inspection de toiture par drone en Normandie"
+        subtitle="Orne, Calvados, Manche – Flers, Vire, Argentan, Saint-Lô, Caen"
+        supportText="Relevé de toiture, calepinage et estimation de production : rapport PDF sous 48 h, sans échafaudage."
+        ctaLabel="Demander une étude de toiture"
+        ctaHref="/demander-un-devis?prestation=etude"
+        secondaryCtaLabel="Demander un devis"
+        secondaryCtaHref="/demander-un-devis"
+      />
       <ScrollEffects />
-      <AboutIntroSection />
-      <PortfolioSection />
       <ServicesSection />
       <WhyChooseSection />
+      <PortfolioSection />
       <TestimonialsSection />
+      <FinalCtaSection />
       <Footer />
     </main>
   );

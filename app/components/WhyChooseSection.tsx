@@ -3,26 +3,22 @@ import { whyChooseUs } from "@/data/content";
 
 export default function WhyChooseSection() {
   return (
-    <section id="why-us" className="section-shell reveal-up">
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-        <div>
-          <SectionTitle
-            eyebrow="Pourquoi nous choisir"
-            title={<>Une expertise drone alliant fiabilité, précision et performance.</>}
-            description="Chaque mission est préparée selon un protocole de sécurité strict, avec des équipements professionnels pour garantir des données visuelles claires et immédiatement exploitables."
-          />
-        </div>
-
-        <div className="glass rounded-3xl p-7 md:p-8">
-          <ul className="space-y-4">
-            {whyChooseUs.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-slate-100">
-                <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-400" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <section id="pourquoi-novera-drone" className="section-shell reveal-up">
+      <SectionTitle
+        eyebrow="Pourquoi Novera Drone"
+        title={<>Un télépilote local, une lecture technique de votre toiture</>}
+        description="Chaque mission est préparée selon les règles de vol en vigueur, avec du matériel professionnel, pour des données claires et directement exploitables."
+      />
+      <div className="grid gap-5 md:grid-cols-2">
+        {whyChooseUs.map((item) => (
+          <article key={item.title} className="glass rounded-3xl p-6 md:p-7">
+            <h3 className="flex items-start gap-3 text-lg font-semibold text-white">
+              <span aria-hidden className="mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-blue-400" />
+              {item.title}
+            </h3>
+            <p className="mt-3 text-slate-300">{item.text}</p>
+          </article>
+        ))}
       </div>
     </section>
   );

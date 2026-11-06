@@ -57,6 +57,9 @@ const nextConfig = {
     return [
       // Services retirés (pas encore de matériel) : 301 vers la liste des services.
       { source: "/services/thermographie", destination: "/services", permanent: true },
+      // Anciennes pages de services remplacées par des pages dédiées.
+      { source: "/services/photographie-aerienne", destination: "/photo-video-aerienne", permanent: true },
+      { source: "/services/inspection-technique", destination: "/inspection-toiture-drone", permanent: true },
       { source: "/services/nettoyage-par-drone", destination: "/services", permanent: true },
       // Ancienne page Solidaire renommée.
       { source: "/novera-drone-solidaire", destination: "/drone-associations-humanitaires", permanent: true }
