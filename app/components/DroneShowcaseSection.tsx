@@ -11,7 +11,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Performance aérienne professionnelle",
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
-      imageUrl: "/images/dji-air-3s.jpg",
+      imageUrl: "/images/dji-air-3s.webp",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
     },
     {
@@ -19,7 +19,7 @@ export default function DroneShowcaseSection() {
       subtitle: "Immersion FPV cinématographique",
       description:
         "Drone FPV compact conçu pour des plans dynamiques et immersifs, avec une excellente stabilité en vol et une captation vidéo fluide. Il est idéal pour apporter une perspective spectaculaire à vos projets événementiels, promotionnels et contenus à fort impact visuel.",
-      imageUrl: "/images/drone.WEBP",
+      imageUrl: "/images/dji-avata-2.webp",
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
     }
   ];
@@ -47,7 +47,7 @@ export default function DroneShowcaseSection() {
                       {activeSlides[drone.name] === 0 || !drone.embedUrl ? (
                         <img
                           src={drone.imageUrl}
-                          alt={`${drone.name} photo produit`}
+                          alt={`Drone ${drone.name} utilisé par Novera Drone`}
                           className="absolute inset-0 h-full w-full object-contain bg-white"
                           loading="lazy"
                           onError={(e) => {

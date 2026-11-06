@@ -34,7 +34,7 @@ export default function Hero({
   secondaryCtaLabel,
   secondaryCtaHref,
   compactTitle = false,
-  backgroundImage = "/images/instagram/instagram-01.jpg",
+  backgroundImage = "/images/aerien-foret-normandie.webp",
   darkOverlay = "default",
   overlayPreset = "default",
   contentPanel = false,

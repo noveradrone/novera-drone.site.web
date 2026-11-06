@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
@@ -64,13 +65,22 @@ export default function EventShowcasePage() {
       <Navbar />
       <ScrollEffects />
 
-      <section
-        className="relative flex min-h-[72vh] items-center overflow-hidden bg-cover bg-center px-4 pt-28 sm:min-h-[76vh] sm:px-6 lg:px-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(2, 8, 23, 0.88) 0%, rgba(2, 8, 23, 0.58) 46%, rgba(2, 8, 23, 0.28) 100%), url('/images/sport.PNG')"
-        }}
-      >
+      <section className="relative flex min-h-[72vh] items-center overflow-hidden px-4 pt-28 sm:min-h-[76vh] sm:px-6 lg:px-10">
+        <Image
+          src="/images/sport.webp"
+          alt="Coureur sur un trail, vidéo drone d'événement sportif en Normandie"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, rgba(2, 8, 23, 0.88) 0%, rgba(2, 8, 23, 0.58) 46%, rgba(2, 8, 23, 0.28) 100%)"
+          }}
+        />
         <div className="absolute inset-0 grid-fade opacity-40" />
         <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center text-center">
           <p className="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-blue-100 backdrop-blur">

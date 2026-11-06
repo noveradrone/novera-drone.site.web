@@ -49,7 +49,7 @@ export default function DroneAssociationsHumanitairesPage() {
         supportText="Une initiative de Novera Drone pour accompagner les associations engagées sur le terrain."
         ctaLabel="Découvrir l’initiative"
         ctaHref="/drone-associations-humanitaires#engagement-solidaire"
-        backgroundImage="/images/solidaire/deb_solidaire.PNG"
+        backgroundImage="/images/solidaire/associations-humanitaires.webp"
         overlayPreset="cinematic"
         contentPanel
         minHeightClassName="min-h-screen"

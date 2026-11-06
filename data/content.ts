@@ -53,14 +53,14 @@ export const galleryItems: GalleryItem[] = [
     title: "Mariage",
     category: "Photographie",
     alt: "Photo de mariage devant un château",
-    image: "/images/mariage.PNG"
+    image: "/images/mariage.webp"
   },
   {
     id: 2,
     title: "Événement sportif",
     category: "Photographie",
     alt: "Coureur sur un trail, captation vidéo d'événement sportif en Normandie",
-    image: "/images/sport.PNG",
+    image: "/images/sport.webp",
     href: "/realisations/evenement"
   },
   {
@@ -68,7 +68,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Promotion immobilière",
     category: "Photographie",
     alt: "Visite virtuelle 3D d'un local commercial, réalisation immobilière Novera Drone",
-    image: "/images/local3.jpg",
+    image: "/images/immobilier-visite-virtuelle.webp",
     href: "/realisations/immobilier"
   }
 ];
@@ -99,4 +99,4 @@ export const faqItems = [
   }
 ];
 
-export const instagramMock = ["/images/instagram/instagram-01.jpg", "/images/instagram/instagram-02.jpg", "/images/instagram/instagram-03.jpg"];
+export const instagramMock = ["/images/aerien-foret-normandie.webp", "/images/aerien-cote-rochers.webp", "/images/aerien-bocage-parcelles.webp"];

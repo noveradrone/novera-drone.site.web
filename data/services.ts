@@ -241,10 +241,10 @@ export const activeServicePages: ServiceContent[] = [
       "Montrer un bien dans son environnement, filmer une course au plus près des coureurs, donner de l'ampleur à la vidéo de votre entreprise : Novera Drone réalise des photos et vidéos aériennes prêtes à publier, dans l'Orne, le Calvados et la Manche.",
     primaryCta: "Demander un devis photo ou vidéo",
     image: {
-      src: "/images/instagram/instagram-01.jpg",
+      src: "/images/aerien-foret-normandie.webp",
       alt: "Photo aérienne par drone d'une forêt de conifères en Normandie",
-      width: 787,
-      height: 1400
+      width: 675,
+      height: 1200
     },
     sections: [
       {
