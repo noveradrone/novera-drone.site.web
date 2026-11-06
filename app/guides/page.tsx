@@ -31,7 +31,7 @@ export default function GuidesPage() {
             <Link
               key={guide.slug}
               href={guide.path}
-              className="glass flex flex-col rounded-3xl p-6 transition hover:-translate-y-1 hover:border-blue-300/40"
+              className="glass flex flex-col items-center rounded-3xl p-6 text-center transition hover:-translate-y-1 hover:border-blue-300/40"
             >
               <h2 className="text-xl font-semibold text-white">{guide.title}</h2>
               <p className="mt-3 text-sm text-slate-300">{guide.excerpt}</p>

@@ -69,12 +69,12 @@ export default function GuidePage({ params }: Props) {
             Par Enes Ozturk, télépilote et diplômé BUT MT2E · mis à jour le{" "}
             <time dateTime={guide.updated}>{formatDate(guide.updated)}</time> · {guide.readingMinutes} min de lecture
           </p>
-          <p className="mt-6 text-left text-base leading-relaxed text-slate-200 md:text-lg">{guide.intro}</p>
+          <p className="mt-6 text-center text-base leading-relaxed text-slate-200 md:text-lg">{guide.intro}</p>
         </header>
 
         <div className="mx-auto mt-10 max-w-3xl space-y-10">
           {guide.sections.map((section, index) => (
-            <section key={section.h2}>
+            <section key={section.h2} className="text-center">
               <h2 className="text-2xl font-semibold md:text-3xl">{section.h2}</h2>
               {section.paragraphs?.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="mt-4 leading-relaxed text-slate-300">
@@ -84,8 +84,8 @@ export default function GuidePage({ params }: Props) {
               {section.bullets ? (
                 <ul className="mt-4 space-y-2 text-slate-200">
                   {section.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
-                      <span aria-hidden className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-blue-400" />
+                    <li key={bullet} className="text-center">
+                      <span aria-hidden className="mr-2 inline-block h-2 w-2 rounded-full bg-blue-400 align-middle" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -94,8 +94,8 @@ export default function GuidePage({ params }: Props) {
 
               {guide.showPvgisTable && index === 0 ? (
                 <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10">
-                  <table className="w-full min-w-[440px] text-left text-sm">
-                    <caption className="px-4 pt-4 text-left text-xs text-slate-400">
+                  <table className="w-full min-w-[440px] text-center text-sm">
+                    <caption className="px-4 pt-4 text-center text-xs text-slate-400">
                       Production annuelle pour 1 kWc, sans ombrage (PVGIS 5.2, 14 % de pertes)
                     </caption>
                     <thead className="text-slate-300">
@@ -133,7 +133,7 @@ export default function GuidePage({ params }: Props) {
           </Link>
         </aside>
 
-        <nav aria-label="Pour aller plus loin" className="mx-auto mt-10 max-w-3xl">
+        <nav aria-label="Pour aller plus loin" className="mx-auto mt-10 max-w-3xl text-center">
           <h2 className="text-xl font-semibold">Pour aller plus loin</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {others.map((item) => (

@@ -62,7 +62,7 @@ export default function VillePageTemplate({ ville }: { ville: VilleContent }) {
 
         <div className="mx-auto mt-8 max-w-5xl space-y-6">
           {[ville.contexte, ville.toitures].map((block) => (
-            <article key={block.h2} className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+            <article key={block.h2} className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
               <h2 className="text-2xl font-semibold md:text-3xl">{block.h2}</h2>
               {block.paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="mt-4 leading-relaxed text-slate-300">
@@ -72,7 +72,7 @@ export default function VillePageTemplate({ ville }: { ville: VilleContent }) {
             </article>
           ))}
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Nos services drone à {ville.name}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {ville.services.map((item) => {
@@ -93,12 +93,12 @@ export default function VillePageTemplate({ ville }: { ville: VilleContent }) {
             </div>
           </article>
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">{ville.besoins.h2}</h2>
             <ul className="mt-5 space-y-3 text-slate-200">
               {ville.besoins.items.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-blue-400" />
+                <li key={item} className="text-center">
+                  <span aria-hidden className="mr-2 inline-block h-2 w-2 rounded-full bg-blue-400 align-middle" />
                   <span>{item}</span>
                 </li>
               ))}

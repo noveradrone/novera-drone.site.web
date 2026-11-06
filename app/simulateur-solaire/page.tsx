@@ -71,13 +71,13 @@ export default function SimulateurPage() {
         </div>
 
         <div className="mx-auto mt-8 max-w-4xl space-y-6">
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Repères de production solaire en Normandie</h2>
             <p className="mt-4 text-slate-300">
               Production annuelle estimée pour 1 kWc installé, sans ombrage (PVGIS 5.2, 14 % de pertes).
             </p>
             <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[480px] text-left text-sm">
+              <table className="w-full min-w-[480px] text-center text-sm">
                 <thead className="text-slate-300">
                   <tr className="border-b border-white/10">
                     <th scope="col" className="py-3 pr-4 font-semibold">Commune</th>
@@ -104,7 +104,7 @@ export default function SimulateurPage() {
             </p>
           </article>
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Les limites d&apos;une simulation en ligne</h2>
             <p className="mt-4 leading-relaxed text-slate-300">
               Un simulateur ne voit pas votre toiture. Il ignore la cheminée qui fait de l&apos;ombre en fin de journée, la
@@ -122,7 +122,7 @@ export default function SimulateurPage() {
             </p>
           </article>
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Questions fréquentes</h2>
             <div className="mt-6 space-y-3">
               {faq.map((item) => (

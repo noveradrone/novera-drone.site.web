@@ -11,8 +11,8 @@ export default function WhyChooseSection() {
       />
       <div className="grid gap-5 md:grid-cols-2">
         {whyChooseUs.map((item) => (
-          <article key={item.title} className="glass rounded-3xl p-6 md:p-7">
-            <h3 className="flex items-start gap-3 text-lg font-semibold text-white">
+          <article key={item.title} className="glass rounded-3xl p-6 text-center md:p-7">
+            <h3 className="flex items-center justify-center gap-3 text-lg font-semibold text-white">
               <span aria-hidden className="mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-blue-400" />
               {item.title}
             </h3>

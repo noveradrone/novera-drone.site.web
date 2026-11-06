@@ -64,7 +64,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
 
         <div className="mx-auto mt-8 max-w-5xl space-y-6">
           {service.sections.map((section) => (
-            <article key={section.h2} className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+            <article key={section.h2} className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
               <h2 className="text-2xl font-semibold md:text-3xl">{section.h2}</h2>
               {section.paragraphs?.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="mt-4 leading-relaxed text-slate-300">
@@ -74,8 +74,8 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
               {section.bullets ? (
                 <ul className="mt-5 space-y-3 text-slate-200">
                   {section.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
-                      <span aria-hidden className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-blue-400" />
+                    <li key={bullet} className="text-center">
+                      <span aria-hidden className="mr-2 inline-block h-2 w-2 rounded-full bg-blue-400 align-middle" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -84,7 +84,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
             </article>
           ))}
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">{service.stepsTitle}</h2>
             <ol className="mt-6 grid gap-4 md:grid-cols-5">
               {service.steps.map((step, index) => (
@@ -139,7 +139,7 @@ export default function ServicePageTemplate({ service }: { service: ServiceConte
             </div>
           </article>
 
-          <article className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+          <article className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
             <h2 className="text-2xl font-semibold md:text-3xl">Nos autres services drone</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               {otherServices.map((item) => (

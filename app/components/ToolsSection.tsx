@@ -13,7 +13,7 @@ export default function ToolsSection() {
       <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
         <Link
           href="/simulateur-solaire"
-          className="glass flex flex-col justify-between rounded-3xl p-7 transition hover:-translate-y-1 hover:border-blue-300/40 md:p-9"
+          className="glass flex flex-col items-center justify-between rounded-3xl p-7 text-center transition hover:-translate-y-1 hover:border-blue-300/40 md:p-9"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">Simulateur solaire</p>
@@ -32,7 +32,7 @@ export default function ToolsSection() {
             <Link
               key={guide.slug}
               href={guide.path}
-              className="glass block rounded-2xl p-5 transition hover:border-blue-300/40"
+              className="glass block rounded-2xl p-5 text-center transition hover:border-blue-300/40"
             >
               <h3 className="font-semibold text-white">{guide.title}</h3>
               <p className="mt-1 text-sm text-slate-300">{guide.excerpt}</p>

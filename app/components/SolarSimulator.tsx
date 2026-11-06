@@ -70,7 +70,7 @@ export default function SolarSimulator() {
   const max = result ? Math.max(...result.mensuel.map((m) => m.kwh)) : 1;
 
   return (
-    <div className="glass rounded-3xl p-6 sm:p-8 md:p-10">
+    <div className="glass rounded-3xl p-6 text-center sm:p-8 md:p-10">
       <form onSubmit={onSubmit} className="grid gap-5 md:grid-cols-2">
         <label className="md:col-span-2">
           <span className="text-sm font-medium text-slate-200">Adresse du bâtiment</span>
