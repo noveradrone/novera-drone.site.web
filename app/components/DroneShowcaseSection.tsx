@@ -12,8 +12,6 @@ export default function DroneShowcaseSection() {
       description:
         "Drone haut de gamme à double caméra avec capteur principal 1″ et télécaméra 70 mm, capable de capturer des photos détaillées et des vidéos 4K HDR fluides. Compact, puissant et doté d'une grande autonomie, il garantit des prises de vue aériennes stables, précises et cinématographiques pour des projets événementiels et promotionnels.",
       imageUrl: "/images/dji-air-3s.jpg",
-      fallbackImageUrl:
-        "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/3c7c69f9c77741aa9b7bbfcc6be29202/embed"
     },
     {
@@ -22,24 +20,12 @@ export default function DroneShowcaseSection() {
       description:
         "Drone FPV compact conçu pour des plans dynamiques et immersifs, avec une excellente stabilité en vol et une captation vidéo fluide. Il est idéal pour apporter une perspective spectaculaire à vos projets événementiels, promotionnels et contenus à fort impact visuel.",
       imageUrl: "/images/drone.WEBP",
-      fallbackImageUrl:
-        "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?auto=format&fit=crop&w=1800&q=80",
       embedUrl: "https://sketchfab.com/models/aa73cab74328473493df75be898e26e3/embed"
-    },
-    {
-      name: "DJI Matrice 4T / 4E",
-      subtitle: "Plateforme d'inspection et de cartographie avancée",
-      description:
-        "Drone professionnel conçu pour les missions techniques exigeantes: inspection d'infrastructures, thermographie et relevés de précision. Sa conception robuste et ses capteurs spécialisés en font un outil adapté aux interventions industrielles et de sécurité.",
-      imageUrl: "/images/dji4.PNG",
-      fallbackImageUrl:
-        "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=1800&q=80"
     }
   ];
   const [activeSlides, setActiveSlides] = useState<Record<string, number>>({
     "DJI Air 3S": 0,
-    "DJI Avata 2": 0,
-    "DJI Matrice 4T / 4E": 0
+    "DJI Avata 2": 0
   });
 
   return (

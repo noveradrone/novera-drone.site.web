@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid gap-8 text-center text-sm text-slate-300 md:grid-cols-4 md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">{legalInfo.companyName}</p>
-            <p>Expertise drone pour la photographie, l'inspection, la thermographie et le nettoyage.</p>
+            <p>Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche.</p>
           </div>
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-3 text-white">Réseaux sociaux</p>
@@ -71,15 +71,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-slate-400">
-          © {new Date().getFullYear()} {legalInfo.companyName}. Tous droits réservés.{" "}
-          <a
-            href="https://novera-drone-web-ugl7.onrender.com"
-            target="_blank"
-            rel="noreferrer"
-            className="underline underline-offset-2 hover:text-blue-300"
-          >
-            Site pro
-          </a>
+          © {new Date().getFullYear()} {legalInfo.companyName}. Tous droits réservés.
         </p>
       </div>
     </footer>

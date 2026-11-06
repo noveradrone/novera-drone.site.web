@@ -7,8 +7,7 @@ import ScrollEffects from "@/app/components/ScrollEffects";
 import SectionTitle from "@/app/components/SectionTitle";
 
 const matterportUrl = "https://my.matterport.com/show/?m=2EQY1NieJeL";
-const realEstateHeroImage =
-  "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80";
+const realEstateHeroImage = "/images/local3.jpg";
 
 const virtualTourShowcase = {
   title: "Visite virtuelle immersive",

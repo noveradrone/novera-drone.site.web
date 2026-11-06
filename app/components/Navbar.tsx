@@ -133,12 +133,12 @@ export default function Navbar({ ctaLabel = "Demander un devis", ctaHref = "/dem
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
-                href="/novera-drone-solidaire"
+                href="/drone-associations-humanitaires"
                 className={`block rounded-xl px-3 py-2 text-sm text-slate-100 hover:bg-white/10 ${
-                  isActive("/novera-drone-solidaire") ? "bg-white/10" : ""
+                  isActive("/drone-associations-humanitaires") ? "bg-white/10" : ""
                 }`}
               >
-                Solidaire
+                Associations
               </Link>
               <Link
                 onClick={() => setMobileOpen(false)}
@@ -176,12 +176,12 @@ export default function Navbar({ ctaLabel = "Demander un devis", ctaHref = "/dem
               Drone
             </Link>
             <Link
-              href="/novera-drone-solidaire"
+              href="/drone-associations-humanitaires"
               className={`rounded-full px-4 py-1.5 text-sm transition hover:bg-white/10 hover:text-white ${
-                isActive("/novera-drone-solidaire") ? "bg-white/10 text-white" : "text-slate-200"
+                isActive("/drone-associations-humanitaires") ? "bg-white/10 text-white" : "text-slate-200"
               }`}
             >
-              Solidaire
+              Associations
             </Link>
           </div>
           <Link

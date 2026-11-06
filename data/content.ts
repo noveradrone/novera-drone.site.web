@@ -61,7 +61,7 @@ export const services: ServicePageContent[] = [
     title: "Photographie aérienne",
     shortTitle: "Photographie aérienne",
     description: "Images et vidéos immersives pour valoriser vos actifs, événements et territoires.",
-    heroImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1800&q=80",
+    heroImage: "/images/instagram/instagram-02.jpg",
     metaTitle: "Photographie aérienne pro en Normandie | Novera Drone",
     metaDescription:
       "Valorisez vos biens, événements et territoires avec des images aériennes premium en Manche, Orne et Calvados.",
@@ -115,6 +115,11 @@ export const services: ServicePageContent[] = [
         title: "Communication d'entreprise",
         description:
           "Sites industriels, bureaux, plateformes logistiques : des contenus sobres et haut de gamme pour valoriser votre image professionnelle."
+      },
+      {
+        title: "Mariage et événements privés",
+        description:
+          "Quelques plans aériens du lieu, de la sortie de cérémonie ou de la photo de groupe pour compléter le travail de votre photographe."
       },
       {
         title: "Captation événement sportif",
@@ -211,176 +216,25 @@ export const services: ServicePageContent[] = [
     }
   },
   {
-    slug: "thermographie",
-    title: "Thermographie par drone",
-    shortTitle: "Thermographie",
-    description: "Détection rapide des anomalies thermiques pour maintenance et performance énergétique.",
-    heroImage: "/images/thermo1.jpg",
-    metaTitle: "Thermographie drone en Normandie | Novera Drone",
-    metaDescription:
-      "Détectez les anomalies thermiques sur toitures, panneaux solaires et bâtiments en Manche, Orne et Calvados.",
-    recommendedSlug: "thermographie-drone-normandie",
-    primaryKeyword: "thermographie par drone Normandie",
-    secondaryKeywords: [
-      "inspection thermique panneaux solaires",
-      "détection pont thermique drone",
-      "diagnostic énergétique drone",
-      "thermographie bâtiment industriel",
-      "maintenance préventive thermique",
-      "rapport thermographie PDF",
-      "devis thermographie Manche",
-      "prestataire thermographie Calvados"
-    ],
-    h1: "Thermographie par drone pour diagnostics rapides et fiables • Bientôt disponible",
-    subtitle:
-      "Novera Drone inspecte vos actifs en Normandie pour détecter les anomalies invisibles, prioriser les actions de maintenance et réduire les pertes énergétiques.",
-    primaryCta: "Demander un devis",
-    secondaryCta: {
-      label: "Télécharger un exemple de rapport",
-      href: "/demander-un-devis"
-    },
-    whyTitle: "Pourquoi choisir la thermographie par drone ?",
-    whyIntro:
-      "Les défauts thermiques non identifiés provoquent des pertes de rendement, des surcoûts et des risques d'incident. Sur de grandes surfaces, les contrôles manuels sont souvent trop lents ou partiels. La thermographie drone permet une lecture homogène et rapide de zones étendues, sans intervention lourde. Les données collectées servent à hiérarchiser les priorités et à engager les bonnes actions au bon moment. Novera Drone fournit une restitution structurée, utilisable par vos équipes maintenance, exploitation ou énergie.",
-    whyBenefits: [
-      "Détection précoce des points chauds et anomalies thermiques critiques.",
-      "Couverture rapide de grandes surfaces techniques.",
-      "Réduction des accès humains en hauteur et des risques associés.",
-      "Rapport clair pour prioriser les interventions et optimiser les budgets."
-    ],
-    subServices: [
-      {
-        title: "Inspection thermique de panneaux solaires",
-        description:
-          "Nous identifions les modules en surchauffe et les zones de perte de performance. Vous ciblez la maintenance uniquement là où elle est nécessaire."
-      },
-      {
-        title: "Détection de ponts thermiques",
-        description:
-          "L'analyse met en évidence les défauts d'isolation sur bâtiments tertiaires, résidentiels ou publics. Elle facilite la planification des corrections énergétiques."
-      },
-      {
-        title: "Thermographie de bâtiments industriels",
-        description:
-          "Les zones sensibles sont contrôlées sans immobilisation lourde du site. Vous gagnez en visibilité préventive sur l'état thermique des infrastructures."
-      },
-      {
-        title: "Diagnostic énergétique préventif",
-        description:
-          "Nous produisons une cartographie thermique exploitable pour orienter les décisions de rénovation ou de maintenance technique."
-      },
-      {
-        title: "Contrôle thermique de toitures",
-        description:
-          "Le survol thermique permet de repérer des hétérogénéités révélatrices de désordres potentiels, avant aggravation des coûts."
-      }
-    ],
-    methodology: [
-      {
-        title: "Analyse du besoin",
-        description:
-          "Nous définissons le périmètre, les actifs à contrôler et les objectifs opérationnels de votre mission thermique."
-      },
-      {
-        title: "Étude réglementaire et planification",
-        description:
-          "La mission est planifiée sur la bonne fenêtre d'acquisition, avec vérification du cadre réglementaire et des contraintes site."
-      },
-      {
-        title: "Intervention sur site",
-        description:
-          "Nous réalisons les acquisitions thermiques et visuelles selon un protocole stable pour garantir la qualité de mesure."
-      },
-      {
-        title: "Analyse et traitement des données",
-        description:
-          "Les anomalies sont qualifiées, hiérarchisées et contextualisées pour faciliter vos arbitrages techniques."
-      },
-      {
-        title: "Livraison des livrables",
-        description:
-          "Vous recevez un rapport structuré avec visuels annotés et recommandations de priorisation."
-      }
-    ],
-    deliverables: [
-      "Cartographie thermique des zones inspectées",
-      "Rapport PDF structuré avec anomalies localisées",
-      "Captures thermiques annotées",
-      "Corrélation image visuelle / image thermique",
-      "Synthèse des priorités d'intervention",
-      "Fichiers exploitables pour maintenance et assurance"
-    ],
-    caseStudies: [
-      {
-        context: "Exploitant photovoltaïque en Calvados constatant une baisse de production.",
-        intervention: "Inspection thermique drone complète et identification des modules en anomalie.",
-        result: "Maintenance ciblée, réduction des pertes et plan d'action priorisé."
-      },
-      {
-        context: "Gestionnaire de patrimoine dans la Manche avant campagne de travaux énergétiques.",
-        intervention: "Analyse thermique multi-bâtiments pour repérage des déperditions majeures.",
-        result: "Budget orienté sur les zones les plus impactantes et calendrier de travaux optimisé."
-      },
-      {
-        context: "Site industriel dans l'Orne avec objectif de maintenance préventive.",
-        intervention: "Contrôle thermique périodique des zones critiques avant période hivernale.",
-        result: "Détection anticipée d'anomalies et baisse du risque d'arrêt non planifié."
-      }
-    ],
-    faq: [
-      {
-        q: "La thermographie drone remplace-t-elle une expertise complète ?",
-        a: "Elle fournit un diagnostic visuel thermique fiable pour orienter les actions. Des contrôles complémentaires peuvent ensuite être ciblés."
-      },
-      {
-        q: "À quelle fréquence faut-il inspecter ?",
-        a: "Cela dépend de la criticité des installations. Une approche périodique est recommandée pour les actifs sensibles."
-      },
-      {
-        q: "Peut-on couvrir de grandes surfaces rapidement ?",
-        a: "Oui. C'est l'un des principaux avantages du drone pour les inspections thermiques."
-      },
-      {
-        q: "La météo influence-t-elle les résultats ?",
-        a: "Oui. Les créneaux d'intervention sont choisis pour garantir une acquisition thermique exploitable."
-      },
-      {
-        q: "Le rapport est-il exploitable par une équipe maintenance ?",
-        a: "Oui. La restitution est structurée pour aider la priorisation des actions correctives."
-      },
-      {
-        q: "Comment est établi le tarif ?",
-        a: "Le devis dépend de la surface, de la complexité du site et du niveau d'analyse attendu."
-      }
-    ],
-    finalCta: {
-      title: "Passez d'un doute thermique à un plan d'action concret",
-      text: "Novera Drone intervient en Normandie avec une analyse claire et exploitable pour vos décisions techniques.",
-      button: "Demander un devis"
-    }
-  },
-  {
     slug: "inspection-technique",
     title: "Inspection technique par drone",
     shortTitle: "Inspection technique",
     description: "Inspection visuelle de zones complexes avec réduction des risques humains.",
-    heroImage: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1800&q=80",
+    heroImage: "/images/instagram/instagram-03.jpg",
     metaTitle: "Inspection technique drone Normandie | Novera Drone",
     metaDescription:
-      "Inspectez toitures, façades, éoliennes et ouvrages d'art sans exposition directe des équipes en Normandie.",
+      "Inspection visuelle de toitures et façades par drone dans l'Orne, le Calvados et la Manche : sans échafaudage, rapport photo détaillé.",
     recommendedSlug: "inspection-technique-drone-normandie",
     primaryKeyword: "inspection technique par drone Normandie",
     secondaryKeywords: [
       "inspection toiture drone",
       "inspection façade par drone",
-      "inspection éolienne drone",
-      "inspection pont drone",
+      "inspection toiture après tempête",
       "inspection bâtiment industriel",
-      "inspection parcelle agricole",
       "rapport anomalies structure",
       "devis inspection drone Calvados"
     ],
-    h1: "Inspection technique par drone pour zones complexes",
+    h1: "Inspection de toiture et de façade par drone en Normandie",
     subtitle:
       "Novera Drone sécurise l'inspection de vos infrastructures en Manche, Orne et Calvados avec des prises de vue précises et des constats exploitables.",
     primaryCta: "Demander un devis",
@@ -412,16 +266,6 @@ export const services: ServicePageContent[] = [
         title: "Inspection de bâtiment industriel",
         description:
           "Observation des parties hautes et structures techniques sans déployer de moyens d'accès lourds sur l'ensemble du site."
-      },
-      {
-        title: "Inspection d'éoliennes et d'ouvrages d'art",
-        description:
-          "Analyse visuelle ciblée des éléments structurels pour orienter les contrôles approfondis et limiter les arrêts prolongés."
-      },
-      {
-        title: "Inspection de terrain et parcelle agricole",
-        description:
-          "Vue d'ensemble opérationnelle pour identifier rapidement anomalies de surface, accès ou zones à surveiller."
       },
       {
         title: "Inspection de structures difficiles d'accès",
@@ -476,9 +320,9 @@ export const services: ServicePageContent[] = [
         result: "Phasage des travaux simplifié et chiffrage technique mieux préparé."
       },
       {
-        context: "Exploitation agricole dans l'Orne avec zones complexes à contrôler.",
-        intervention: "Inspection aérienne des infrastructures et accès sur parcelles étendues.",
-        result: "Identification rapide des points sensibles et planification optimisée des actions."
+        context: "Maison individuelle dans l'Orne après un coup de vent, tuiles suspectées déplacées.",
+        intervention: "Survol de la couverture, des faîtages et de la cheminée sans monter sur le toit.",
+        result: "Photos précises des dégâts à transmettre au couvreur et à l'assurance."
       }
     ],
     faq: [
@@ -512,159 +356,22 @@ export const services: ServicePageContent[] = [
       text: "Confiez vos contrôles techniques à Novera Drone pour disposer d'un état visuel précis et exploitable en Normandie.",
       button: "Demander un devis"
     }
-  },
-  {
-    slug: "nettoyage-par-drone",
-    title: "Nettoyage par drone",
-    shortTitle: "Nettoyage par drone",
-    description: "Nettoyage sécurisé de surfaces en hauteur avec déploiement rapide.",
-    heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=80",
-    metaTitle: "Nettoyage par drone en Normandie | Novera Drone",
-    metaDescription:
-      "Nettoyage sécurisé de toitures, façades, vitres et panneaux solaires par drone en Manche, Orne et Calvados.",
-    recommendedSlug: "nettoyage-par-drone-normandie",
-    primaryKeyword: "nettoyage par drone Normandie",
-    secondaryKeywords: [
-      "nettoyage toiture drone",
-      "nettoyage façade en hauteur",
-      "nettoyage panneaux solaires",
-      "nettoyage vitres hauteur drone",
-      "entretien bâtiment professionnel",
-      "prestataire nettoyage drone Calvados",
-      "devis nettoyage drone Manche",
-      "nettoyage industriel sécurisé"
-    ],
-    h1: "Nettoyage par drone: rapidité, sécurité et performance",
-    subtitle:
-      "Novera Drone intervient en Normandie pour le nettoyage de surfaces en hauteur, avec une approche sécurisée, rigoureuse et adaptée aux sites professionnels.",
-    primaryCta: "Demander un devis",
-    secondaryCta: {
-      label: "Voir nos réalisations",
-      href: "/#galerie"
-    },
-    whyTitle: "Pourquoi choisir le nettoyage par drone ?",
-    whyIntro:
-      "Le nettoyage de zones en hauteur mobilise souvent des moyens lourds, augmente les délais et complique la logistique de site. Le drone permet dans de nombreux cas une intervention plus agile, avec moins de perturbations pour l'activité. Cette approche limite l'exposition humaine aux risques d'accès et améliore la vitesse d'exécution. Elle convient particulièrement aux toitures, façades, vitrages élevés et installations photovoltaïques. Novera Drone prépare chaque mission selon vos contraintes d'exploitation et fournit une traçabilité visuelle du résultat.",
-    whyBenefits: [
-      "Sécurité renforcée grâce à la réduction des interventions humaines en hauteur.",
-      "Déploiement rapide avec logistique allégée sur site.",
-      "Perturbation limitée de l'activité pendant l'intervention.",
-      "Qualité homogène avec suivi visuel avant et après prestation."
-    ],
-    subServices: [
-      {
-        title: "Nettoyage de toiture",
-        description:
-          "Traitement des surfaces exposées aux mousses, dépôts et salissures, afin de préserver l'état de la couverture et l'image du site."
-      },
-      {
-        title: "Nettoyage de façade",
-        description:
-          "Intervention sur façades en hauteur pour restaurer l'aspect visuel d'un immeuble tertiaire, industriel ou commercial."
-      },
-      {
-        title: "Nettoyage de panneaux solaires",
-        description:
-          "Nettoyage ciblé des modules pour limiter les pertes de rendement liées à l'encrassement et maintenir la performance d'exploitation."
-      },
-      {
-        title: "Nettoyage de vitres en hauteur",
-        description:
-          "Solution adaptée aux zones difficiles d'accès, avec une intervention plus flexible que les méthodes traditionnelles dans de nombreux cas."
-      },
-      {
-        title: "Entretien périodique multi-surfaces",
-        description:
-          "Mise en place d'un plan d'entretien régulier pour stabiliser la qualité visuelle et éviter les accumulations lourdes."
-      }
-    ],
-    methodology: [
-      {
-        title: "Analyse du besoin",
-        description:
-          "Nous évaluons les surfaces à traiter, les contraintes d'accès et vos impératifs d'exploitation."
-      },
-      {
-        title: "Étude réglementaire et planification",
-        description:
-          "L'intervention est encadrée par un dispositif sécurité conforme au contexte du site et à la réglementation applicable."
-      },
-      {
-        title: "Intervention sur site",
-        description:
-          "Le nettoyage est réalisé selon un protocole défini, avec contrôle continu des conditions opérationnelles."
-      },
-      {
-        title: "Analyse et traitement des données",
-        description:
-          "Nous vérifions le résultat, documentons les zones traitées et signalons les points nécessitant un complément éventuel."
-      },
-      {
-        title: "Livraison des livrables",
-        description:
-          "Un compte-rendu d'intervention clair est transmis pour vos équipes maintenance et exploitation."
-      }
-    ],
-    deliverables: [
-      "Compte-rendu d'intervention PDF",
-      "Photos avant/après",
-      "Synthèse des zones traitées",
-      "Recommandations de fréquence d'entretien",
-      "Signalement des anomalies visuelles détectées",
-      "Fichiers exploitables pour maintenance et suivi interne"
-    ],
-    caseStudies: [
-      {
-        context: "Immeuble tertiaire à Caen avec façade haute et accès contraint.",
-        intervention: "Nettoyage drone des zones critiques avec sécurisation du périmètre.",
-        result: "Remise en état visuelle rapide, avec impact limité sur les occupants."
-      },
-      {
-        context: "Site photovoltaïque dans l'Orne avec encrassement saisonnier marqué.",
-        intervention: "Nettoyage des panneaux et contrôle visuel final.",
-        result: "Amélioration des conditions d'exploitation et plan d'entretien périodique défini."
-      },
-      {
-        context: "Bâtiment professionnel dans la Manche avec vitrages en grande hauteur.",
-        intervention: "Intervention sur créneau court avec protocole adapté au site.",
-        result: "Résultat homogène et réduction des contraintes logistiques."
-      }
-    ],
-    faq: [
-      {
-        q: "Le nettoyage par drone est-il sûr ?",
-        a: "Oui, sous réserve d'une préparation technique et réglementaire avec protocole sécurité adapté au site."
-      },
-      {
-        q: "Toutes les surfaces peuvent-elles être traitées ?",
-        a: "Une étude de faisabilité est réalisée pour confirmer la compatibilité selon matériaux, hauteur et environnement."
-      },
-      {
-        q: "Intervenez-vous sur des sites occupés ?",
-        a: "Oui. L'organisation de mission est conçue pour réduire les perturbations d'activité."
-      },
-      {
-        q: "Quels sont vos délais d'intervention ?",
-        a: "Les délais dépendent de la surface et du contexte d'accès, avec une planification rapide dès validation du devis."
-      },
-      {
-        q: "Fournissez-vous un suivi après intervention ?",
-        a: "Oui, avec un compte-rendu et des visuels avant/après pour tracer le résultat."
-      },
-      {
-        q: "Comment est défini le prix ?",
-        a: "Le tarif dépend des surfaces, de la complexité d'accès, du niveau de service et de la fréquence d'intervention souhaitée."
-      }
-    ],
-    finalCta: {
-      title: "Planifiez un nettoyage en hauteur plus sûr et plus efficace",
-      text: "Novera Drone vous propose une intervention réactive en Manche, Orne et Calvados avec un suivi exploitable.",
-      button: "Demander un devis"
-    }
   }
 ];
 
 export const serviceSlugs = services.map((service) => service.slug);
+
+/** Services en préparation (pas encore de matériel) : affichés uniquement dans la section « Prochainement ». */
+export const upcomingServices = [
+  {
+    title: "Thermographie par drone",
+    description: "Détection de déperditions thermiques et contrôle de panneaux solaires par caméra thermique."
+  },
+  {
+    title: "Nettoyage par drone",
+    description: "Nettoyage de toitures, façades et panneaux solaires sans nacelle."
+  }
+];
 
 export const whyChooseUs = [
   "Sécurité",
@@ -674,13 +381,14 @@ export const whyChooseUs = [
   "Intervention en Normandie (Manche, Orne, Calvados)"
 ];
 
-export type GalleryCategory = "Photographie" | "Thermographie" | "Inspection" | "Nettoyage";
+export type GalleryCategory = "Photographie" | "Inspection";
 
 export type GalleryItem = {
   id: number;
   title: string;
   category: GalleryCategory;
   image: string;
+  alt: string;
   href?: string;
 };
 
@@ -689,12 +397,14 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Mariage",
     category: "Photographie",
+    alt: "Photo de mariage devant un château",
     image: "/images/mariage.PNG"
   },
   {
     id: 2,
     title: "Événement sportif",
     category: "Photographie",
+    alt: "Coureur sur un trail, captation vidéo d'événement sportif en Normandie",
     image: "/images/sport.PNG",
     href: "/realisations/evenement"
   },
@@ -702,14 +412,9 @@ export const galleryItems: GalleryItem[] = [
     id: 5,
     title: "Promotion immobilière",
     category: "Photographie",
-    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
+    alt: "Visite virtuelle 3D d'un local commercial, réalisation immobilière Novera Drone",
+    image: "/images/local3.jpg",
     href: "/realisations/immobilier"
-  },
-  {
-    id: 6,
-    title: "Contrôle structure industrielle",
-    category: "Inspection",
-    image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1400&q=80"
   }
 ];
 

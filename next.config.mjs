@@ -39,10 +39,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com"
-      },
-      {
-        protocol: "https",
         hostname: "instagram.fcdn.net"
       },
       {
@@ -57,6 +53,15 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      // Services retirés (pas encore de matériel) : 301 vers la liste des services.
+      { source: "/services/thermographie", destination: "/services", permanent: true },
+      { source: "/services/nettoyage-par-drone", destination: "/services", permanent: true },
+      // Ancienne page Solidaire renommée.
+      { source: "/novera-drone-solidaire", destination: "/drone-associations-humanitaires", permanent: true }
+    ];
+  },
   async headers() {
     return [
       {

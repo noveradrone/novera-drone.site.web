@@ -26,7 +26,7 @@ export default function Hero({
   supportText = "Inspection, analyse et imagerie professionnelle",
   ctaLabel = "Demander un devis",
   ctaHref = "/demander-un-devis",
-  backgroundImage = "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=2200&q=80",
+  backgroundImage = "/images/instagram/instagram-01.jpg",
   darkOverlay = "default",
   overlayPreset = "default",
   contentPanel = false,

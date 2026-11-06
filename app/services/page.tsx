@@ -5,6 +5,7 @@ import Navbar from "@/app/components/Navbar";
 import { services } from "@/data/content";
 import Image from "next/image";
 import Link from "next/link";
+import UpcomingServices from "@/app/components/UpcomingServices";
 
 export const metadata: Metadata = buildMetadata({
   title: "Services drone en Normandie : toiture solaire, inspection, photo",
@@ -31,22 +32,16 @@ export default function ServicesPage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => {
-            const isComingSoon = ["thermographie", "nettoyage-par-drone"].includes(service.slug);
             return (
             <article key={service.slug} className="glass overflow-hidden rounded-3xl">
               <Image
                 src={service.heroImage}
-                alt={service.title}
+                alt={`${service.title} – Novera Drone en Normandie`}
                 width={1400}
                 height={800}
                 className="h-48 w-full object-cover sm:h-56"
               />
               <div className="flex flex-col p-5 sm:p-6 md:items-center md:text-center">
-                {isComingSoon ? (
-                  <p className="mb-3 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
-                    Bientôt disponible
-                  </p>
-                ) : null}
                 <h2 className="text-xl font-semibold sm:text-2xl">{service.title}</h2>
                 <p className="mt-3 text-sm text-slate-300 sm:text-base">{service.description}</p>
                 <Link
@@ -60,6 +55,7 @@ export default function ServicesPage() {
             );
           })}
         </div>
+        <UpcomingServices />
       </section>
 
       <Footer />

@@ -23,26 +23,9 @@ const initialState: FormState = {
 };
 
 const prestationOptions = [
-  "Photographie aérienne - Mariage",
-  "Photographie aérienne - Événements sportifs",
-  "Photographie aérienne - Immobilier",
-  "Photographie aérienne - Promotion touristique et commerciale",
-  "Thermographie - Inspection de panneaux solaires (Bientôt disponible)",
-  "Thermographie - Détection de ponts thermiques (Bientôt disponible)",
-  "Thermographie - Analyse énergétique de bâtiments (Bientôt disponible)",
-  "Thermographie - Diagnostic préventif (Bientôt disponible)",
-  "Inspection technique - Toiture",
-  "Inspection technique - Façade",
-  "Inspection technique - Bâtiment industriel",
-  "Inspection technique - Terrain et parcelle",
-  "Inspection technique - Éoliennes",
-  "Inspection technique - Ouvrages d'art (ponts)",
-  "Inspection technique - Agricole",
-  "Inspection technique - Structures difficiles d'accès",
-  "Nettoyage par drone - Toiture (Bientôt disponible)",
-  "Nettoyage par drone - Façade (Bientôt disponible)",
-  "Nettoyage par drone - Panneaux solaires (Bientôt disponible)",
-  "Nettoyage par drone - Vitres en hauteur (Bientôt disponible)",
+  "Étude de toiture solaire",
+  "Inspection de toiture ou de façade",
+  "Photo et vidéo aérienne (immobilier, événement, communication)",
   "Autre"
 ];
 

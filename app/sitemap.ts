@@ -12,7 +12,7 @@ const pages: Entry[] = [
   { path: "/demander-un-devis", priority: 0.8, changeFrequency: "yearly" },
   { path: "/realisations/immobilier", priority: 0.7, changeFrequency: "monthly" },
   { path: "/realisations/evenement", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/novera-drone-solidaire", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/drone-associations-humanitaires", priority: 0.6, changeFrequency: "monthly" },
   { path: "/drone", priority: 0.5, changeFrequency: "yearly" },
   { path: "/mentions-legales", priority: 0.2, changeFrequency: "yearly" },
   { path: "/politique-de-confidentialite", priority: 0.2, changeFrequency: "yearly" }

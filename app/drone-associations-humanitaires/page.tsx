@@ -9,10 +9,10 @@ import type { Metadata } from "next";
 import { HandHeart, Megaphone, Sparkles, Video } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Novera Drone Solidaire | Images aériennes pour associations",
+  title: "Drone pour associations humanitaires : images aériennes offertes",
   description:
-    "Novera Drone Solidaire accompagne les associations humanitaires et solidaires de Normandie avec des prises de vues aériennes offertes pour valoriser leurs actions.",
-  path: "/novera-drone-solidaire"
+    "Novera Drone offre ponctuellement des prises de vues aériennes aux associations humanitaires de Normandie pour valoriser leurs actions et leurs événements.",
+  path: "/drone-associations-humanitaires"
 });
 
 const impactCards = [
@@ -38,17 +38,17 @@ const impactCards = [
   }
 ];
 
-export default function NoveraDroneSolidairePage() {
+export default function DroneAssociationsHumanitairesPage() {
   return (
     <main className="relative overflow-hidden">
-      <Navbar ctaHref="/novera-drone-solidaire#formulaire-solidaire" ctaLabel="Nous contacter" />
+      <Navbar ctaHref="/drone-associations-humanitaires#formulaire-solidaire" ctaLabel="Nous contacter" />
       <Hero
         id="hero-solidaire"
-        title="Novera Drone Solidaire"
-        subtitle="Mettre l’image aérienne au service des causes humanitaires et solidaires."
+        title="Drone pour associations humanitaires"
+        subtitle="Images aériennes offertes pour valoriser les actions des associations humanitaires."
         supportText="Une initiative de Novera Drone pour accompagner les associations engagées sur le terrain."
         ctaLabel="Découvrir l’initiative"
-        ctaHref="/novera-drone-solidaire#engagement-solidaire"
+        ctaHref="/drone-associations-humanitaires#engagement-solidaire"
         backgroundImage="/images/solidaire/deb_solidaire.PNG"
         overlayPreset="cinematic"
         contentPanel
@@ -66,12 +66,12 @@ export default function NoveraDroneSolidairePage() {
             </p>
             <p>
               C&apos;est pourquoi nous avons créé <strong className="text-slate-100">Novera Drone Solidaire</strong>,
-              une initiative dédiée au soutien des <strong className="text-slate-100">associations humanitaires et solidaires</strong>.
+              une initiative dédiée au soutien des <strong className="text-slate-100">associations humanitaires</strong>.
             </p>
             <p>
               Dans ce cadre, nous proposons ponctuellement la{" "}
               <strong className="text-slate-100">réalisation d&apos;images aériennes gratuites</strong> pour des
-              associations qui œuvrent pour des causes humanitaires, sociales ou solidaires.
+              associations qui œuvrent pour des causes humanitaires.
             </p>
           </div>
         </article>
@@ -121,7 +121,7 @@ export default function NoveraDroneSolidairePage() {
           <SectionTitle
             eyebrow="Faire une demande"
             title={<>Parlez-nous de votre projet associatif.</>}
-            description="Si vous représentez une association humanitaire ou solidaire et que vous souhaitez bénéficier d’images aériennes pour valoriser votre projet ou votre événement, vous pouvez nous adresser une demande via le formulaire ci-dessous. Chaque demande est étudiée en fonction des disponibilités dans le cadre de Novera Drone Solidaire."
+            description="Si vous représentez une association humanitaire et que vous souhaitez bénéficier d’images aériennes pour valoriser votre projet ou votre événement, vous pouvez nous adresser une demande via le formulaire ci-dessous. Chaque demande est étudiée en fonction des disponibilités dans le cadre de Novera Drone Solidaire."
           />
           <SolidarityRequestForm />
         </article>

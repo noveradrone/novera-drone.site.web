@@ -30,7 +30,6 @@ export function generateMetadata({ params }: Props): Metadata {
 
 export default function ServiceDetailPage({ params }: Props) {
   const service = services.find((item) => item.slug === params.slug);
-  const isComingSoon = ["thermographie", "nettoyage-par-drone"].includes(service?.slug ?? "");
 
   if (!service) {
     notFound();
@@ -44,7 +43,7 @@ export default function ServiceDetailPage({ params }: Props) {
         <div className="glass overflow-hidden rounded-3xl">
           <Image
             src={service.heroImage}
-            alt={service.title}
+            alt={`${service.title} – Novera Drone en Normandie`}
             width={1800}
             height={900}
             priority
@@ -52,11 +51,6 @@ export default function ServiceDetailPage({ params }: Props) {
           />
           <div className="p-5 sm:p-7 md:p-10">
             <p className="mb-3 text-xs uppercase tracking-[0.26em] text-blue-300">{service.primaryKeyword}</p>
-            {isComingSoon ? (
-              <p className="mx-auto mb-4 inline-flex w-fit rounded-full border border-amber-300/50 bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
-                Bientôt disponible
-              </p>
-            ) : null}
             <h1 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-5xl">{service.h1}</h1>
             <p className="mx-auto mt-4 max-w-4xl text-sm text-slate-300 sm:text-base md:text-lg">{service.subtitle}</p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -76,15 +70,6 @@ export default function ServiceDetailPage({ params }: Props) {
           </div>
         </div>
 
-        {isComingSoon ? (
-          <article className="mt-6 rounded-2xl border border-amber-300/50 bg-amber-400/15 p-5 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-200">Bientôt disponible</p>
-            <p className="mt-2 text-sm text-amber-100">
-              Ce service est en cours de déploiement. Vous pouvez déjà nous contacter pour être prioritaire dès
-              l’ouverture.
-            </p>
-          </article>
-        ) : null}
 
         <article className="glass mt-8 rounded-3xl p-5 text-center sm:p-7 md:p-10">
           <h2 className="text-2xl font-semibold md:text-3xl">{service.whyTitle}</h2>
