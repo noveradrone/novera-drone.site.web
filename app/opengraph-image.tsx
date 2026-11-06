@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Novera Drone – Étude solaire et inspection de toiture par drone en Normandie";
+export const alt = "Novera Drone – Étude solaire, toiture et vidéo drone d'événements sportifs en Normandie";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,13 +32,13 @@ export default async function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
-            Étude solaire et inspection de toiture par drone
+            Étude solaire, toiture et vidéo drone de vos courses
           </div>
           <div style={{ fontSize: 32, color: "#8ad8ff" }}>
             Orne · Calvados · Manche — Flers, Vire, Argentan, Saint-Lô, Caen
           </div>
         </div>
-        <div style={{ fontSize: 28, color: "#cbd5e1" }}>noveradrone.fr · Rapport sous 48 h</div>
+        <div style={{ fontSize: 28, color: "#cbd5e1" }}>noveradrone.fr · Trails · Marathons · Triathlons</div>
       </div>
     ),
     size

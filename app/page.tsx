@@ -13,9 +13,9 @@ import { buildMetadata } from "@/app/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Étude solaire & inspection de toiture par drone en Normandie",
+  title: "Drone en Normandie : étude solaire, toiture, trails et triathlons",
   description:
-    "Étude de toiture solaire, vidéo drone de trails et triathlons, inspection de toiture par drone dans l'Orne, le Calvados et la Manche.",
+    "Étude de toiture solaire, inspection de toiture et vidéo drone de trails, marathons et triathlons dans l'Orne, le Calvados et la Manche. Rapport sous 48 h.",
   path: "/"
 });
 
@@ -25,13 +25,13 @@ export default function HomePage() {
       <Navbar />
       <Hero
         compactTitle
-        title="Étude solaire et inspection de toiture par drone en Normandie"
+        title="Étude solaire, inspection de toiture et vidéo drone d'événements sportifs en Normandie"
         subtitle="Orne, Calvados, Manche – Flers, Vire, Argentan, Saint-Lô, Caen"
-        supportText="Relevé de toiture, calepinage et estimation de production : rapport PDF sous 48 h, sans échafaudage."
+        supportText="Toitures relevées sans échafaudage avec rapport sous 48 h · trails, marathons et triathlons filmés en aérien et en FPV."
         ctaLabel="Demander une étude de toiture"
         ctaHref="/demander-un-devis?prestation=etude"
-        secondaryCtaLabel="Demander un devis"
-        secondaryCtaHref="/demander-un-devis"
+        secondaryCtaLabel="Devis événement sportif"
+        secondaryCtaHref="/demander-un-devis?prestation=sport"
       />
       <ScrollEffects />
       <ServicesSection />

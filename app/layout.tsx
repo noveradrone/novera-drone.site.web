@@ -11,9 +11,9 @@ import "./cookies.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   ...buildMetadata({
-    title: "Étude solaire & inspection de toiture par drone en Normandie",
+    title: "Drone en Normandie : étude solaire, toiture, trails et triathlons",
     description:
-      "Étude de toiture solaire, inspection de toiture et photo aérienne par drone dans l'Orne, le Calvados et la Manche. Rapport sous 48 h.",
+      "Étude de toiture solaire, inspection de toiture et vidéo drone de trails, marathons et triathlons dans l'Orne, le Calvados et la Manche. Rapport sous 48 h.",
     path: "/"
   }),
   icons: {

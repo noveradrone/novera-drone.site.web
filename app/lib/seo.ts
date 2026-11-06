@@ -10,7 +10,7 @@ const defaultOgImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Novera Drone – Étude solaire et inspection de toiture par drone en Normandie"
+  alt: "Novera Drone – Étude solaire, toiture et vidéo drone d'événements sportifs en Normandie"
 };
 
 type PageSeo = {
